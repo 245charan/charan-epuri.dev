@@ -1,14 +1,15 @@
 {
   "name": "charan-epuri",
   "homepage": "https://245charan.github.io.charan-epuri.dev/",
-  "private": true,
   "version": "1.0.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "lint": "eslint .",
+    "lint": "eslint src --ext js,jsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
+    "predeploy":"npm run build",
+    "deploy":"gh-pages -d dist",
     "test": "jest"
   },
   "jest": {
