@@ -1,0 +1,51 @@
+# Node.js dependencies
+/node_modules
+/.turbo
+/.yarn
+/pnpm-lock.yaml
+/.pnp.*
+
+# Build output
+# /dist
+
+# Vite cache
+/.vite
+/.vitepress/cache
+/.svelte-kit
+/.nuxt
+
+# Logs and debug
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+*.log
+
+# Editor specific
+.idea/
+.vscode/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+
+# MacOS system files
+.DS_Store
+
+# Tests output
+/coverage
+
+# Linting
+.eslintcache
+
+# TypeScript
+/*.tsbuildinfo
+
+# Local build artifacts
+/*.cache
