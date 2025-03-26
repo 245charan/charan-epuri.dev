@@ -6,7 +6,7 @@
 /.pnp.*
 
 # Build output
-# /dist
+/dist
 
 # Vite cache
 /.vite
