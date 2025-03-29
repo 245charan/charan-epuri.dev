@@ -7,36 +7,43 @@ const themes = {
 		background: '#1e1e1e',
 		card: '#121212',
 		text: '#ffffff',
+		secondaryText: '#ffffff',
 	},
 	light: {
 		primary: '#8a56ff',
 		background: '#f5f5f5',
 		card: '#ffffff',
 		text: '#333333',
+		secondaryText: '#333333',
+
 	},
 	purple: {
 		primary: '#8a56ff',
 		background: '#1a1025',
 		card: '#261a35',
 		text: '#ffffff',
+		secondaryText: '#ffffff',
 	},
 	ocean: {
 		primary: '#56a0ff',
 		background: '#0a192f',
 		card: '#112240',
 		text: '#e6f1ff',
+		secondaryText: '#ffffff',
 	},
-  lavender: {
-    primary: '#7b68ee',
-    background: '#f5f3ff',
-    text: '#333333',
-    card: '#ffffff',
-  },
+	red: {
+		primary: '#b31b1b',
+		background: '#f5f3ff',
+		card: '#ffffff',
+		text: '#333333', 
+		secondaryText: '#333333',
+	},
 	sunset: {
-		primary: '#ff7e45',
+		primary: '#ff671f',
 		background: '#fff9f5',
 		card: '#ffffff',
-		text: '#dffcef',
+		text: '#333333',
+		secondaryText: '#333333',
 	},
 };
 

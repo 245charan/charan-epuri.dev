@@ -3,10 +3,19 @@ import { createGlobalStyle } from 'styled-components';
 const GlobalStyles = createGlobalStyle`
   :root {
     --primary-color: ${props => props.theme.primary};
+    --primary-color-rgb: ${props => {
+      // Convert hex to rgb
+      const hex = props.theme.primary.replace('#', '');
+      const r = parseInt(hex.substring(0, 2), 16);
+      const g = parseInt(hex.substring(2, 4), 16);
+      const b = parseInt(hex.substring(4, 6), 16);
+      return `${r}, ${g}, ${b}`;
+    }};
     --background-color: ${props => props.theme.background};
     --card-background: ${props => props.theme.card};
     --text-color: ${props => props.theme.text};
-    --text-secondary: ${props => props.theme.text === '#ffffff' ? 'rgba(255, 255, 255, 0.7)' : 'rgba(51, 51, 51, 0.7)'};
+    // --text-secondary: ${props => props.theme.text === '#ffffff' ? '#ffffff' : '#333333'};
+    --text-secondary: ${props => props.theme.secondaryText};
     --border-radius: 16px;
     --card-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
     --transition: all 0.3s ease;
@@ -20,10 +29,23 @@ const GlobalStyles = createGlobalStyle`
 
   body {
     font-family: 'Inter', 'Roboto', 'Helvetica Neue', sans-serif;
-    background-color: var(--background-color);
+    background: linear-gradient(90deg, rgba(249, 247, 247, 0.7), rgba(241, 239, 239, 0.7));
     color: var(--text-color);
     line-height: 1.6;
     transition: background-color 0.3s ease, color 0.3s ease;
+    position: relative;
+  }
+  
+  body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background: linear-gradient(90deg, rgba(249, 247, 247, 0.7), rgba(241, 239, 239, 0.7));
+    opacity: 0.8;
   }
 
   h1, h2, h3, h4, h5, h6 {

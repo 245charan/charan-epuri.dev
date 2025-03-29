@@ -82,24 +82,40 @@ const Layout = ({ children }) => {
 		<LayoutContainer>
 			{isMobile && (
 				<MobileNavbarContainer>
-					<Navbar isMobile={true} />
+					<Navbar isMobile={isMobile} />
 				</MobileNavbarContainer>
 			)}
 
 			<LeftSection>
-				<ProfileCard />
+				<ProfileCard isMobile={isMobile} />
 			</LeftSection>
 
 			<RightSection>
 				{!isMobile && (
 					<DesktopNavbarContainer>
-						<Navbar isMobile={false} />
+						<Navbar isMobile={isMobile} />
 					</DesktopNavbarContainer>
 				)}
 				{children}
 			</RightSection>
 		</LayoutContainer>
 	);
+
+
+	//future todo
+
+	// return (
+	// 	<LayoutContainer>
+	// 		<DesktopNavbarContainer >
+	// 			<Navbar isMobile={isMobile}>
+	// 				<LeftSection>
+	// 					<ProfileCard />
+	// 				</LeftSection>
+	// 				<RightSection>{children}</RightSection>
+	// 			</Navbar>
+	// 		</DesktopNavbarContainer>
+	// 	</LayoutContainer>
+	// );
 };
 
 export default Layout;
