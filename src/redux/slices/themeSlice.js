@@ -11,7 +11,7 @@ const themes = {
 	},
 	light: {
 		primary: '#8a56ff',
-		background: '#f5f5f5',
+		background: '#f5f3ff',
 		card: '#ffffff',
 		text: '#333333',
 		secondaryText: '#333333',
@@ -33,7 +33,7 @@ const themes = {
 	},
 	red: {
 		primary: '#b31b1b',
-		background: '#f5f3ff',
+		background: '#fff1f1',
 		card: '#ffffff',
 		text: '#333333', 
 		secondaryText: '#333333',

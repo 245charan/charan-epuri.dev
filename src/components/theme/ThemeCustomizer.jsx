@@ -281,11 +281,6 @@ const ThemeCustomizer = () => {
 		setIsOpen(!isOpen);
 	};
 
-	const themeOrder = {
-		desktop: ['light', 'sunset', 'red', 'dark', 'purple', 'ocean'],
-		mobile: ['dark', 'light', 'ocean', 'sunset', 'purple',  'red'],
-	};
-
 	const predefinedThemes = [
 		{
 			name: 'dark',
@@ -300,7 +295,7 @@ const ThemeCustomizer = () => {
 		{
 			name: 'light',
 			primary: '#8a56ff',
-			background: '#f5f5f5',
+			background: '#f5f3ff',
 			card: '#ffffff',
 			text: '#333333',
 			secondaryText: '#333333',
@@ -330,7 +325,7 @@ const ThemeCustomizer = () => {
 		{
 			name: 'red',
 			primary: '#b31b1b',
-			background: '#f5f3ff',
+			background: '#fff1f1',
 			card: '#ffffff',
 			text: '#333333',
 			secondaryText: '#333333',

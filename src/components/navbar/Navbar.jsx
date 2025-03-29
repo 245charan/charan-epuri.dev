@@ -18,9 +18,9 @@ const NavContainer = styled.nav`
 	justify-content: space-between;
 	align-items: center;
 	padding: ${(props) => {
-		if (props.isMobile) return '0 1rem';
-		// if (props.isSticky) return '0.25rem 1rem';
-		return '0.25rem 1rem';
+		if (props.isMobile) return '0 16px';
+		// if (props.isSticky) return '.25rem 1rem';
+		return '4px 16px';
 	}};
 	background-color: ${(props) => {
 		if (props.isMobile) return 'var(--card-background)';
@@ -43,13 +43,13 @@ const NavContainer = styled.nav`
 	}};
 	z-index: 100;
 	width: ${(props) => {
-		if (props.isSticky) return '';
+		if (props.isSticky) return '67%';
 		return '100%';
 	}};
 	box-shadow: ${(props) => {
 		if (props.isMobile) return 'var(--card-shadow)';
 		// if (props.isSticky) return 'var(--card-shadow)';
-		return 'var(--card-shadow)';
+		return '0px 2px 8px 0px #4f4f4f;';
 	}};
 	transition: all 0.3s ease;
 	opacity: ${(props) => (props.isSticky && !props.showSticky ? '0' : '1')};
@@ -63,7 +63,7 @@ const NavContainer = styled.nav`
 
 const Logo = styled.div`
 	font-weight: 900;
-	font-size: 2.5rem;
+	font-size: 40px;
 	color: var(--primary-color);
 	animation: pulse 3s ease-in-out infinite;
 	cursor: pointer;
@@ -110,12 +110,12 @@ const MenuToggle = styled.button`
 
 	div {
 		width: 2rem;
-		height: 0.25rem;
+		height: .25rem;
 		background: var(--text-color);
-		border-radius: 10px;
+		border-radius: .625rem;
 		transition: all 0.3s linear;
 		position: relative;
-		transform-origin: 1px;
+		transform-origin: .0625rem;
 
 		&:first-child {
 			transform: ${({ isOpen }) =>
@@ -125,7 +125,7 @@ const MenuToggle = styled.button`
 		&:nth-child(2) {
 			opacity: ${({ isOpen }) => (isOpen ? '0' : '1')};
 			transform: ${({ isOpen }) =>
-				isOpen ? 'translateX(20px)' : 'translateX(0)'};
+				isOpen ? 'translateX(1.25rem)' : 'translateX(0)'};
 		}
 
 		&:nth-child(3) {
@@ -151,7 +151,7 @@ const NavLinks = styled.div`
 	transform: ${({ isMobile, isOpen }) =>
 		isMobile && !isOpen ? 'translateX(100%)' : 'translateX(0)'};
 	box-shadow: ${(props) =>
-		props.isMobile ? '-5px 0 15px rgba(0, 0, 0, 0.1)' : 'none'};
+		props.isMobile ? '-.3125rem 0 .9375rem rgba(0, 0, 0, 0.1)' : 'none'};
 	z-index: 9;
 	padding: ${(props) => (props.isMobile ? '5rem 2rem 2rem' : '0')};
 
@@ -164,32 +164,39 @@ const NavItem = styled.a`
 	color: var(--text-color);
 	list-style: none;
 	text-decoration: none;
-	padding: 0.5rem 1rem;
-	margin: ${(props) => (props.isMobile ? '0.5rem 0' : '0 0.5rem')};
+	padding: .5rem 1rem;
+	margin: ${(props) => (props.isMobile ? '.5rem 0' : '0 .5rem')};
 	font-weight: 500;
 	position: relative;
 	transition: color 0.3s ease;
 	cursor: pointer;
 	display: flex;
 	align-items: center;
-	gap: 0.5rem;
+	gap: .5rem;
 
 	&:hover,
 	&.active {
 		color: var(--primary-color);
 		text-decoration: none;
+		> * {
+			position: relative;
+			opacity: 1;
+			transform: translateY(0);
+			transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+			pointer-events: auto;
+		}
 	}
 
 	&::after {
 		content: '';
 		position: absolute;
 		bottom: 0;
-		left: 45%;
-		width: 0;
-		height: 2px;
+		// left: 45%;
+		// width: 0;
+		height: .125rem;
 		background-color: var(--primary-color);
-		transition: all 0.3s ease;
-		transform: translateX(-50%);
+		// transition: all 0.3s ease-in-out;
+		// transform: translateX(-50%);
 	}
 
 	&:hover::after,
@@ -199,7 +206,7 @@ const NavItem = styled.a`
 
 	${media.mobile`
     font-size: 1.1rem;
-    padding: 0.7rem 1rem;
+    padding: .7rem 1rem;
   `}
 `;
 
@@ -215,7 +222,10 @@ const NavIcon = styled.span`
 `;
 
 const NavLabel = styled.div`
-    opacity:none;
+	position: absolute;
+	opacity: 0;
+	transform: translateY(-.625rem);
+	pointer-events: none;
 `;
 
 const Overlay = styled.div`
@@ -232,7 +242,7 @@ const Overlay = styled.div`
 
 const SocialIcons = styled.div`
 	display: flex;
-	gap: 10px;
+	gap: 1.25rem;
 	// margin-left: auto;
 	// margin-right: 20px;
 
@@ -253,16 +263,16 @@ const SocialIcon = styled.a`
 
 	${media.mobile`
     font-size: 1.5rem;
-    margin: 0 0.75rem;
+    margin: 0 .75rem;
   `}
 `;
 
 const ScrollToTopButton = styled.button`
 	position: fixed;
-	bottom: 100px;
-	right: 20px;
-	width: 40px;
-	height: 40px;
+	bottom: 6.25rem;
+	right: 1.25rem;
+	width: 2.5rem;
+	height: 2.5rem;
 	border-radius: 50%;
 	background-color: var(--primary-color);
 	color: white;
@@ -271,7 +281,7 @@ const ScrollToTopButton = styled.button`
 	align-items: center;
 	justify-content: center;
 	cursor: pointer;
-	box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+	box-shadow: 0 .25rem .625rem rgba(0, 0, 0, 0.2);
 	transition: all 0.3s ease;
 	z-index: 99;
 	opacity: ${(props) => (props.visible ? '1' : '0')};
@@ -280,7 +290,7 @@ const ScrollToTopButton = styled.button`
 
 	&:hover {
 		transform: ${(props) => (props.visible ? 'scale(1.1)' : 'scale(0.8)')};
-		box-shadow: 0 6px 15px rgba(0, 0, 0, 0.25);
+		box-shadow: 0 .375rem .9375rem rgba(0, 0, 0, 0.25);
 	}
 `;
 
@@ -293,7 +303,7 @@ const Navbar = ({ isMobile }) => {
 
 	useEffect(() => {
 		const handleScroll = () => {
-			// Show sticky nav when scrolled past 100px
+			// Show sticky nav when scrolled past 6.25rem
 			if (window.scrollY > 100) {
 				setIsSticky(true);
 				setShowScrollTop(true);
@@ -389,7 +399,7 @@ const Navbar = ({ isMobile }) => {
 									}}
 									isMobile={isMobile}>
 									<NavIcon>{item.icon}</NavIcon>
-									{item.label}
+									<NavLabel>{item.label}</NavLabel>
 								</NavItem>
 							))}
 						</NavLinks>

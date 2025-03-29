@@ -61,7 +61,9 @@ const DesktopNavbarContainer = styled.div`
 	display: none;
 
 	${media.desktop`
-    display: block;
+    display: flex;
+	align-items: center;
+	justify-content: center;
     margin-bottom: 2rem;
   `}
 `;
@@ -100,7 +102,6 @@ const Layout = ({ children }) => {
 			</RightSection>
 		</LayoutContainer>
 	);
-
 
 	//future todo
 

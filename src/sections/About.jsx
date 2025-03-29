@@ -15,10 +15,10 @@ const AboutTitle = styled.h2`
   &::after {
     content: '';
     position: absolute;
-    bottom: -10px;
+    bottom: -.625rem;
     left: 0;
-    width: 50px;
-    height: 3px;
+    width: 3.125rem;
+    height: .1875rem;
     background-color: var(--primary-color);
   }
 `;
@@ -28,7 +28,7 @@ const AboutContent = styled.div`
   grid-template-columns: 1fr;
   gap: 2rem;
   
-  @media (min-width: 768px) {
+  @media (min-width: 48rem) {
     grid-template-columns: 1fr 1fr;
   }
 `;
@@ -48,7 +48,7 @@ const AboutServices = styled.div`
   grid-template-columns: 1fr;
   gap: 1.5rem;
   
-  @media (min-width: 576px) {
+  @media (min-width: 36rem) {
     grid-template-columns: repeat(2, 1fr);
   }
 `;
@@ -61,14 +61,14 @@ const ServiceCard = styled.div`
   transition: var(--transition);
   
   &:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    transform: translateY(-.3125rem);
+    box-shadow: 0 .625rem 1.875rem rgba(0, 0, 0, 0.2);
   }
 `;
 
 const ServiceIcon = styled.div`
-  width: 50px;
-  height: 50px;
+  width: 3.125rem;
+  height: 3.125rem;
   border-radius: 50%;
   background-color: var(--primary-color);
   display: flex;
@@ -81,7 +81,7 @@ const ServiceIcon = styled.div`
 
 const ServiceTitle = styled.h3`
   font-size: 1.25rem;
-  margin-bottom: 0.5rem;
+  margin-bottom: .5rem;
   color: var(--text-color);
 `;
 
@@ -99,7 +99,7 @@ const About = () => {
     },
     {
       title: 'Backend Development',
-      description: 'Building robust server-side applications with Java Spring Boot, RESTful APIs, and microservices.',
+      description: 'Building robust server-side applications with Java, Spring Boot, SOAP, RESTful APIs, and microservices.',
       icon: <FaServer />
     },
     {
@@ -123,7 +123,7 @@ const About = () => {
             I'm a passionate Full Stack Java Developer with over 5 years of experience in building web applications and services. My expertise spans across the entire development stack, from creating engaging user interfaces with React to developing robust backend systems with Java Spring Boot.
           </p>
           <p>
-            Throughout my career, I've worked on a variety of projects ranging from e-commerce platforms to content management systems and enterprise applications. I'm particularly interested in creating scalable, maintainable, and high-performance applications that provide exceptional user experiences.
+            Throughout my career, I've worked on a variety of projects ranging from Fund Management Platforms to content management systems and enterprise applications. I'm particularly interested in creating scalable, maintainable, and high-performance applications that provide exceptional user experiences.
           </p>
           <p>
             I'm constantly learning and staying up-to-date with the latest technologies and best practices in software development. I believe in writing clean, well-documented code and following agile methodologies to deliver high-quality software on time.
