@@ -120,10 +120,10 @@ const TimelineDescription = styled.p`
 const Experience = () => {
   const experiences = [
     {
-      title: 'Senior Software Engineer - Sakai LMS Development & DE LMS QAT',
+      title: 'Digital Education LMS QAT',
       company: 'Marist College',
       date: 'Oct 2023 - Present',
-      description: 'Designed and developed a 150+ page website for digital education. Scaled live-stream pipeline from 200 to 300,000 users per session and expanded streaming channels from 2 to 250+. Implemented backend solutions for on-demand content using AWS. Performed accessibility testing and ensured WCAG compliance for LMS usability. Created and maintained technical documentation for Sakai 23x. Managed LMS content, troubleshot issues, and reported bugs in Jira/TDX. Contributed to Sakai\'s open Jira bug fixes (#30).',
+      description: 'Contributed to Marist University to designed and developed a 150+ page website for digital education.  Managed LMS content, troubleshot issues, and reported bugs in Jira/TDX. Contributed to Sakai\'s open Jira bug fixes (#30).',
       type: 'work'
     },
     {
@@ -134,7 +134,7 @@ const Experience = () => {
       type: 'work'
     },
     {
-      title: 'Senior Software Engineer',
+      title: 'Software Engineer',
       company: 'Innova Solutions (formerly ACS Solutions)',
       date: 'Mar 2021 - Aug 2023',
       description: 'Led development for BNY Mellon Fund Management & Accounting Application. Built backend-driven UI with scalable SPAs/MPAs using React and micro-frontends, improving responsiveness and reducing latency by 25%. Created reusable React component libraries (Disclosures/Notifications) reducing development time by 30%. Optimized state management with Redux (Thunk/Saga). Architected AWS cloud infrastructure (S3, EC2, Lambda, CloudFront) achieving 20% faster load times. Automated CI/CD pipelines using AWS CodeBuild/CodePipeline, reducing deployment time by 50% and errors by 40%. Improved test coverage to ~95% using Jest/RTL. Reduced package load time from 15 minutes to <1 second. Mentored 4+ junior developers in React, Redux, and testing frameworks.',
