@@ -8,5 +8,5 @@ export default defineConfig({
   resolve: {
     extensions: ['.js', '.jsx', '.ts', '.tsx'], // Ensure .jsx is recognized
   },
-  base:"/charan-epuri.dev"
+  base:"/charan-epuri.dev/",
 })
