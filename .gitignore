@@ -1,12 +1,12 @@
 # Node.js dependencies
-/node_modules
+# /node_modules
 /.turbo
 /.yarn
 /pnpm-lock.yaml
 /.pnp.*
 
 # Build output
-/dist
+# /dist
 
 # Vite cache
 /.vite
@@ -49,3 +49,4 @@ pnpm-debug.log*
 
 # Local build artifacts
 /*.cache
+node_modules
