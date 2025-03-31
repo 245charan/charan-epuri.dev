@@ -14,8 +14,8 @@ const Card = styled.div`
   flex-direction: column;
   
   &:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    transform: translateY(-0.3125rem);
+    box-shadow: 0 .625rem 1.875rem rgba(0, 0, 0, 0.2);
   }
   
   ${media.mobile`
@@ -25,8 +25,8 @@ const Card = styled.div`
 
 const ProjectImage = styled.div`
   width: 100%;
-  height: 200px;
-  border-radius: 8px;
+  height: 12.5rem;
+  border-radius: .5rem;
   overflow: hidden;
   margin-bottom: 1rem;
   
@@ -42,13 +42,13 @@ const ProjectImage = styled.div`
   }
   
   ${media.mobile`
-    height: 180px;
+    height: 11.25rem;
   `}
 `;
 
 const ProjectTitle = styled.h3`
   font-size: 1.25rem;
-  margin-bottom: 0.5rem;
+  margin-bottom: .5rem;
   color: var(--text-color);
   
   ${media.mobile`
@@ -62,28 +62,28 @@ const ProjectDescription = styled.p`
   flex-grow: 1;
   
   ${media.mobile`
-    font-size: 0.9rem;
+    font-size: .9rem;
   `}
 `;
 
 const TechStack = styled.div`
   display: flex;
   flex-wrap: wrap;
-  gap: 0.5rem;
+  gap: .5rem;
   margin-bottom: 1rem;
 `;
 
 const TechTag = styled.span`
   background-color: var(--background-color);
   color: var(--text-color);
-  padding: 0.25rem 0.75rem;
-  border-radius: 50px;
-  font-size: 0.8rem;
+  padding: .25rem .75rem;
+  border-radius: 3.125rem;
+  font-size: .8rem;
   font-weight: 500;
   
   ${media.mobile`
-    font-size: 0.7rem;
-    padding: 0.2rem 0.6rem;
+    font-size: .7rem;
+    padding: .2rem .6rem;
   `}
 `;
 
@@ -95,7 +95,7 @@ const ProjectLinks = styled.div`
 const ProjectLink = styled.a`
   display: flex;
   align-items: center;
-  gap: 0.5rem;
+  gap: .5rem;
   color: var(--text-color);
   text-decoration: none;
   font-weight: 500;
@@ -107,7 +107,7 @@ const ProjectLink = styled.a`
   }
   
   ${media.mobile`
-    font-size: 0.9rem;
+    font-size: .9rem;
   `}
 `;
 

@@ -20,8 +20,8 @@ const ContactTitle = styled.h2`
 		position: absolute;
 		bottom: -10px;
 		left: 0;
-		width: 50px;
-		height: 3px;
+		width: 3.125rem;
+		height: 0.1875rem;
 		background-color: var(--primary-color);
 	}
 
@@ -74,8 +74,8 @@ const ContactInfoItem = styled.div`
 `;
 
 const ContactInfoIcon = styled.div`
-	width: 40px;
-	height: 40px;
+	width: 2.5rem;
+	height: 2.5rem;
 	border-radius: 50%;
 	background-color: var(--primary-color);
 	display: flex;
@@ -86,8 +86,8 @@ const ContactInfoIcon = styled.div`
 	font-size: 1.2rem;
 
 	${media.mobile`
-    width: 35px;
-    height: 35px;
+    width: 2.1875rem;
+    height: 2.1875rem;
     font-size: 1rem;
   `}
 `;
@@ -107,19 +107,19 @@ const ContactInfoText = styled.div`
 
 	${media.mobile`
     h4 {
-      font-size: 0.9rem;
+      font-size: .9rem;
     }
     
     p {
-      font-size: 0.85rem;
+      font-size: .85rem;
     }
   `}
 `;
 
 const MapContainer = styled.div`
 	margin-top: 2rem;
-	height: 300px;
-	border-radius: 8px;
+	height: 18.75rem;
+	border-radius: 0.5rem;
 	overflow: hidden;
 
 	iframe {
@@ -129,7 +129,7 @@ const MapContainer = styled.div`
 	}
 
 	${media.mobile`
-		height: 250px;
+		height: 15.625rem;
   `}
 `;
 const ContactForm = styled.div`
@@ -164,7 +164,7 @@ const FormLabel = styled.label`
 	font-weight: 500;
 
 	${media.mobile`
-    font-size: 0.9rem;
+    font-size: .9rem;
   `}
 `;
 
@@ -172,7 +172,7 @@ const FormInput = styled(Field)`
 	width: 100%;
 	padding: 0.75rem 1rem;
 	border: 1px solid rgba(255, 255, 255, 0.1);
-	border-radius: 8px;
+	border-radius: 0.5rem;
 	background-color: var(--background-color);
 	color: var(--text-color);
 	font-family: inherit;
@@ -183,8 +183,8 @@ const FormInput = styled(Field)`
 	}
 
 	${media.mobile`
-    padding: 0.6rem 0.8rem;
-    font-size: 0.9rem;
+    padding: .6rem .8rem;
+    font-size: .9rem;
   `}
 `;
 
@@ -192,12 +192,12 @@ const FormTextarea = styled(Field)`
 	width: 100%;
 	padding: 0.75rem 1rem;
 	border: 1px solid rgba(255, 255, 255, 0.1);
-	border-radius: 8px;
+	border-radius: 0.5rem;
 	background-color: var(--background-color);
 	color: var(--text-color);
 	font-family: inherit;
 	resize: vertical;
-	min-height: 150px;
+	min-height: 9.375rem;
 
 	&:focus {
 		outline: none;
@@ -205,9 +205,9 @@ const FormTextarea = styled(Field)`
 	}
 
 	${media.mobile`
-    padding: 0.6rem 0.8rem;
-    font-size: 0.9rem;
-    min-height: 120px;
+    padding: .6rem .8rem;
+    font-size: .9rem;
+    min-height: 7.5rem;
   `}
 `;
 
@@ -217,7 +217,7 @@ const ErrorText = styled.div`
 	margin-top: 0.5rem;
 
 	${media.mobile`
-    font-size: 0.8rem;
+    font-size: .8rem;
   `}
 `;
 
@@ -227,14 +227,14 @@ const SubmitButton = styled.button`
 	background-color: var(--primary-color);
 	color: white;
 	border: none;
-	border-radius: 50px;
+	border-radius: 3.125rem;
 	font-weight: 600;
 	cursor: pointer;
 	transition: all 0.3s ease;
 
 	&:hover {
 		transform: translateY(-3px);
-		box-shadow: 0 4px 15px rgba(138, 86, 255, 0.4);
+		box-shadow: 0 0.25rem 1rem rgba(138, 86, 255, 0.4);
 	}
 
 	&:disabled {
@@ -243,14 +243,17 @@ const SubmitButton = styled.button`
 	}
 
 	${media.mobile`
-    padding: 0.6rem 1.5rem;
-    font-size: 0.9rem;
+    padding: .6rem 1.5rem;
+    font-size: .9rem;
   `}
 `;
 
 const Contact = () => {
 	const validationSchema = Yup.object({
-		name: Yup.string().required('Name is required'),
+		name: Yup.string()
+			.min(2, 'Too Short!')
+			.max(50, 'Too Long!')
+			.required('Name is required'),
 		email: Yup.string()
 			.email('Invalid email address')
 			.required('Email is required'),
@@ -258,16 +261,39 @@ const Contact = () => {
 		message: Yup.string().required('Message is required'),
 	});
 
-	const handleSubmit = (values, { setSubmitting, resetForm }) => {
-		// In a real application, you would use EmailJS or another service to send the email
+	const handleSubmit = async (
+		event,
+		values,
+		{ setSubmitting, resetForm }
+	) => {
 		console.log(values);
 
-		// Simulate API call
 		setTimeout(() => {
 			alert('Message sent successfully!');
 			resetForm();
-			setSubmitting(false);
+			// setSubmitting(false);
 		}, 1000);
+
+		event.preventDefault();
+		const formData = new FormData(event.target);
+
+		formData.append('access_key', 'YOUR_ACCESS_KEY_HERE');
+
+		const object = Object.fromEntries(formData);
+		const json = JSON.stringify(object);
+
+		const res = await fetch('https://api.web3forms.com/submit', {
+			method: 'POST',
+			headers: {
+				'Content-Type': 'application/json',
+				Accept: 'application/json',
+			},
+			body: json,
+		}).then((res) => res.json());
+
+		if (res.success) {
+			console.log('Success', res);
+		}
 	};
 
 	return (

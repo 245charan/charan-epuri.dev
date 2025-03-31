@@ -11,6 +11,7 @@ const LayoutContainer = styled.div`
 	background-color: var(--background-color);
 	color: var(--text-color);
 	transition: background-color 0.3s ease, color 0.3s ease;
+	// align-items:center;
 
 	${media.desktop`
     flex-direction: row;
@@ -20,18 +21,21 @@ const LayoutContainer = styled.div`
 const LeftSection = styled.div`
 	position: relative;
 	width: 100%;
-	// background-color: var(--card-background);
+	max-width: 450px;
 	padding: 1rem;
+	// align-self:center;
 
 	${media.desktop`
-    position: fixed;
-    // width: 350px;
-    // height: 100vh;
-    flex-basis: 30%;
-    max-width: 30%;
-    overflow-y: auto;
-    padding: 2rem;
-  `}
+		position: fixed;
+		min-width: 350px;
+		// height: 100vh;
+		flex-basis: 30%;
+		max-width: 30%;
+		overflow-y: auto;
+		padding: 2rem;
+		// transform: scale(0.8);
+		// top:-5.375rem;
+  	`}
 `;
 
 const RightSection = styled.div`
@@ -39,12 +43,11 @@ const RightSection = styled.div`
 	padding: 1rem;
 
 	${media.desktop`
-    flex-basis: 70%;
-
-    margin-left: 30%;
-    max-width: 70%;
-    padding: 2rem;
-  `}
+		flex-basis: 70%;
+		margin-left: 30%;
+		max-width: 70%;
+		padding: 2rem;
+	`}
 `;
 
 const MobileNavbarContainer = styled.div`
@@ -89,7 +92,7 @@ const Layout = ({ children }) => {
 			)}
 
 			<LeftSection>
-				<ProfileCard isMobile={isMobile} />
+				<ProfileCard />
 			</LeftSection>
 
 			<RightSection>

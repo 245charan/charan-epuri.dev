@@ -18,9 +18,9 @@ const NavContainer = styled.nav`
 	justify-content: space-between;
 	align-items: center;
 	padding: ${(props) => {
-		if (props.isMobile) return '0 16px';
+		if (props.isMobile) return '0 1rem';
 		// if (props.isSticky) return '.25rem 1rem';
-		return '4px 16px';
+		return '.25rem 1rem';
 	}};
 	background-color: ${(props) => {
 		if (props.isMobile) return 'var(--card-background)';
@@ -49,7 +49,7 @@ const NavContainer = styled.nav`
 	box-shadow: ${(props) => {
 		if (props.isMobile) return 'var(--card-shadow)';
 		// if (props.isSticky) return 'var(--card-shadow)';
-		return '0px 2px 8px 0px #4f4f4f;';
+		return '.5rem .25rem 1.25rem rgba(143, 143, 143, 0.2)';
 	}};
 	transition: all 0.3s ease;
 	opacity: ${(props) => (props.isSticky && !props.showSticky ? '0' : '1')};
@@ -63,7 +63,7 @@ const NavContainer = styled.nav`
 
 const Logo = styled.div`
 	font-weight: 900;
-	font-size: 40px;
+	font-size: 2.5rem;
 	color: var(--primary-color);
 	animation: pulse 3s ease-in-out infinite;
 	cursor: pointer;

@@ -15,10 +15,10 @@ const ExperienceTitle = styled.h2`
   &::after {
     content: '';
     position: absolute;
-    bottom: -10px;
+    bottom: -.625rem;
     left: 0;
-    width: 50px;
-    height: 3px;
+    width: 3.125rem;
+    height: .1875rem;
     background-color: var(--primary-color);
   }
 `;
@@ -31,7 +31,7 @@ const Timeline = styled.div`
   &::after {
     content: '';
     position: absolute;
-    width: 3px;
+    width: .25rem;
     background-color: var(--primary-color);
     top: 0;
     bottom: 0;
@@ -120,45 +120,52 @@ const TimelineDescription = styled.p`
 const Experience = () => {
   const experiences = [
     {
-      title: 'Senior Full Stack Developer',
-      company: 'Tech Innovations Inc.',
-      date: '2022 - Present',
-      description: 'Led development of enterprise-level applications using Java Spring Boot and React. Implemented microservices architecture and containerized applications with Docker and Kubernetes. Mentored junior developers and conducted code reviews.',
+      title: 'Senior Software Engineer - Sakai LMS Development & DE LMS QAT',
+      company: 'Marist College',
+      date: 'Oct 2023 - Present',
+      description: 'Designed and developed a 150+ page website for digital education. Scaled live-stream pipeline from 200 to 300,000 users per session and expanded streaming channels from 2 to 250+. Implemented backend solutions for on-demand content using AWS. Performed accessibility testing and ensured WCAG compliance for LMS usability. Created and maintained technical documentation for Sakai 23x. Managed LMS content, troubleshot issues, and reported bugs in Jira/TDX. Contributed to Sakai\'s open Jira bug fixes (#30).',
       type: 'work'
     },
     {
-      title: 'Full Stack Developer',
-      company: 'Digital Solutions Ltd.',
-      date: '2019 - 2022',
-      description: 'Developed and maintained web applications using Java, Spring Boot, and React. Implemented RESTful APIs and integrated with third-party services. Collaborated with UX/UI designers to implement responsive designs.',
+      title: 'Computer Science Tutor',
+      company: 'Marist College',
+      date: 'Oct 2023 - Mar 2024',
+      description: 'Provided personalized tutoring sessions in Computer Science, covering programming languages (Java, Python, JavaScript), data structures, algorithms, and technologies like React, Redux, JavaScript, and Python. Offered ongoing mentorship to help students develop practical skills and theoretical understanding.',
+      type: 'work'
+    },
+    {
+      title: 'Senior Software Engineer',
+      company: 'Innova Solutions (formerly ACS Solutions)',
+      date: 'Mar 2021 - Aug 2023',
+      description: 'Led development for BNY Mellon Fund Management & Accounting Application. Built backend-driven UI with scalable SPAs/MPAs using React and micro-frontends, improving responsiveness and reducing latency by 25%. Created reusable React component libraries (Disclosures/Notifications) reducing development time by 30%. Optimized state management with Redux (Thunk/Saga). Architected AWS cloud infrastructure (S3, EC2, Lambda, CloudFront) achieving 20% faster load times. Automated CI/CD pipelines using AWS CodeBuild/CodePipeline, reducing deployment time by 50% and errors by 40%. Improved test coverage to ~95% using Jest/RTL. Reduced package load time from 15 minutes to <1 second. Mentored 4+ junior developers in React, Redux, and testing frameworks.',
       type: 'work'
     },
     {
       title: 'WordPress Developer',
-      company: 'Creative Agency',
-      date: '2017 - 2019',
-      description: 'Designed and developed custom WordPress themes and plugins. Created custom post types and taxonomies. Implemented e-commerce solutions using WooCommerce. Optimized website performance and SEO.',
+      company: 'Innova Solutions (formerly ACS Solutions)',
+      date: 'Nov 2020 - Mar 2021',
+      description: 'Developed complete web applications independently from setting up Cloudways hosting to configuring domains and optimizing SEO visibility. Implemented custom UI components and shortcodes based on Figma designs. Created custom post types and shortcodes to improve content management. Optimized site performance, reducing load times by 30% and boosting mobile experience. Integrated WooCommerce, driving a 20% increase in client sales. Conducted performance audits using Google Lighthouse, achieving 90+ scores in performance, accessibility, and SEO. Notable projects: Posrg.com, Medisysqi.com.',
       type: 'work'
     },
     {
-      title: 'Junior Web Developer',
-      company: 'Startup Hub',
-      date: '2015 - 2017',
-      description: 'Assisted in developing web applications using PHP and JavaScript. Maintained and updated existing websites. Collaborated with the design team to implement responsive layouts.',
+      title: 'Junior Software Developer',
+      company: 'OaksPro Software Solutions',
+      date: 'Mar 2016 - Mar 2017',
+      description: 'Developed solutions for pose recognition using ergocentric videos and DynamoDB for managing millions of daily API calls. Automated Git pull request merges, improving code integrity and reducing manual efforts. Created productivity-boosting scripts to streamline development workflows. Supported development and customization of web applications, enhancing functionality, cross-device compatibility, and user experience.',
       type: 'work'
     },
     {
-      title: 'Master of Computer Science',
-      company: 'University of Technology',
-      date: '2013 - 2015',
-      description: 'Specialized in Software Engineering and Web Technologies. Completed thesis on "Optimizing Performance in Modern Web Applications". Participated in various hackathons and coding competitions.',
+      title: 'Master of Science in Information Systems (Business Analytics)',
+      company: 'Marist College',
+      date: 'Aug 2023 - May 2025 (Expected)',
+      description: 'GPA: 3.8/4.0. Coursework: Data Management, Data Communication, Predictive Analysis, Exploratory Data Analytics, Decision Support System, Data Mining, Finance & Management Accounting.',
       type: 'education'
     },
     {
-      title: 'Bachelor of Computer Science',
-      company: 'State University',
-      date: '2009 - 2013',
-      description: 'Graduated with honors. Coursework included Data Structures, Algorithms, Database Systems, and Web Development. Participated in student coding club and developed several projects.',
+      title: 'Bachelor of Computer Science and Engineering',
+      company: 'JNTUH',
+      date: 'Aug 2016 - Nov 2020',
+      description: 'GPA: 3.5/4.0. Focused on full-stack web development, specializing in JavaScript and also writing Java, Python. Participated in coding competitions and hackathons.',
       type: 'education'
     }
   ];

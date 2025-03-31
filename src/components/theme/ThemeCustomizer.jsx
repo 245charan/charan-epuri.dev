@@ -18,7 +18,7 @@ const CustomizerButton = styled.button`
 	align-items: center;
 	justify-content: center;
 	border: none;
-	box-shadow: 0 .25rem .9375rem rgba(0, 0, 0, 0.2);
+	box-shadow: 0 0.25rem 0.9375rem rgba(0, 0, 0, 0.2);
 	cursor: pointer;
 	z-index: 999;
 	transition: all 0.3s ease;
@@ -42,7 +42,7 @@ const CustomizerPanel = styled.div`
 	width: 18.75rem;
 	height: 100vh;
 	background-color: var(--card-background);
-	box-shadow: -0.3125rem 0 .9375rem rgba(0, 0, 0, 0.1);
+	box-shadow: -0.3125rem 0 0.9375rem rgba(0, 0, 0, 0.1);
 	z-index: 1000;
 	transform: ${({ isOpen }) =>
 		isOpen ? 'translateX(0)' : 'translateX(100%)'};
@@ -59,14 +59,14 @@ const CustomizerHeader = styled.div`
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-	padding: 16px;
-	border-bottom: .0625rem solid rgba(255, 255, 255, 0.1);
+	padding: 1rem;
+	border-bottom: 0.0625rem solid rgba(255, 255, 255, 0.1);
 `;
 
 const CustomizerTitle = styled.h3`
 	display: flex;
 	align-items: center;
-	gap: 8px;
+	gap: 0.5rem;
 	margin: 0;
 	color: var(--text-color);
 `;
@@ -75,7 +75,7 @@ const CloseButton = styled.button`
 	background: transparent;
 	border: none;
 	color: var(--text-color);
-	font-size: 19.2px;
+	font-size: 1.2rem;
 	cursor: pointer;
 
 	&:hover {
@@ -84,19 +84,19 @@ const CloseButton = styled.button`
 `;
 
 const CustomizerContent = styled.div`
-	padding: 16px;
+	padding: 1rem;
 	overflow-y: auto;
 	flex: 1;
 
 	${media.mobile`
-    padding: 24px;
+    padding: 1.5rem;
   `}
 `;
 
 const SectionTitle = styled.h4`
-	margin: 24px 0 16px;
+	margin: 1.5rem 0 1rem;
 	color: var(--text-color);
-	font-size: 16px;
+	font-size: 1rem;
 	position: relative;
 
 	&::after {
@@ -105,7 +105,7 @@ const SectionTitle = styled.h4`
 		bottom: -0.3125rem;
 		left: 0;
 		width: 1.875rem;
-		height: .125rem;
+		height: 0.125rem;
 		background-color: var(--primary-color);
 	}
 
@@ -117,32 +117,32 @@ const SectionTitle = styled.h4`
 const ThemeGrid = styled.div`
 	display: grid;
 	grid-template-columns: repeat(3, 1fr);
-	gap: 16px;
-	margin-bottom: 24px;
+	gap: 1rem;
+	margin-bottom: 1.5rem;
 
 	${media.mobile`
     grid-template-columns: repeat(2, 1fr);
-    gap: 24px;
+    gap: 1.5rem;
   `}
 `;
 
 const ThemeOption = styled.div`
 	position: relative;
 	cursor: pointer;
-	border-radius: .5rem;
+	border-radius: 0.5rem;
 	overflow: hidden;
-	border: .125rem solid
+	border: 0.125rem solid
 		${(props) => (props.isActive ? 'var(--primary-color)' : 'transparent')};
 	transition: all 0.3s ease;
 
 	&:hover {
 		transform: translateY(-0.1875rem);
 	}
-	order: ${(props) => props.desktopThemeOrder};
+	order: ${(props) => props.$desktopThemeOrder};
 
 	${media.mobile`
     height: 5rem;
-	order: ${(props) => props.mobileThemeOrder};
+	order: ${(props) => props.$mobileThemeOrder};
   `}
 `;
 
@@ -164,11 +164,11 @@ const ThemePreviewTop = styled.div`
 const ThemePreviewSidebar = styled.div`
 	position: absolute;
 	top: 1.875rem;
-	left: .625rem;
-	width: .9375rem;
+	left: 0.625rem;
+	width: 0.9375rem;
 	height: 2.5rem;
 	background-color: ${(props) => props.color};
-	border-radius: .1875rem;
+	border-radius: 0.1875rem;
 `;
 const ThemePreviewBottom = styled.div`
 	height: 40%;
@@ -191,21 +191,21 @@ const ActiveIndicator = styled.div`
 `;
 
 const ColorPickerGroup = styled.div`
-	margin-bottom: 16px;
+	margin-bottom: 1rem;
 
 	${media.mobile`
-    margin-bottom: 24px;
+    margin-bottom: 1.5rem;
   `}
 `;
 
 const ColorPickerLabel = styled.label`
 	display: block;
-	margin-bottom: 8px;
+	margin-bottom: 0.5rem;
 	color: var(--text-color);
-	font-size: 14.4px;
+	font-size: 0.9rem;
 
 	${media.mobile`
-    font-size: 16px;
+    font-size: 1rem;
   `}
 `;
 
@@ -217,22 +217,24 @@ const ColorPickerWrapper = styled.div`
 const ColorPreview = styled.div`
 	width: 1.875rem;
 	height: 1.875rem;
-	border-radius: .25rem;
+	border-radius: 0.25rem;
 	background-color: ${(props) => props.color};
-	margin-right: 8px;
-	border: .0625rem solid rgba(255, 255, 255, 0.1);
+	margin-right: 0.5rem;
+	border: 2px solid rgba(255, 255, 255, 0.1);
 
 	${media.mobile`
-    width: 2.5rem;
-    height: 2.5rem;
-  `}
+		width: 2.5rem;
+		height: 2.5rem;
+		`}
 `;
 
 const ColorInput = styled.input`
 	width: 100%;
 	height: 2.5rem;
-	border: none;
-	background: transparent;
+	border-radius: 0.25rem;
+	border: 0.0625rem solid rgba(255, 255, 255, 0.1);
+
+	// background: transparent;
 	cursor: pointer;
 
 	&::-webkit-color-swatch-wrapper {
@@ -240,8 +242,8 @@ const ColorInput = styled.input`
 	}
 
 	&::-webkit-color-swatch {
-		border: none;
-		border-radius: .25rem;
+		border: 0.0625rem solid rgba(255, 255, 255, 0.1);
+		border-radius: 0.25rem;
 	}
 
 	${media.mobile`
@@ -251,12 +253,12 @@ const ColorInput = styled.input`
 
 const ResetButton = styled.button`
 	width: 100%;
-	padding: 12px;
-	margin-top: 24px;
+	padding: 0.75rem;
+	margin-top: 1.5rem;
 	background-color: transparent;
-	border: .125rem solid var(--primary-color);
+	border: 0.125rem solid var(--primary-color);
 	color: var(--text-color);
-	border-radius: .5rem;
+	border-radius: 0.5rem;
 	font-weight: 600;
 	cursor: pointer;
 	transition: all 0.3s ease;
@@ -267,8 +269,8 @@ const ResetButton = styled.button`
 	}
 
 	${media.mobile`
-    padding: 16px;
-    font-size: 17.6px;
+    padding: 1rem;
+    font-size: 1.1rem;
   `}
 `;
 
@@ -388,9 +390,8 @@ const ThemeCustomizer = () => {
 								key={theme.name}
 								isActive={themeName === theme.name}
 								onClick={() => handleThemeChange(theme.name)}
-								mobileThemeOrder={theme.mobileThemeOrder}
-								desktopThemeOrder={theme.desktopThemeOrder}
-								>
+								$mobileThemeOrder={theme.mobileThemeOrder}
+								$desktopThemeOrder={theme.desktopThemeOrder}>
 								<ThemePreview>
 									<ThemePreviewTop color={theme.background} />
 									<ThemePreviewSidebar

@@ -42,8 +42,8 @@ const LoaderContainer = styled.div`
 `;
 
 const LogoContainer = styled.div`
-	width: 120px;
-	height: 120px;
+	width: 7.5rem;
+	height: 7.5rem;
 	border-radius: 50%;
 	background: linear-gradient(
 		to right,
@@ -54,7 +54,7 @@ const LogoContainer = styled.div`
 	justify-content: center;
 	align-items: center;
 	animation: ${pulse} 2s infinite ease-in-out;
-	box-shadow: 0 0 30px rgba(138, 86, 255, 0.5);
+	box-shadow: 0 0 1.875rem rgba(138, 86, 255, 0.5);
 `;
 
 const InitialsText = styled.div`

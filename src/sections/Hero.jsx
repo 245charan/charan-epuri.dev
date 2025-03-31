@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { media } from '../styles/Responsive';
 
 const HeroContainer = styled.div`
   margin-bottom: 3rem;
@@ -48,14 +49,14 @@ const PrimaryButton = styled.a`
   padding: 0.75rem 2rem;
   background-color: var(--primary-color);
   color: white;
-  border-radius: 50px;
+  border-radius: 3.125rem;
   font-weight: 600;
   text-decoration: none;
   transition: all 0.3s ease;
   
   &:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 4px 15px rgba(138, 86, 255, 0.4);
+    transform: translateY(-.1875rem);
+    box-shadow: 0 .25rem .9375rem rgba(138, 86, 255, 0.4);
     text-decoration: none;
     color: white;
   }
@@ -66,8 +67,8 @@ const SecondaryButton = styled.a`
   padding: 0.75rem 2rem;
   background-color: transparent;
   color: var(--text-color);
-  border: 2px solid var(--primary-color);
-  border-radius: 50px;
+  border: .125rem solid var(--primary-color);
+  border-radius: 3.125rem;
   font-weight: 600;
   text-decoration: none;
   transition: all 0.3s ease;
@@ -75,7 +76,7 @@ const SecondaryButton = styled.a`
   &:hover {
     background-color: var(--primary-color);
     color: white;
-    transform: translateY(-3px);
+    transform: translateY(-.1875rem);
     text-decoration: none;
   }
 `;

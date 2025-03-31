@@ -16,8 +16,8 @@ const GlobalStyles = createGlobalStyle`
     --text-color: ${props => props.theme.text};
     // --text-secondary: ${props => props.theme.text === '#ffffff' ? '#ffffff' : '#333333'};
     --text-secondary: ${props => props.theme.secondaryText};
-    --border-radius: 16px;
-    --card-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    --border-radius: 1rem;
+    --card-shadow: 0 .25rem 1.25rem rgba(0, 0, 0, 0.15);
     --transition: all 0.3s ease;
   }
 
@@ -79,7 +79,7 @@ const GlobalStyles = createGlobalStyle`
 
   .container {
     width: 100%;
-    max-width: 1200px;
+    max-width: 75rem;
     margin: 0 auto;
     padding: 0 1rem;
   }
@@ -93,10 +93,10 @@ const GlobalStyles = createGlobalStyle`
     &::after {
       content: '';
       position: absolute;
-      bottom: -10px;
+      bottom: -.625rem;
       left: 0;
-      width: 50px;
-      height: 3px;
+      width: 3.125rem;
+      height: .1875rem;
       background-color: var(--primary-color);
     }
   }
@@ -109,8 +109,8 @@ const GlobalStyles = createGlobalStyle`
     transition: var(--transition);
     
     &:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+      transform: translateY(-.3125rem);
+      box-shadow: 0 .625rem 1.875rem rgba(0, 0, 0, 0.2);
     }
   }
 

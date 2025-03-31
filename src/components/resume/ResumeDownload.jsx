@@ -10,15 +10,15 @@ const ResumeButton = styled.a`
   padding: 0.75rem 1.5rem;
   background-color: var(--primary-color);
   color: white;
-  border-radius: 50px;
+  border-radius: 3.125rem;
   font-weight: 600;
   text-decoration: none;
   transition: all 0.3s ease;
   margin-top: 1rem;
   
   &:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 4px 15px rgba(138, 86, 255, 0.4);
+    transform: translateY(-.1875rem);
+    box-shadow: 0 .25rem .9375rem rgba(138, 86, 255, 0.4);
     text-decoration: none;
     color: white;
   }
