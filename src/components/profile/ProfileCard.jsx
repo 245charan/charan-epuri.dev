@@ -39,15 +39,15 @@ const ProfileImage = styled.div`
 	position: relative;
 	// border-radius: inherit;
 	aspect-ratio: 4/5;
-
+	
 	img {
 		width: 100%;
 		height: 100%;
 		object-position: top;
 		object-fit: cover;
-	}
-
-	&::after {
+		}
+		
+		&::after {
 		content: '';
 		position: absolute;
 		top: 0;
@@ -55,10 +55,13 @@ const ProfileImage = styled.div`
 		right: 0;
 		bottom: 0;
 		z-index: 1;
-	}
-`;
-
-const Name = styled.h1`
+		}
+		${media.desktop`
+			max-width: 10.25rem;
+	`}
+	`;
+	
+	const Name = styled.h1`
 	font-size: 2rem;
 	font-weight: 700;
 	margin-bottom: 0.5rem;
