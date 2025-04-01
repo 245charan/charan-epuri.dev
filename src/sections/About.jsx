@@ -29,7 +29,7 @@ const AboutContent = styled.div`
 	gap: 2rem;
 
 	@media (min-width: 48rem) {
-		grid-template-columns: 1fr 1fr;
+		grid-template-columns: 1fr;
 	}
 `;
 
@@ -40,8 +40,8 @@ const AboutText = styled.div`
 		margin-bottom: 1.5rem;
 		color: var(--text-secondary);
 		line-height: 1.8;
-    font-size: 1.15rem;
-    list-style:none;
+		font-size: 1.15rem;
+		// list-style: none;
 	}
 `;
 
@@ -114,23 +114,23 @@ const About = () => {
 			icon: <FaCode />,
 		},
 		{
-			title: 'Backend Development',
-			description:
-				'Building robust server-side applications with Java, Spring Boot, SOAP, RESTful APIs, and microservices.',
-			icon: <FaServer />,
-		},
-		{
-			title: 'Database Design',
-			description:
-				'Designing and optimizing databases using MySQL, MongoDB, and implementing efficient data access patterns.',
-			icon: <FaDatabase />,
-		},
-		{
 			title: 'WordPress Development',
 			description:
 				'Creating custom WordPress themes, plugins, and integrating with various APIs and services.',
 			icon: <FaMobileAlt />,
 		},
+		{
+			title: 'Backend Development',
+			description:
+				'Building robust server-side applications with Java, Spring Boot, RESTful APIs, and microservices.',
+			icon: <FaServer />,
+		},
+		// {
+		// 	title: 'Database Design',
+		// 	description:
+		// 		'Designing and optimizing databases using MySQL, MongoDB, and implementing efficient data access patterns.',
+		// 	icon: <FaDatabase />,
+		// },
 	];
 
 	return (
@@ -140,22 +140,21 @@ const About = () => {
 				<AboutText>
 					<ul>
 						<li>
-							🚀 <strong>Frontend-Leaning Full Stack Dev</strong>
+							<strong>Frontend-Leaning Full Stack Dev</strong>
 							(React + Java Spring Boot)
 						</li>
 						<li>
-							💻 <strong>5+ years</strong> building fund
-							platforms, CMS tools & enterprise apps
+							<strong>5+ years</strong> building financial platforms, CMS tools & enterprise apps
 						</li>
 						<li>
-							🔧 Obsessed with <strong>scalable architecture</strong> and <strong>UI performance</strong>
+							Obsessed with <strong>scalable architecture</strong> and <strong>UI performance</strong>
 						</li>
 					</ul>
-				<HeroTitle>
-					What I <span>Bring</span> to the Table
-				</HeroTitle>
 				</AboutText>
 				<AboutServices>
+					<HeroTitle>
+						What I <span>Bring</span> to the Table
+					</HeroTitle>
 					{services.map((service, index) => (
 						<ServiceCard key={index}>
 							<ServiceIcon>{service.icon}</ServiceIcon>

@@ -110,12 +110,12 @@ const MenuToggle = styled.button`
 
 	div {
 		width: 2rem;
-		height: .25rem;
+		height: 0.25rem;
 		background: var(--text-color);
-		border-radius: .625rem;
+		border-radius: 0.625rem;
 		transition: all 0.3s linear;
 		position: relative;
-		transform-origin: .0625rem;
+		transform-origin: 0.0625rem;
 
 		&:first-child {
 			transform: ${({ isOpen }) =>
@@ -164,7 +164,7 @@ const NavItem = styled.a`
 	color: var(--text-color);
 	list-style: none;
 	text-decoration: none;
-	padding: .5rem 1rem;
+	padding: 0.5rem 1rem;
 	margin: ${(props) => (props.isMobile ? '.5rem 0' : '0 .5rem')};
 	font-weight: 500;
 	position: relative;
@@ -172,7 +172,7 @@ const NavItem = styled.a`
 	cursor: pointer;
 	display: flex;
 	align-items: center;
-	gap: .5rem;
+	gap: 0.5rem;
 
 	&:hover,
 	&.active {
@@ -193,7 +193,7 @@ const NavItem = styled.a`
 		bottom: 0;
 		// left: 45%;
 		// width: 0;
-		height: .125rem;
+		height: 0.125rem;
 		background-color: var(--primary-color);
 		// transition: all 0.3s ease-in-out;
 		// transform: translateX(-50%);
@@ -224,7 +224,7 @@ const NavIcon = styled.span`
 const NavLabel = styled.div`
 	position: absolute;
 	opacity: 0;
-	transform: translateY(-.625rem);
+	transform: translateY(-0.625rem);
 	pointer-events: none;
 `;
 
@@ -281,7 +281,7 @@ const ScrollToTopButton = styled.button`
 	align-items: center;
 	justify-content: center;
 	cursor: pointer;
-	box-shadow: 0 .25rem .625rem rgba(0, 0, 0, 0.2);
+	box-shadow: 0 0.25rem 0.625rem rgba(0, 0, 0, 0.2);
 	transition: all 0.3s ease;
 	z-index: 99;
 	opacity: ${(props) => (props.visible ? '1' : '0')};
@@ -290,7 +290,7 @@ const ScrollToTopButton = styled.button`
 
 	&:hover {
 		transform: ${(props) => (props.visible ? 'scale(1.1)' : 'scale(0.8)')};
-		box-shadow: 0 .375rem .9375rem rgba(0, 0, 0, 0.25);
+		box-shadow: 0 0.375rem 0.9375rem rgba(0, 0, 0, 0.25);
 	}
 `;
 
@@ -388,6 +388,7 @@ const Navbar = ({ isMobile }) => {
 						<NavLinks isMobile={isMobile}>
 							{navItems.map((item) => (
 								<NavItem
+									title={item.label}
 									key={item.id}
 									href={`#${item.id}`}
 									className={
@@ -408,12 +409,16 @@ const Navbar = ({ isMobile }) => {
 							<SocialIcon
 								href='https://github.com/245charan/'
 								target='_blank'
+								title='Github'
+								aria-label='Github'
 								rel='noopener noreferrer'>
 								<FaGithub />
 							</SocialIcon>
 							<SocialIcon
 								href='https://www.linkedin.com/in/charan-epuri/'
 								target='_blank'
+								aria-label='Linkedin'
+								title='Linkedin'
 								rel='noopener noreferrer'>
 								<FaLinkedin />
 							</SocialIcon>
@@ -423,6 +428,8 @@ const Navbar = ({ isMobile }) => {
 
 				{isMobile && (
 					<MenuToggle
+						title='Menu'
+						aria-label='Menu'
 						isOpen={isOpen}
 						onClick={toggleMenu}>
 						<div />
@@ -441,6 +448,7 @@ const Navbar = ({ isMobile }) => {
 					<NavLinks isMobile={false}>
 						{navItems.map((item) => (
 							<NavItem
+								title={item.label}
 								key={`sticky-${item.id}`}
 								href={`#${item.id}`}
 								className={
@@ -461,12 +469,14 @@ const Navbar = ({ isMobile }) => {
 						<SocialIcon
 							href='https://github.com/245charan/'
 							target='_blank'
+							title='Github'
 							rel='noopener noreferrer'>
 							<FaGithub />
 						</SocialIcon>
 						<SocialIcon
 							href='https://www.linkedin.com/in/charan-epuri/'
 							target='_blank'
+							title='Linkedin'
 							rel='noopener noreferrer'>
 							<FaLinkedin />
 						</SocialIcon>
@@ -487,6 +497,7 @@ const Navbar = ({ isMobile }) => {
 						isOpen={isOpen}>
 						{navItems.map((item) => (
 							<NavItem
+								title={item.label}
 								key={item.id}
 								href={`#${item.id}`}
 								className={
@@ -504,12 +515,16 @@ const Navbar = ({ isMobile }) => {
 
 						<SocialIcons>
 							<SocialIcon
+								aria-label='github'
+								title='Github'
 								href='https://github.com/245charan/'
 								target='_blank'
 								rel='noopener noreferrer'>
 								<FaGithub />
 							</SocialIcon>
 							<SocialIcon
+								aria-label='linkedin'
+								title='Linkedin'
 								href='https://www.linkedin.com/in/charan-epuri/'
 								target='_blank'
 								rel='noopener noreferrer'>
@@ -524,7 +539,8 @@ const Navbar = ({ isMobile }) => {
 			<ScrollToTopButton
 				visible={showScrollTop}
 				onClick={scrollToTop}
-				aria-label='Scroll to top'>
+				aria-label='Scroll to top'
+				title='Scroll to top'>
 				<FaArrowUp />
 			</ScrollToTopButton>
 		</>

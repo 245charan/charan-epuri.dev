@@ -307,8 +307,8 @@ const ThemeCustomizer = () => {
 		{
 			name: 'purple',
 			primary: '#8a56ff',
-			background: '#1a1025',
-			card: '#261a35',
+			background: '#261a35',
+			card: '#1a1025',
 			text: '#ffffff',
 			secondaryText: '#ffffff',
 			desktopThemeOrder: 6,
@@ -363,12 +363,15 @@ const ThemeCustomizer = () => {
 	};
 
 	const resetToDefault = () => {
-		dispatch(setTheme('dark'));
+		dispatch(setTheme('red'));
 	};
 
 	return (
 		<>
-			<CustomizerButton onClick={toggleCustomizer}>
+			<CustomizerButton
+				aria-label ='theme-customizer-button'
+				title ='Theme Customizer'
+				onClick={toggleCustomizer}>
 				<FaPalette />
 			</CustomizerButton>
 
@@ -377,7 +380,7 @@ const ThemeCustomizer = () => {
 					<CustomizerTitle>
 						<FaPalette /> Theme Customizer
 					</CustomizerTitle>
-					<CloseButton onClick={toggleCustomizer}>
+					<CloseButton title='Close' aria-label="close" onClick={toggleCustomizer}>
 						<FaTimes />
 					</CloseButton>
 				</CustomizerHeader>
@@ -415,6 +418,7 @@ const ThemeCustomizer = () => {
 						<ColorPickerWrapper>
 							<ColorPreview color={currentTheme.primary} />
 							<ColorInput
+								aria-label='primary-color'
 								type='color'
 								value={currentTheme.primary}
 								onChange={(e) =>
@@ -429,6 +433,7 @@ const ThemeCustomizer = () => {
 						<ColorPickerWrapper>
 							<ColorPreview color={currentTheme.background} />
 							<ColorInput
+								aria-label='background-color'
 								type='color'
 								value={currentTheme.background}
 								onChange={(e) =>
@@ -446,6 +451,7 @@ const ThemeCustomizer = () => {
 						<ColorPickerWrapper>
 							<ColorPreview color={currentTheme.card} />
 							<ColorInput
+								aria-label="card-background-color"
 								type='color'
 								value={currentTheme.card}
 								onChange={(e) =>
@@ -460,6 +466,7 @@ const ThemeCustomizer = () => {
 						<ColorPickerWrapper>
 							<ColorPreview color={currentTheme.text} />
 							<ColorInput
+								aria-label="text-color"
 								type='color'
 								value={currentTheme.text}
 								onChange={(e) =>
@@ -469,7 +476,7 @@ const ThemeCustomizer = () => {
 						</ColorPickerWrapper>
 					</ColorPickerGroup>
 
-					<ResetButton onClick={resetToDefault}>
+					<ResetButton title='Reset' aria-label="reset" onClick={resetToDefault}>
 						Reset to Default
 					</ResetButton>
 				</CustomizerContent>

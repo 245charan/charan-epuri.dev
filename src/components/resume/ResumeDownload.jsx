@@ -1,13 +1,13 @@
 import React from 'react';
 import styled from 'styled-components';
 import { FaDownload } from 'react-icons/fa';
-// import charanResume from '../../assets/resume/charanResume.pdf'
+import charanResume from '../../assets/resume/Charan.pdf'
 
 const ResumeButton = styled.a`
   display: inline-flex;
   align-items: center;
-  gap: 0.5rem;
-  padding: 0.75rem 1.5rem;
+  gap: .5rem;
+  padding: .75rem 1.5rem;
   background-color: var(--primary-color);
   color: white;
   border-radius: 3.125rem;
@@ -17,7 +17,7 @@ const ResumeButton = styled.a`
   margin-top: 1rem;
   
   &:hover {
-    transform: translateY(-.1875rem);
+    transform: translateY(-0.1875rem);
     box-shadow: 0 .25rem .9375rem rgba(138, 86, 255, 0.4);
     text-decoration: none;
     color: white;
@@ -26,7 +26,7 @@ const ResumeButton = styled.a`
 
 const ResumeDownload = () => {
   return (
-    <ResumeButton href="/resume.pdf" target="_blank" rel="noopener noreferrer">
+    <ResumeButton href={charanResume} title='Download Resume' target="_blank" aria-label="download" rel="noopener noreferrer">
       <FaDownload /> Download Resume
     </ResumeButton>
   );

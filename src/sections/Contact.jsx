@@ -372,6 +372,8 @@ const Contact = () => {
 										type='text'
 										id='name'
 										name='name'
+										aria-required='true'
+										aria-label='name'
 									/>
 									<ErrorMessage
 										name='name'
@@ -385,6 +387,8 @@ const Contact = () => {
 										type='email'
 										id='email'
 										name='email'
+										aria-required='true'
+										aria-label='email'
 									/>
 									<ErrorMessage
 										name='email'
@@ -400,6 +404,8 @@ const Contact = () => {
 										type='text'
 										id='subject'
 										name='subject'
+										aria-required='true'
+										aria-label='subject'
 									/>
 									<ErrorMessage
 										name='subject'
@@ -415,6 +421,8 @@ const Contact = () => {
 										as='textarea'
 										id='message'
 										name='message'
+										aria-required='true'
+										aria-label='message'
 									/>
 									<ErrorMessage
 										name='message'
@@ -423,7 +431,9 @@ const Contact = () => {
 								</FormGroup>
 
 								<SubmitButton
+									aria-label='submit'
 									type='submit'
+									title='Submit'
 									disabled={isSubmitting}>
 									{isSubmitting
 										? 'Sending...'

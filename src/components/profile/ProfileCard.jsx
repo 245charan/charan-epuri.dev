@@ -2,9 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { FaGithub, FaLinkedin, FaEnvelope } from 'react-icons/fa';
 import ResumeDownload from '../resume/ResumeDownload';
-// import profilePicture from '../../assets/images/profilePicture.png';
-import profilePicture from '../../assets/images/pencilSketchProfilePicture.png';
-// import profilePicture from '../../assets/images/profilePicture.JPG';
+import profilePicture from '../../assets/images/pencilSketchProfilePicture.webp';
 import { media } from '../../styles/Responsive';
 
 const ProfileCardContainer = styled.div`
@@ -22,6 +20,7 @@ const ProfileCardContainer = styled.div`
 	position: relative;
 	box-shadow: 0rem 0rem 1.25rem rgba(143, 143, 143, 0.2);
 	// box-shadow: .5rem .25rem 1.25rem rgba(143, 143, 143, 0.2);
+	max-width: 400px;
 
 	${media.desktop`
 		padding: 1.875rem 1.25rem;
@@ -39,15 +38,15 @@ const ProfileImage = styled.div`
 	position: relative;
 	// border-radius: inherit;
 	aspect-ratio: 4/5;
-	
+
 	img {
 		width: 100%;
 		height: 100%;
 		object-position: top;
 		object-fit: cover;
-		}
-		
-		&::after {
+	}
+
+	&::after {
 		content: '';
 		position: absolute;
 		top: 0;
@@ -55,13 +54,13 @@ const ProfileImage = styled.div`
 		right: 0;
 		bottom: 0;
 		z-index: 1;
-		}
-		${media.desktop`
+	}
+	${media.desktop`
 			max-width: 10.25rem;
 	`}
-	`;
-	
-	const Name = styled.h1`
+`;
+
+const Name = styled.h1`
 	font-size: 2rem;
 	font-weight: 700;
 	margin-bottom: 0.5rem;
@@ -95,7 +94,7 @@ const Location = styled.p`
 const SocialLinks = styled.div`
 	display: flex;
 	justify-content: center;
-	margin-bottom: .5rem;
+	margin-bottom: 0.5rem;
 `;
 
 const SocialIcon = styled.a`
@@ -104,7 +103,7 @@ const SocialIcon = styled.a`
 	justify-content: center;
 	width: 2.5rem;
 	height: 2.5rem;
-	border-radius: .5rem;
+	border-radius: 0.5rem;
 	background-color: var(--background-color);
 	color: var(--text-color);
 	margin: 0 0.5rem;
@@ -114,7 +113,7 @@ const SocialIcon = styled.a`
 	&:hover {
 		background-color: var(--primary-color);
 		color: white;
-		transform: translateY(-.25rem);
+		transform: translateY(-0.25rem);
 	}
 `;
 
@@ -130,8 +129,8 @@ const CTAButton = styled.a`
 	margin-top: 1rem;
 
 	&:hover {
-		transform: translateY(-.25rem);
-		box-shadow: 0 .25rem .9375rem rgba(138, 86, 255, 0.4);
+		transform: translateY(-0.25rem);
+		box-shadow: 0 0.25rem 0.9375rem rgba(138, 86, 255, 0.4);
 		opacity: 0.9;
 		text-decoration: none;
 	}
@@ -179,22 +178,24 @@ const ProfileCard = () => {
 				/>
 			</ProfileImage>
 			<Name>Charan Epuri</Name>
-			<Title>Full Stack Java Developer</Title>
+			<Title>Full Stack Developer</Title>
 			<Location>New York, USA</Location>
 			<SocialLinks>
 				<SocialIcon
 					href='https://github.com/245charan/'
 					target='_blank'
+					aria-label="Github"
 					rel='noopener noreferrer'>
 					<FaGithub />
 				</SocialIcon>
 				<SocialIcon
 					href='https://www.linkedin.com/in/charan-epuri/'
 					target='_blank'
+					aria-label="Linkedin"
 					rel='noopener noreferrer'>
 					<FaLinkedin />
 				</SocialIcon>
-				<SocialIcon href='mailto:charan.epuri1@marist.edu'>
+				<SocialIcon href='mailto:charan.epuri1@marist.edu' aria-label="mail">
 					<FaEnvelope />
 				</SocialIcon>
 			</SocialLinks>
@@ -212,11 +213,8 @@ const ProfileCard = () => {
 					<StatLabel>Happy Clients</StatLabel>
 				</StatItem> */}
 			</Stats>
-			<CTAButton
-				href='#contact'>
-				Let's Talk
-			</CTAButton>
-			<ResumeDownload  />
+			<CTAButton title='Lets Talk' aria-label="lets-talk" href='#contact'>Let's Talk</CTAButton>
+			<ResumeDownload />
 		</ProfileCardContainer>
 	);
 };

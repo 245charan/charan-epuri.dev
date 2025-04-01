@@ -3,12 +3,12 @@ import styled from 'styled-components';
 import ProjectCard from '../components/projects/ProjectCard';
 import { media } from '../styles/Responsive';
 import marist from '../assets/images/projects/marist.webp';
-import sakai from '../assets/images/projects/sakai.jpg';
-import treeData from '../assets/images/projects/TreeData.gif';
-import rtsm from '../assets/images/projects/RTSM.gif';
-import bny from '../assets/images/projects/bny.png';
-import posrg from '../assets/images/projects/posrg.jpg';
-import placeholder from '../assets/images/projects/placeholder-project.png';
+import sakai from '../assets/images/projects/sakai.webp';
+import treeData from '../assets/images/projects/TreeData.webp';
+import rtsm from '../assets/images/projects/RTSM.webp';
+import bny from '../assets/images/projects/bny.webp';
+import posrg from '../assets/images/projects/posrg.webp';
+import placeholder from '../assets/images/projects/placeholder-project.webp';
 
 const ProjectsContainer = styled.div`
 	margin-bottom: 3rem;

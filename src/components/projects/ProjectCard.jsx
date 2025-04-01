@@ -126,12 +126,12 @@ const ProjectCard = ({ project }) => {
       </TechStack>
       <ProjectLinks>
         {project.github && (
-          <ProjectLink href={project.github} target="_blank" rel="noopener noreferrer">
+          <ProjectLink aria-label="github" href={project.github} target="_blank" rel="noopener noreferrer">
             <FaGithub /> GitHub
           </ProjectLink>
         )}
         {project.liveDemo && (
-          <ProjectLink href={project.liveDemo} target="_blank" rel="noopener noreferrer">
+          <ProjectLink aria-label="live-demo" href={project.liveDemo} target="_blank" rel="noopener noreferrer">
             <FaExternalLinkAlt /> Live Demo
           </ProjectLink>
         )}

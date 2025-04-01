@@ -11,11 +11,13 @@ const LayoutContainer = styled.div`
 	background-color: var(--background-color);
 	color: var(--text-color);
 	transition: background-color 0.3s ease, color 0.3s ease;
-	// align-items:center;
 
 	${media.desktop`
-    flex-direction: row;
-  `}
+		flex-direction: row;
+	`}
+	${media.mobile`
+		align-self:center;
+	`}
 `;
 
 const LeftSection = styled.div`

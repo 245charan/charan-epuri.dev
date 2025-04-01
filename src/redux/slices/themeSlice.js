@@ -19,8 +19,8 @@ const themes = {
 	},
 	purple: {
 		primary: '#8a56ff',
-		background: '#1a1025',
-		card: '#261a35',
+		background: '#261a35',
+		card: '#1a1025',
 		text: '#ffffff',
 		secondaryText: '#ffffff',
 	},
