@@ -27,7 +27,7 @@ const ProfileCardContainer = styled.div`
 `;
 
 const ProfileImage = styled.div`
-	box-shadow: 00rem 0rem 1rem 0rem #6565652b;
+	// box-shadow: 00rem 0rem 1rem 0rem #6565652b;
 	max-width: 16.25rem;
 	border-radius: 0.75rem;
 	order: 0;

@@ -95,7 +95,7 @@ const Hero = () => {
 				<span>Java</span> Developer Building <br/>Accessible Web - <span>React</span> & <span>WordPress</span>.
 				</HeroTitle> */}
 				<HeroTitle>
-					Transforming Ideas into <span>Accessible</span> Digital
+					Transforming Ideas into <br /><span>Accessible</span> Digital
 					Experiences.
 				</HeroTitle>
 				<HeroSubtitle>

@@ -146,21 +146,23 @@ const About = () => {
 							• Reduced load times by 40% through frontend optimization techniques
 							• Contributed to open-source accessibility projects with 500+ GitHub stars*/}
 							<strong>
-								Frontend-focused (70%) Full Stack Develope
-							</strong>
-							r with deep expertise in React, Java Spring Boot,
-							and WordPress
+								Frontend-focused Full Stack Developer
+							</strong>{' '}
+							with deep expertise in React, Java Spring Boot, and
+							WordPress
 						</li>
 						<li>
 							<strong>5+ years</strong> building financial
 							platforms, CMS tools & enterprise apps
 						</li>
 						<li>
-							Obsessed with <strong>scalable architecture</strong>
-							and <strong>UI performance</strong>
+							Obsessed with{' '}
+							<strong>Scalable Architecture </strong>
+							and <strong>UI performance.</strong>
 						</li>
 						<li>
-						Beyond code, I'm passionate about creating technology that's truly accessible to everyone. I believe great digital experiences should be both beautiful and inclusive.
+							I want to make technology that everyone can use and
+							enjoy, regardless of their abilities.
 						</li>
 					</ul>
 				</AboutText>
