@@ -144,7 +144,6 @@ const NavLinks = styled.div`
 	top: ${(props) => (props.isMobile ? '0' : 'auto')};
 	right: ${(props) => (props.isMobile ? '0' : 'auto')};
 	height: ${(props) => (props.isMobile ? '100vh' : 'auto')};
-	width: ${(props) => (props.isMobile ? '70%' : 'auto')};
 	background-color: ${(props) =>
 		props.isMobile ? 'var(--card-background)' : 'transparent'};
 	transition: transform 0.3s ease-in-out;
@@ -156,8 +155,8 @@ const NavLinks = styled.div`
 	padding: ${(props) => (props.isMobile ? '5rem 2rem 2rem' : '0')};
 
 	${media.mobile`
-    width: 85%;
-  `}
+		width: 85%;
+	`}
 `;
 
 const NavItem = styled.a`
@@ -191,17 +190,15 @@ const NavItem = styled.a`
 		content: '';
 		position: absolute;
 		bottom: 0;
-		// left: 45%;
-		// width: 0;
 		height: 0.125rem;
 		background-color: var(--primary-color);
-		// transition: all 0.3s ease-in-out;
-		// transform: translateX(-50%);
+		transition: all 0.3s ease;
 	}
 
 	&:hover::after,
 	&.active::after {
 		width: 80%;
+		transition: all 0.3s ease;
 	}
 
 	${media.mobile`

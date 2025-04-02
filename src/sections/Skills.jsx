@@ -110,6 +110,48 @@ const SkillTag = styled.div`
 	&:hover span {
 		color: white;
 	}
+
+	/* Tooltip styling */
+	&::after {
+		content: attr(data-tooltip);
+		position: absolute;
+		bottom: 100%;
+		left: 50%;
+		transform: translateX(-50%);
+		background: rgba(0, 0, 0, 0.9);
+		color: #fff;
+		padding: 8px 12px;
+		border-radius: 4px;
+		font-size: 14px;
+		white-space: nowrap;
+		opacity: 0;
+		visibility: hidden;
+		transition: opacity 0.2s;
+		pointer-events: none;
+		font-family: sans-serif;
+		margin-bottom: 8px;
+	}
+
+	&::before {
+		content: '';
+		position: absolute;
+		bottom: calc(100% - 4px);
+		left: 50%;
+		transform: translateX(-50%);
+		border-width: 5px;
+		border-style: solid;
+		border-color: rgba(0, 0, 0, 0.9) transparent transparent transparent;
+		opacity: 0;
+		visibility: hidden;
+		transition: opacity 0.2s;
+	}
+
+	&:hover::after,
+	&:hover::before {
+		opacity: 1;
+		visibility: visible;
+		transition-delay: 0.2s;
+	}
 `;
 
 const TagIcon = styled.div`
@@ -142,11 +184,9 @@ const ExpertiseDot = styled.div`
 			: 'rgba(var(--primary-color-rgb), 0.3)'};
 	margin-right: 0.1875rem;
 
-  ${SkillTag}:hover & {
-		background-color: ${(props) => props.active ? '#fff' : '#b9b9b9'};
-
-  }
-
+	${SkillTag}:hover & {
+		background-color: ${(props) => (props.active ? '#fff' : '#b9b9b9')};
+	}
 `;
 
 const SkillsSection = () => {
@@ -243,7 +283,9 @@ const SkillsSection = () => {
 					</SkillsCategoryTitle>
 					<TagCloud>
 						{category.skills.map((skill, skillIndex) => (
-							<SkillTag key={`${categoryIndex}-${skillIndex}`}>
+							<SkillTag
+								data-tooltip={`Expertise Level: ${skill.level} / 5`}
+								key={`${categoryIndex}-${skillIndex}`}>
 								<TagIcon>{skill.icon}</TagIcon>
 								<div>
 									<TagName>{skill.name}</TagName>

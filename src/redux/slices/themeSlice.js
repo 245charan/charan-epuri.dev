@@ -48,8 +48,8 @@ const themes = {
 };
 
 const initialState = {
-	themeName: 'dark',
-	currentTheme: themes.dark,
+	themeName: 'red',
+	currentTheme: themes.red,
 	themes,
 };
 

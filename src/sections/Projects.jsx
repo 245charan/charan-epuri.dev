@@ -45,7 +45,7 @@ const ProjectsGrid = styled.div`
   `}
 
 	${media.desktop`
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
   `}
 `;
 

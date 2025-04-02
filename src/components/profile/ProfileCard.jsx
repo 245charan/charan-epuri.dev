@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { FaGithub, FaLinkedin, FaEnvelope } from 'react-icons/fa';
+import { FaGithub, FaCalendar, FaLinkedin, FaEnvelope } from 'react-icons/fa';
 import ResumeDownload from '../resume/ResumeDownload';
 import profilePicture from '../../assets/images/pencilSketchProfilePicture.webp';
 import { media } from '../../styles/Responsive';
@@ -118,7 +118,9 @@ const SocialIcon = styled.a`
 `;
 
 const CTAButton = styled.a`
-	display: inline-block;
+	display: flex;
+	align-items: center;
+	justify-content: center;
 	padding: 0.75rem 2rem;
 	background-color: var(--primary-color);
 	color: white;
@@ -127,7 +129,9 @@ const CTAButton = styled.a`
 	transition: all 0.3s ease;
 	text-decoration: none;
 	margin-top: 1rem;
-
+	svg {
+		margin-left:0.5rem;
+	}
 	&:hover {
 		transform: translateY(-0.25rem);
 		box-shadow: 0 0.25rem 0.9375rem rgba(138, 86, 255, 0.4);
@@ -184,18 +188,20 @@ const ProfileCard = () => {
 				<SocialIcon
 					href='https://github.com/245charan/'
 					target='_blank'
-					aria-label="Github"
+					aria-label='Github'
 					rel='noopener noreferrer'>
 					<FaGithub />
 				</SocialIcon>
 				<SocialIcon
 					href='https://www.linkedin.com/in/charan-epuri/'
 					target='_blank'
-					aria-label="Linkedin"
+					aria-label='Linkedin'
 					rel='noopener noreferrer'>
 					<FaLinkedin />
 				</SocialIcon>
-				<SocialIcon href='mailto:charan.epuri1@marist.edu' aria-label="mail">
+				<SocialIcon
+					href='mailto:charan.epuri1@marist.edu'
+					aria-label='mail'>
 					<FaEnvelope />
 				</SocialIcon>
 			</SocialLinks>
@@ -213,7 +219,13 @@ const ProfileCard = () => {
 					<StatLabel>Happy Clients</StatLabel>
 				</StatItem> */}
 			</Stats>
-			<CTAButton title='Lets Talk' target='_blank' aria-label="lets-talk" href='https://outlook.office.com/bookwithme/user/15d34846ee2f47be84a77aa55dd0ebbd@marist.edu?anonymous&ep=plink'>Let's Talk</CTAButton>
+			<CTAButton
+				title='Open for technical discussions at your convenience – no pressure!'
+				target='_blank'
+				aria-label='lets-talk'
+				href='https://outlook.office.com/bookwithme/user/15d34846ee2f47be84a77aa55dd0ebbd@marist.edu?anonymous&ep=plink'>
+				Let's Talk <FaCalendar />
+			</CTAButton>
 			<ResumeDownload />
 		</ProfileCardContainer>
 	);
