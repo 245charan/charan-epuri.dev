@@ -178,7 +178,7 @@ const ProfileCard = () => {
 				/>
 			</ProfileImage>
 			<Name>Charan Epuri</Name>
-			<Title>Full Stack Developer</Title>
+			{/* <Title>Full Stack Developer</Title> */}
 			<Location>New York, USA</Location>
 			<SocialLinks>
 				<SocialIcon
@@ -213,7 +213,7 @@ const ProfileCard = () => {
 					<StatLabel>Happy Clients</StatLabel>
 				</StatItem> */}
 			</Stats>
-			<CTAButton title='Lets Talk' aria-label="lets-talk" href='#contact'>Let's Talk</CTAButton>
+			<CTAButton title='Lets Talk' target='_blank' aria-label="lets-talk" href='https://outlook.office.com/bookwithme/user/15d34846ee2f47be84a77aa55dd0ebbd@marist.edu?anonymous&ep=plink'>Let's Talk</CTAButton>
 			<ResumeDownload />
 		</ProfileCardContainer>
 	);

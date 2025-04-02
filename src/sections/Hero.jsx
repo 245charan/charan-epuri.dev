@@ -89,21 +89,29 @@ const Hero = () => {
 					Accessibility Focused Full Stack <span>Java</span> Developer with <br />
 					<span>React.Js</span> & <span>WordPress</span> Expertise
 				</HeroTitle> */}
-				<HeroTitle>
-				<span>Java</span> Developer Building <br/>Accessible Web - <span>React</span> & <span>WordPress</span>.
-				</HeroTitle>
 				{/* <HeroTitle>
-				<span>Inclusive Web Architect</span> <br/> Full Stack <span>Java</span> Engineer Specializing in Accessible <span>React</span> Frontends & Scalable <span>WordPress</span> Solutions.
+				<span>Java</span> Developer Building <br/>Accessible Web - <span>React</span> & <span>WordPress</span>.
 				</HeroTitle> */}
+				<HeroTitle>
+					Transforming Ideas into <span>Accessible</span> Digital
+					Experiences.
+				</HeroTitle>
 				<HeroSubtitle>
 					Code that scales. Experiences that resonate.
 				</HeroSubtitle>
 				<HeroButtons>
-					<PrimaryButton aria-label="projects" title="Projects" href='#projects'>
-						View Projects
+					<PrimaryButton
+						aria-label='Explore My Work'
+						title='Explore My Work'
+						href='#projects'>
+						Explore My Work
 					</PrimaryButton>
-					<SecondaryButton aria-label="contact" title="Contact" href='#contact'>
-						Contact Me
+					<SecondaryButton
+						aria-label='Lets Collaborate'
+						title='Lets Collaborate'
+						target='_blank'
+						href='https://outlook.office.com/bookwithme/user/15d34846ee2f47be84a77aa55dd0ebbd@marist.edu?anonymous&ep=plink'>
+						Let's Collaborate
 					</SecondaryButton>
 				</HeroButtons>
 			</HeroContent>

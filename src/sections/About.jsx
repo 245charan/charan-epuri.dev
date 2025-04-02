@@ -140,14 +140,27 @@ const About = () => {
 				<AboutText>
 					<ul>
 						<li>
-							<strong>Frontend-Leaning Full Stack Dev</strong>
+							{/* <strong>Frontend-focused Full Stack Dev</strong>
 							(React + Java Spring Boot)
+							• Led frontend development for enterprise applications with 10,000+ daily users
+							• Reduced load times by 40% through frontend optimization techniques
+							• Contributed to open-source accessibility projects with 500+ GitHub stars*/}
+							<strong>
+								Frontend-focused (70%) Full Stack Develope
+							</strong>
+							r with deep expertise in React, Java Spring Boot,
+							and WordPress
 						</li>
 						<li>
-							<strong>5+ years</strong> building financial platforms, CMS tools & enterprise apps
+							<strong>5+ years</strong> building financial
+							platforms, CMS tools & enterprise apps
 						</li>
 						<li>
-							Obsessed with <strong>scalable architecture</strong> and <strong>UI performance</strong>
+							Obsessed with <strong>scalable architecture</strong>
+							and <strong>UI performance</strong>
+						</li>
+						<li>
+						Beyond code, I'm passionate about creating technology that's truly accessible to everyone. I believe great digital experiences should be both beautiful and inclusive.
 						</li>
 					</ul>
 				</AboutText>
