@@ -16,6 +16,8 @@ const HeroTitle = styled.h1`
 	font-weight: 700;
 	margin-bottom: 1rem;
 	color: var(--text-color);
+	font-display: swap; /* Ensure text remains visible during webfont load */
+	will-change: transform; /* Hint to browser for optimization */
 
 	span {
 		color: var(--primary-color);

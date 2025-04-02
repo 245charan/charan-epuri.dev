@@ -21,7 +21,6 @@ const ProfileCardContainer = styled.div`
 	box-shadow: 0rem 0rem 1.25rem rgba(143, 143, 143, 0.2);
 	// box-shadow: .5rem .25rem 1.25rem rgba(143, 143, 143, 0.2);
 	max-width: 400px;
-
 	${media.desktop`
 		padding: 1.875rem 1.25rem;
 	`}
@@ -46,7 +45,7 @@ const ProfileImage = styled.div`
 		object-fit: cover;
 	}
 
-	&::after {
+	&::after, &:focus-within {
 		content: '';
 		position: absolute;
 		top: 0;

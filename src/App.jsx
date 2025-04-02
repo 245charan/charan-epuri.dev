@@ -13,6 +13,12 @@ import Experience from './sections/Experience';
 import Contact from './sections/Contact';
 import ThemeCustomizer from './components/theme/ThemeCustomizer';
 import PageLoader from './components/loader/PageLoader';
+import ProgressBar from './components/progress/ProgressBar';
+
+// const Skills = React.lazy(() => import('./sections/Skills'));
+// const Projects = React.lazy(() => import('./sections/Projects'));
+// const Experience = React.lazy(() => import('./sections/Experience'));
+// const Contact = React.lazy(() => import('./sections/Contact'));
 
 const ThemedApp = () => {
   const { currentTheme } = useSelector(state => state.theme);
@@ -49,6 +55,7 @@ const ThemedApp = () => {
 const App = () => {
   return (
     <Provider store={store}>
+      <ProgressBar />
       <ThemedApp />
     </Provider>
   );
