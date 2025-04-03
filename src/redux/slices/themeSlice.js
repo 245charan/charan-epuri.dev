@@ -2,54 +2,53 @@ import { createSlice } from '@reduxjs/toolkit';
 
 // Define the initial theme options
 const themes = {
-	dark: {
-		primary: '#914bf1',
-		background: '#1e1e1e',
-		card: '#121212',
-		text: '#ffffff',
-		secondaryText: '#ffffff',
-	},
-	light: {
-		primary: '#8a56ff',
-		background: '#f5f3ff',
-		card: '#ffffff',
-		text: '#333333',
-		secondaryText: '#333333',
-
-	},
-	purple: {
-		primary: '#8a56ff',
-		background: '#261a35',
-		card: '#1a1025',
-		text: '#ffffff',
-		secondaryText: '#ffffff',
-	},
-	ocean: {
-		primary: '#56a0ff',
-		background: '#0a192f',
-		card: '#112240',
-		text: '#e6f1ff',
-		secondaryText: '#ffffff',
-	},
-	red: {
-		primary: '#b31b1b',
-		background: '#fff1f1',
-		card: '#ffffff',
-		text: '#333333', 
-		secondaryText: '#333333',
-	},
 	sunset: {
-		primary: '#ff671f',
-		background: '#fff9f5',
-		card: '#ffffff',
+		primary: '#FF671F',
+		background: '#FFF9F5',
+		card: '#FFFFFF',
 		text: '#333333',
 		secondaryText: '#333333',
+	},
+	midnightTeal: {
+		primary: '#0EA5E9',
+		background: '#0F1729',
+		card: '#1E2A3B',
+		text: '#F1F5F9',
+		secondaryText: '#94A3B8',
+	},
+	carbonViolet: {
+		primary: '#A855F7',
+		background: '#18181B',
+		card: '#27272A',
+		text: '#FAFAFA',
+		secondaryText: '#A1A1AA',
+	},
+	lavenderFrost: {
+		primary: '#7C3AED',
+		background: '#F5F3FF',
+		card: '#FFFFFF',
+		text: '#1F2937',
+		secondaryText: '#4B5563',
+	},
+	mintBreeze: {
+		primary: '#059669',
+		background: '#ECFDF5',
+		card: '#FFFFFF',
+		text: '#111827',
+		secondaryText: '#374151',
+	},
+	skyAzure: {
+		primary: '#3B82F6',
+		background: '#F0F9FF',
+		card: '#FFFFFF',
+		text: '#0F172A',
+		secondaryText: '#334155',
 	},
 };
 
 const initialState = {
-	themeName: 'red',
-	currentTheme: themes.red,
+	themeName: 'sunset',
+	currentTheme: themes.sunset,
 	themes,
 };
 

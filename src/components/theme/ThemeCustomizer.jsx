@@ -285,72 +285,64 @@ const ThemeCustomizer = () => {
 
 	const predefinedThemes = [
 		{
-			name: 'dark',
-			primary: '#914bf1',
-			background: '#101112',
-			card: '#272829',
-			text: '#ffffff',
-			secondaryText: '#ffffff',
-			desktopThemeOrder: 4,
-			mobileThemeOrder: 6,
-		},
-		{
-			name: 'light',
-			primary: '#8a56ff',
-			background: '#f5f3ff',
-			card: '#ffffff',
+			name: 'sunset',
+			primary: '#FF671F',
+			background: '#FFF9F5',
+			card: '#FFFFFF',
 			text: '#333333',
 			secondaryText: '#333333',
 			desktopThemeOrder: 1,
-			mobileThemeOrder: 5,
+			mobileThemeOrder: 1,
 		},
 		{
-			name: 'purple',
-			primary: '#8a56ff',
-			background: '#261a35',
-			card: '#1a1025',
-			text: '#ffffff',
-			secondaryText: '#ffffff',
-			desktopThemeOrder: 6,
+			name: 'midnightTeal',
+			primary: '#0EA5E9',
+			background: '#0F1729',
+			card: '#1E2A3B',
+			text: '#F1F5F9',
+			secondaryText: '#94A3B8',
+			desktopThemeOrder: 2,
 			mobileThemeOrder: 2,
 		},
 		{
-			name: 'ocean',
-			primary: '#56a0ff',
-			background: '#0a192f',
-			card: '#112240',
-			text: '#ffffff',
-			secondaryText: '#ffffff',
-			desktopThemeOrder: 5,
+			name: 'carbonViolet',
+			primary: '#A855F7',
+			background: '#18181B',
+			card: '#27272A',
+			text: '#FAFAFA',
+			secondaryText: '#A1A1AA',
+			desktopThemeOrder: 3,
+			mobileThemeOrder: 3,
+		},
+		{
+			name: 'lavenderFrost',
+			primary: '#7C3AED',
+			background: '#F5F3FF',
+			card: '#FFFFFF',
+			text: '#1F2937',
+			secondaryText: '#4B5563',
+			desktopThemeOrder: 4,
 			mobileThemeOrder: 4,
 		},
 		{
-			name: 'red',
-			primary: '#b31b1b',
-			background: '#fff1f1',
-			card: '#ffffff',
-			text: '#333333',
-			secondaryText: '#333333',
-			desktopThemeOrder: 2,
-			mobileThemeOrder: 1,
-			// secondary: '#5a4fcf',
-			// buttonPrimary: '#7b68ee',
-			// buttonPrimaryHover: '#5a4fcf',
+			name: 'mintBreeze',
+			primary: '#059669',
+			background: '#ECFDF5',
+			card: '#FFFFFF',
+			text: '#111827',
+			secondaryText: '#374151',
+			desktopThemeOrder: 5,
+			mobileThemeOrder: 5,
 		},
 		{
-			name: 'sunset',
-			primary: '#ff671f',
-			background: '#fff9f5',
-			// background: '#ff7e45',
-			card: '#ffffff',
-			text: '#333333',
-			secondaryText: '#333333',
-			desktopThemeOrder: 3,
-			mobileThemeOrder: 3,
-			// background: '#fff9f5',
-			// secondary: '#e85d04',
-			// buttonPrimary: '#ff7e45',
-			// buttonPrimaryHover: '#e85d04',
+			name: 'skyAzure',
+			primary: '#3B82F6',
+			background: '#F0F9FF',
+			card: '#FFFFFF',
+			text: '#0F172A',
+			secondaryText: '#334155',
+			desktopThemeOrder: 6,
+			mobileThemeOrder: 6,
 		},
 	];
 
@@ -363,14 +355,14 @@ const ThemeCustomizer = () => {
 	};
 
 	const resetToDefault = () => {
-		dispatch(setTheme('red'));
+		dispatch(setTheme('sunset'));
 	};
 
 	return (
 		<>
 			<CustomizerButton
-				aria-label ='theme-customizer-button'
-				title ='Theme Customizer'
+				aria-label='theme-customizer-button'
+				title='Theme Customizer'
 				onClick={toggleCustomizer}>
 				<FaPalette />
 			</CustomizerButton>
@@ -380,7 +372,10 @@ const ThemeCustomizer = () => {
 					<CustomizerTitle>
 						<FaPalette /> Theme Customizer
 					</CustomizerTitle>
-					<CloseButton title='Close' aria-label="close" onClick={toggleCustomizer}>
+					<CloseButton
+						title='Close'
+						aria-label='close'
+						onClick={toggleCustomizer}>
 						<FaTimes />
 					</CloseButton>
 				</CustomizerHeader>
@@ -419,6 +414,7 @@ const ThemeCustomizer = () => {
 							<ColorPreview color={currentTheme.primary} />
 							<ColorInput
 								aria-label='primary-color'
+								title='Click to pick a color'
 								type='color'
 								value={currentTheme.primary}
 								onChange={(e) =>
@@ -434,6 +430,7 @@ const ThemeCustomizer = () => {
 							<ColorPreview color={currentTheme.background} />
 							<ColorInput
 								aria-label='background-color'
+								title='Click to pick a color'
 								type='color'
 								value={currentTheme.background}
 								onChange={(e) =>
@@ -451,7 +448,8 @@ const ThemeCustomizer = () => {
 						<ColorPickerWrapper>
 							<ColorPreview color={currentTheme.card} />
 							<ColorInput
-								aria-label="card-background-color"
+								aria-label='card-background-color'
+								title='Click to pick a color'
 								type='color'
 								value={currentTheme.card}
 								onChange={(e) =>
@@ -466,7 +464,8 @@ const ThemeCustomizer = () => {
 						<ColorPickerWrapper>
 							<ColorPreview color={currentTheme.text} />
 							<ColorInput
-								aria-label="text-color"
+								aria-label='text-color'
+								title='Click to pick ncolor'
 								type='color'
 								value={currentTheme.text}
 								onChange={(e) =>
@@ -476,7 +475,10 @@ const ThemeCustomizer = () => {
 						</ColorPickerWrapper>
 					</ColorPickerGroup>
 
-					<ResetButton title='Reset' aria-label="reset" onClick={resetToDefault}>
+					<ResetButton
+						title='Reset'
+						aria-label='reset'
+						onClick={resetToDefault}>
 						Reset to Default
 					</ResetButton>
 				</CustomizerContent>

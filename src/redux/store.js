@@ -8,7 +8,7 @@ import themeReducer from './slices/themeSlice';
 const persistConfig = {
   key: 'root',
   storage,
-  whitelist: ['theme'] // only theme will be persisted
+  // whitelist: ['theme'] // only theme will be persisted
 };
 
 const rootReducer = combineReducers({
@@ -24,7 +24,7 @@ export const store = configureStore({
     getDefaultMiddleware({
       serializableCheck: {
         // Ignore these action types
-        ignoredActions: ['persist/PERSIST', 'persist/REHYDRATE'],
+        // ignoredActions: ['persist/PERSIST', 'persist/REHYDRATE'],
       },
     }),
 });

@@ -25,8 +25,13 @@ const LeftSection = styled.div`
 	width: 100%;
 	max-width: 450px;
 	padding: 1rem;
-	// align-self:center;
 
+	${media.tablet`
+		align-self:center;
+		`}
+	${media.md`
+			align-self:center;
+  	`}
 	${media.desktop`
 		position: fixed;
 		min-width: 350px;

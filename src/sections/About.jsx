@@ -37,7 +37,7 @@ const AboutText = styled.div`
 	color: var(--text-color);
 
 	ul li {
-		margin-bottom: 1.5rem;
+		margin: 0rem 0rem 1rem 1.5rem;
 		color: var(--text-secondary);
 		line-height: 1.8;
 		font-size: 1.15rem;
