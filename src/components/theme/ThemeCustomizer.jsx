@@ -302,7 +302,7 @@ const ThemeCustomizer = () => {
 			text: '#F1F5F9',
 			secondaryText: '#94A3B8',
 			desktopThemeOrder: 2,
-			mobileThemeOrder: 2,
+			mobileThemeOrder: 6,
 		},
 		{
 			name: 'carbonViolet',
@@ -312,7 +312,7 @@ const ThemeCustomizer = () => {
 			text: '#FAFAFA',
 			secondaryText: '#A1A1AA',
 			desktopThemeOrder: 3,
-			mobileThemeOrder: 3,
+			mobileThemeOrder: 5,
 		},
 		{
 			name: 'lavenderFrost',
@@ -322,7 +322,7 @@ const ThemeCustomizer = () => {
 			text: '#1F2937',
 			secondaryText: '#4B5563',
 			desktopThemeOrder: 4,
-			mobileThemeOrder: 4,
+			mobileThemeOrder: 2,
 		},
 		{
 			name: 'mintBreeze',
@@ -332,7 +332,7 @@ const ThemeCustomizer = () => {
 			text: '#111827',
 			secondaryText: '#374151',
 			desktopThemeOrder: 5,
-			mobileThemeOrder: 5,
+			mobileThemeOrder: 3,
 		},
 		{
 			name: 'skyAzure',
@@ -342,7 +342,7 @@ const ThemeCustomizer = () => {
 			text: '#0F172A',
 			secondaryText: '#334155',
 			desktopThemeOrder: 6,
-			mobileThemeOrder: 6,
+			mobileThemeOrder: 4,
 		},
 	];
 
