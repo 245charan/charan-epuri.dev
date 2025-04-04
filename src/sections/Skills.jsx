@@ -32,7 +32,7 @@ import {
 	SiOracle,
 	SiRedis,
 	SiSelenium,
-	SiCucumber,
+	SiJunit5,
 	SiStorybook,
 	SiWebpack,
 	SiSass,
@@ -83,8 +83,8 @@ const SkillsCategoryTitle = styled.h3`
 `;
 
 const TagCloud = styled.div`
-	display: flex;
-	flex-wrap: wrap;
+	display:grid;
+	grid-template-columns: repeat(auto-fill, minmax(8.5rem, 1fr));
 	gap: 0.8rem;
 	margin-bottom: 1.5rem;
 `;
@@ -252,7 +252,7 @@ const SkillsSection = () => {
 			skills: [
 				{ name: 'Jest', icon: <SiJest />, level: 5 },
 				{ name: 'RTL', icon: <FaReact />, level: 5 },
-				// { name: 'JUnit', icon: <SiJunit />, level: 4 },
+				{ name: 'JUnit', icon: <SiJunit5  />, level: 4 },
 				{ name: 'Selenium', icon: <SiSelenium />, level: 3 },
 				{ name: 'Git', icon: <FaGitAlt />, level: 5 },
 				{ name: 'Webpack', icon: <SiWebpack />, level: 4 },

@@ -21,44 +21,44 @@ import ProgressBar from './components/progress/ProgressBar';
 // const Contact = React.lazy(() => import('./sections/Contact'));
 
 const ThemedApp = () => {
-  const { currentTheme } = useSelector(state => state.theme);
-  
-  return (
-    <ThemeProvider theme={currentTheme}>
-      <GlobalStyles />
-      <PageLoader />
-      <Layout>
-        <section id="home">
-          <Hero />
-        </section>
-        <section id="about">
-          <About />
-        </section>
-        <section id="skills">
-          <Skills />
-        </section>
-        <section id="projects">
-          <Projects />
-        </section>
-        <section id="experience">
-          <Experience />
-        </section>
-        <section id="contact">
-          <Contact />
-        </section>
-      </Layout>
-      <ThemeCustomizer />
-    </ThemeProvider>
-  );
+	const { currentTheme } = useSelector((state) => state.theme);
+
+	return (
+		<ThemeProvider theme={currentTheme}>
+			<GlobalStyles />
+			<PageLoader />
+			<Layout>
+				<section id='home'>
+					<Hero />
+				</section>
+				<section id='about'>
+					<About />
+				</section>
+				<section id='skills'>
+					<Skills />
+				</section>
+				<section id='projects'>
+					<Projects />
+				</section>
+				<section id='experience'>
+					<Experience />
+				</section>
+				<section id='contact'>
+					<Contact />
+				</section>
+			</Layout>
+			<ThemeCustomizer />
+		</ThemeProvider>
+	);
 };
 
 const App = () => {
-  return (
-    <Provider store={store}>
-      <ProgressBar />
-      <ThemedApp />
-    </Provider>
-  );
+	return (
+		<Provider store={store}>
+			<ProgressBar />
+			<ThemedApp />
+		</Provider>
+	);
 };
 
 export default App;

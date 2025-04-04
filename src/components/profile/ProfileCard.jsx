@@ -4,6 +4,7 @@ import { FaGithub, FaCalendar, FaLinkedin, FaEnvelope } from 'react-icons/fa';
 import ResumeDownload from '../resume/ResumeDownload';
 import profilePicture from '../../assets/images/pencilSketchProfilePicture.webp';
 import { media } from '../../styles/Responsive';
+import BgParticles from '../animation/BgParticles';
 
 const ProfileCardContainer = styled.div`
 	display: flex;
@@ -19,8 +20,9 @@ const ProfileCardContainer = styled.div`
 	padding: 1.875rem 1.25rem;
 	position: relative;
 	box-shadow: 0rem 0rem 1.25rem rgba(143, 143, 143, 0.2);
-	// box-shadow: .5rem .25rem 1.25rem rgba(143, 143, 143, 0.2);
 	max-width: 400px;
+	isolation: isolate;
+
 	${media.desktop`
 		padding: 1.875rem 1.25rem;
 	`}
@@ -45,7 +47,8 @@ const ProfileImage = styled.div`
 		object-fit: cover;
 	}
 
-	&::after, &:focus-within {
+	&::after,
+	&:focus-within {
 		content: '';
 		position: absolute;
 		top: 0;
@@ -129,7 +132,7 @@ const CTAButton = styled.a`
 	text-decoration: none;
 	margin-top: 1rem;
 	svg {
-		margin-left:0.5rem;
+		margin-left: 0.5rem;
 	}
 	&:hover {
 		transform: translateY(-0.25rem);
@@ -174,6 +177,7 @@ const StatLabel = styled.div`
 const ProfileCard = () => {
 	return (
 		<ProfileCardContainer>
+			<BgParticles type={'triangles'} containerId="profile-card-particles"/>
 			<ProfileImage>
 				<img
 					src={profilePicture}

@@ -136,7 +136,7 @@ const MenuToggle = styled.button`
 `;
 
 const NavLinks = styled.div`
-	display: ${(props) => (props.isMobile ? 'flex' : 'flex')};
+	display: flex;
 	flex-direction: ${(props) => (props.isMobile ? 'column' : 'row')};
 	justify-content: center;
 	align-items: ${(props) => (props.isMobile ? '' : 'center')};
@@ -146,6 +146,8 @@ const NavLinks = styled.div`
 	height: ${(props) => (props.isMobile ? '100vh' : 'auto')};
 	background-color: ${(props) =>
 		props.isMobile ? 'var(--card-background)' : 'transparent'};
+	transform: translateZ(0); /* Hardware acceleration */
+	will-change: transform;
 	transition: transform 0.3s ease-in-out;
 	transform: ${({ isMobile, isOpen }) =>
 		isMobile && !isOpen ? 'translateX(100%)' : 'translateX(0)'};
@@ -172,7 +174,11 @@ const NavItem = styled.a`
 	display: flex;
 	align-items: center;
 	gap: 0.5rem;
-
+	justify-content: center;
+	transition: color 0.3s ease, transform 0.3s ease;
+	height: 2.5rem; /* Set consistent height */
+	transform: translateZ(0); /* Hardware acceleration */
+	
 	&:hover,
 	&.active {
 		color: var(--primary-color);
@@ -223,6 +229,7 @@ const NavLabel = styled.div`
 	opacity: 0;
 	transform: translateY(-0.625rem);
 	pointer-events: none;
+	white-space: nowrap;
 `;
 
 const Overlay = styled.div`

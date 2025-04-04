@@ -29,7 +29,6 @@ const ProgressBar = () => {
 
 			const scrollPercent =
 				(scrollY / (documentHeight - windowHeight)) * 100;
-			console.log(scrollPercent);
 			setScrollPercentage(scrollPercent);
 		};
 
