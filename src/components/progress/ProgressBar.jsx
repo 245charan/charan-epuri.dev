@@ -4,7 +4,7 @@ import styled from 'styled-components';
 const ProgressBarContainer = styled.div`
 	height: .25rem;
 	width: 100%;
-	background-color: var(--card-background);
+	background-color: var(--background-color);
 	position: fixed;
 	top: 0;
 	left: 0;
