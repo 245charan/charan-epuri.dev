@@ -124,7 +124,7 @@ const CTAButton = styled.a`
 	align-items: center;
 	justify-content: center;
 	padding: 0.75rem 2rem;
-	background-color: var(--primary-color);
+	background: var(--cta-button);
 	color: white;
 	border-radius: 3.125rem;
 	font-weight: 600;
@@ -136,12 +136,13 @@ const CTAButton = styled.a`
 	}
 	&:hover {
 		transform: translateY(-0.25rem);
-		box-shadow: 0 0.25rem 0.9375rem rgba(138, 86, 255, 0.4);
+		box-shadow: 0 0.25rem 0.9375rem rgba(184, 0, 0, 0.4);
 		opacity: 0.9;
 		text-decoration: none;
+		color: #ffffff;
 	}
 	${media.desktop`
-		box-shadow: 0 .25rem .9375rem rgba(138, 86, 255, 0.4);
+		box-shadow: 0 .25rem .9375rem rgba(0, 0, 0, 0.4);
 	`}
 `;
 
@@ -177,7 +178,10 @@ const StatLabel = styled.div`
 const ProfileCard = () => {
 	return (
 		<ProfileCardContainer>
-			<BgParticles type={'triangles'} containerId="profile-card-particles"/>
+			<BgParticles
+				type={'triangles'}
+				containerId='profile-card-particles'
+			/>
 			<ProfileImage>
 				<img
 					src={profilePicture}

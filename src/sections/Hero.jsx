@@ -49,7 +49,7 @@ const HeroButtons = styled.div`
 const PrimaryButton = styled.a`
 	display: inline-block;
 	padding: 0.75rem 2rem;
-	background-color: var(--primary-color);
+	background: var(--cta-button);
 	color: white;
 	border-radius: 3.125rem;
 	font-weight: 600;
@@ -76,7 +76,7 @@ const SecondaryButton = styled.a`
 	transition: all 0.3s ease;
 
 	&:hover {
-		background-color: var(--primary-color);
+		background: var(--cta-button);
 		color: white;
 		transform: translateY(-0.1875rem);
 		text-decoration: none;

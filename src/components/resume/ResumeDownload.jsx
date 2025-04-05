@@ -8,7 +8,7 @@ const ResumeButton = styled.a`
   align-items: center;
   gap: .5rem;
   padding: .75rem 1.5rem;
-  background-color: var(--primary-color);
+  background: var(--cta-button);
   color: white;
   border-radius: 3.125rem;
   font-weight: 600;
@@ -18,7 +18,7 @@ const ResumeButton = styled.a`
   
   &:hover {
     transform: translateY(-0.1875rem);
-    box-shadow: 0 .25rem .9375rem rgba(138, 86, 255, 0.4);
+    box-shadow: 0 .25rem .9375rem rgba(0, 0, 0, 0.4);
     text-decoration: none;
     color: white;
   }

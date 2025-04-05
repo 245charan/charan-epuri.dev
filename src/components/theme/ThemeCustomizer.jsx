@@ -5,6 +5,17 @@ import { setTheme, setCustomTheme } from '../../redux/slices/themeSlice';
 import { FaPalette, FaTimes, FaCheck } from 'react-icons/fa';
 import { media } from '../../styles/Responsive';
 
+const generateGradient = () => {
+	const hues = Array.from({ length: 360 }, (_, i) => i);
+	const colorStops = hues
+		.map((hue) => {
+			return `hsl(${hue}, 100%, 50%) ${(hue / 360) * 100}%`;
+		})
+		.join(', ');
+
+	return `linear-gradient(to right, ${colorStops})`;
+};
+
 const CustomizerButton = styled.button`
 	position: fixed;
 	bottom: 1.875rem;
@@ -106,7 +117,14 @@ const SectionTitle = styled.h4`
 		left: 0;
 		width: 1.875rem;
 		height: 0.125rem;
-		background-color: var(--primary-color);
+		${(props) => {
+			if (props.custom) {
+				return `background: ${generateGradient()}; width: 100% !important; height:0.5rem; bottom: -0.75rem;`;
+			}
+			else {
+				return 'background-color: var(--primary-color)';
+			}
+		}};
 	}
 
 	&:first-child {
@@ -190,11 +208,21 @@ const ActiveIndicator = styled.div`
 	color: white;
 `;
 
-const ColorPickerGroup = styled.div`
-	margin-bottom: 1rem;
+const CutomizeGrid = styled.div`
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	gap: 1rem;
+	margin-bottom: 1.5rem;
 
 	${media.mobile`
-    margin-bottom: 1.5rem;
+    gap: 1.5rem;
+  `}
+`;
+const ColorPickerGroup = styled.div`
+	// margin-bottom: 1rem;
+
+	${media.mobile`
+    // margin-bottom: 1.5rem;
   `}
 `;
 
@@ -381,7 +409,7 @@ const ThemeCustomizer = () => {
 				</CustomizerHeader>
 
 				<CustomizerContent>
-					<SectionTitle>Choose Theme</SectionTitle>
+					<SectionTitle custom={false}>Choose Theme</SectionTitle>
 					<ThemeGrid>
 						{predefinedThemes.map((theme) => (
 							<ThemeOption
@@ -406,74 +434,86 @@ const ThemeCustomizer = () => {
 						))}
 					</ThemeGrid>
 
-					<SectionTitle>Customize Colors</SectionTitle>
+					<SectionTitle custom={true}>Customize Colors</SectionTitle>
+					<CutomizeGrid>
+						<ColorPickerGroup>
+							<ColorPickerLabel>Primary Color</ColorPickerLabel>
+							<ColorPickerWrapper>
+								<ColorPreview color={currentTheme.primary} />
+								<ColorInput
+									aria-label='primary-color'
+									title='Click to pick a color'
+									type='color'
+									value={currentTheme.primary}
+									onChange={(e) =>
+										handleColorChange(
+											'primary',
+											e.target.value
+										)
+									}
+								/>
+							</ColorPickerWrapper>
+						</ColorPickerGroup>
 
-					<ColorPickerGroup>
-						<ColorPickerLabel>Primary Color</ColorPickerLabel>
-						<ColorPickerWrapper>
-							<ColorPreview color={currentTheme.primary} />
-							<ColorInput
-								aria-label='primary-color'
-								title='Click to pick a color'
-								type='color'
-								value={currentTheme.primary}
-								onChange={(e) =>
-									handleColorChange('primary', e.target.value)
-								}
-							/>
-						</ColorPickerWrapper>
-					</ColorPickerGroup>
+						<ColorPickerGroup>
+							<ColorPickerLabel>
+								Background Color
+							</ColorPickerLabel>
+							<ColorPickerWrapper>
+								<ColorPreview color={currentTheme.background} />
+								<ColorInput
+									aria-label='background-color'
+									title='Click to pick a color'
+									type='color'
+									value={currentTheme.background}
+									onChange={(e) =>
+										handleColorChange(
+											'background',
+											e.target.value
+										)
+									}
+								/>
+							</ColorPickerWrapper>
+						</ColorPickerGroup>
 
-					<ColorPickerGroup>
-						<ColorPickerLabel>Background Color</ColorPickerLabel>
-						<ColorPickerWrapper>
-							<ColorPreview color={currentTheme.background} />
-							<ColorInput
-								aria-label='background-color'
-								title='Click to pick a color'
-								type='color'
-								value={currentTheme.background}
-								onChange={(e) =>
-									handleColorChange(
-										'background',
-										e.target.value
-									)
-								}
-							/>
-						</ColorPickerWrapper>
-					</ColorPickerGroup>
+						<ColorPickerGroup>
+							<ColorPickerLabel>Card Background</ColorPickerLabel>
+							<ColorPickerWrapper>
+								<ColorPreview color={currentTheme.card} />
+								<ColorInput
+									aria-label='card-background-color'
+									title='Click to pick a color'
+									type='color'
+									value={currentTheme.card}
+									onChange={(e) =>
+										handleColorChange(
+											'card',
+											e.target.value
+										)
+									}
+								/>
+							</ColorPickerWrapper>
+						</ColorPickerGroup>
 
-					<ColorPickerGroup>
-						<ColorPickerLabel>Card Background</ColorPickerLabel>
-						<ColorPickerWrapper>
-							<ColorPreview color={currentTheme.card} />
-							<ColorInput
-								aria-label='card-background-color'
-								title='Click to pick a color'
-								type='color'
-								value={currentTheme.card}
-								onChange={(e) =>
-									handleColorChange('card', e.target.value)
-								}
-							/>
-						</ColorPickerWrapper>
-					</ColorPickerGroup>
-
-					<ColorPickerGroup>
-						<ColorPickerLabel>Text Color</ColorPickerLabel>
-						<ColorPickerWrapper>
-							<ColorPreview color={currentTheme.text} />
-							<ColorInput
-								aria-label='text-color'
-								title='Click to pick ncolor'
-								type='color'
-								value={currentTheme.text}
-								onChange={(e) =>
-									handleColorChange('text', e.target.value)
-								}
-							/>
-						</ColorPickerWrapper>
-					</ColorPickerGroup>
+						<ColorPickerGroup>
+							<ColorPickerLabel>Text Color</ColorPickerLabel>
+							<ColorPickerWrapper>
+								<ColorPreview color={currentTheme.text} />
+								<ColorInput
+									aria-label='text-color'
+									title='Click to pick ncolor'
+									type='color'
+									value={currentTheme.text}
+									onChange={(e) =>
+										handleColorChange(
+											'text',
+											e.target.value
+										)
+									}
+								/>
+							</ColorPickerWrapper>
+						</ColorPickerGroup>
+					</CutomizeGrid>
 
 					<ResetButton
 						title='Reset'

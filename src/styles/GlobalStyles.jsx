@@ -19,7 +19,9 @@ const GlobalStyles = createGlobalStyle`
     --border-radius: 1rem;
     --card-shadow: 0 .25rem 1.25rem rgba(0, 0, 0, 0.15);
     --transition: all 0.3s ease;
-  }
+    --cta-button: var(--primary-color);
+    }
+    // --cta-button: linear-gradient(349deg, var(--background-color) -90%, var(--primary-color));
 
   * {
     margin: 0;
@@ -93,7 +95,7 @@ const GlobalStyles = createGlobalStyle`
     &::after {
       content: '';
       position: absolute;
-      bottom: -.625rem;
+      bottom: -0.625rem;
       left: 0;
       width: 3.125rem;
       height: .1875rem;
@@ -109,7 +111,7 @@ const GlobalStyles = createGlobalStyle`
     transition: var(--transition);
     
     &:hover {
-      transform: translateY(-.3125rem);
+      transform: translateY(-0.3125rem);
       box-shadow: 0 .625rem 1.875rem rgba(0, 0, 0, 0.2);
     }
   }

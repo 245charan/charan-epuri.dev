@@ -52,7 +52,8 @@ const NavContainer = styled.nav`
 		return '.5rem .25rem 1.25rem rgba(143, 143, 143, 0.2)';
 	}};
 	transition: all 0.3s ease;
-	opacity: ${(props) => (props.isSticky && !props.showSticky ? '0' : '1')};
+	display: ${(props) => (props.isSticky && !props.showSticky ? 'none' : 'flex')};
+	// opacity: ${(props) => (props.isSticky && !props.showSticky ? '0' : '1')};
 	transform: ${(props) =>
 		props.isSticky && !props.showSticky
 			? 'translateY(-100%)'

@@ -37,15 +37,15 @@ const ProjectsTitle = styled.h2`
 
 const ProjectsGrid = styled.div`
 	display: grid;
-	grid-template-columns: 1fr;
+	grid-template-columns: minmax(380px, 1fr);
 	gap: 2rem;
-
+	justify-content: center;
 	${media.tablet`
-    	grid-template-columns: repeat(2, 1fr);
+    	grid-template-columns: repeat(2, minmax(380px, 1fr));
   	`}
 
 	${media.desktop`
-    	grid-template-columns: repeat(3, 1fr);
+    	grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
   	`}
 `;
 
@@ -159,7 +159,7 @@ const Projects = () => {
 				liveDemo: null,
 			},
 			{
-				title: 'POSRG E-commerce Platform',
+				title: 'POSRG Platform',
 				description:
 					'Complete web application developed independently from setting up Cloudways hosting to configuring domains and optimizing SEO visibility. Implemented custom UI components and shortcodes based on Figma designs. Achieved 90+ scores in Google Lighthouse for performance, accessibility, and SEO.',
 				image: posrg,

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import styled from 'styled-components';
 import {
 	FaJava,
@@ -61,10 +61,14 @@ const SkillsTitle = styled.h2`
 	}
 
 	${media.mobile`
-    font-size: 1.75rem;
-  `}
+		font-size: 1.75rem;
+	`}
 `;
-
+const SkillsGrid = styled.div`
+	display: grid;
+	gap: 2rem;
+	grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
+`;
 const SkillsCategoryTitle = styled.h3`
 	font-size: 1.5rem;
 	margin: 2rem 0 1rem;
@@ -83,7 +87,7 @@ const SkillsCategoryTitle = styled.h3`
 `;
 
 const TagCloud = styled.div`
-	display:grid;
+	display: grid;
 	grid-template-columns: repeat(auto-fill, minmax(8.5rem, 1fr));
 	gap: 0.8rem;
 	margin-bottom: 1.5rem;
@@ -190,119 +194,124 @@ const ExpertiseDot = styled.div`
 `;
 
 const SkillsSection = () => {
-	// Define skill categories with expertise levels (1-5)
-	const skillCategories = [
-		{
-			category: 'Frontend Development',
-			skills: [
-				{ name: 'React', icon: <FaReact />, level: 5 },
-				{ name: 'Redux', icon: <SiRedux />, level: 5 },
-				{ name: 'TypeScript', icon: <SiTypescript />, level: 4 },
-				{ name: 'JavaScript', icon: <FaJs />, level: 5 },
-				{ name: 'Angular', icon: <FaAngular />, level: 4 },
-				{ name: 'HTML5', icon: <FaHtml5 />, level: 5 },
-				{ name: 'CSS3', icon: <FaCss3Alt />, level: 5 },
-				{ name: 'SASS', icon: <SiSass />, level: 4 },
-				{ name: 'Bootstrap', icon: <FaBootstrap />, level: 4 },
-				{ name: 'Tailwind CSS', icon: <SiTailwindcss />, level: 3 },
-				// { name: 'RxJS', icon: <SiRxjs />, level: 4 },
-				// { name: 'Highcharts', icon: <SiHighcharts />, level: 4 },
-				// { name: 'AG-Grid', icon: <SiAgGrid />, level: 4 },
-			],
-		},
-		{
-			category: 'Backend Development',
-			skills: [
-				{ name: 'Java', icon: <FaJava />, level: 5 },
-				{ name: 'Spring Boot', icon: <SiSpringboot />, level: 4 },
-				{ name: 'Node.js', icon: <FaNodeJs />, level: 4 },
-				{ name: 'Php', icon: <FaPhp />, level: 3 },
-				{ name: 'Python', icon: <FaPython />, level: 3 },
-				{ name: 'REST APIs', icon: <FaDatabase />, level: 5 },
-			],
-		},
-		{
-			category: 'Database Technologies',
-			skills: [
-				{ name: 'MySQL', icon: <SiMysql />, level: 4 },
-				{ name: 'PostgreSQL', icon: <SiPostgresql />, level: 4 },
-				{ name: 'MongoDB', icon: <SiMongodb />, level: 4 },
-				{ name: 'Oracle DB', icon: <SiOracle />, level: 3 },
-				{ name: 'Redis', icon: <SiRedis />, level: 3 },
-			],
-		},
-		{
-			category: 'DevOps & Cloud',
-			skills: [
-				{ name: 'AWS', icon: <FaAws />, level: 4 },
-				// { name: 'EC2', icon: <SiAmazonec2 />, level: 4 },
-				// { name: 'S3', icon: <SiAmazons3 />, level: 4 },
-				// { name: 'Lambda', icon: <SiAmazonlambda />, level: 3 },
-				// { name: 'CloudFront', icon: <SiAmazoncloudfront />, level: 3 },
-				// { name: 'CloudWatch', icon: <SiAmazoncloudwatch />, level: 3 },
-				// { name: 'CodeBuild', icon: <SiAmazoncodebuild />, level: 4 },
-				// { name: 'CodePipeline', icon: <SiAmazoncodepipeline />, level: 4 },
-				{ name: 'Docker', icon: <FaDocker />, level: 4 },
-				{ name: 'Kubernetes', icon: <SiKubernetes />, level: 3 },
-				{ name: 'Jenkins', icon: <SiJenkins />, level: 3 },
-			],
-		},
-		{
-			category: 'Testing & Tools',
-			skills: [
-				{ name: 'Jest', icon: <SiJest />, level: 5 },
-				{ name: 'RTL', icon: <FaReact />, level: 5 },
-				{ name: 'JUnit', icon: <SiJunit5  />, level: 4 },
-				{ name: 'Selenium', icon: <SiSelenium />, level: 3 },
-				{ name: 'Git', icon: <FaGitAlt />, level: 5 },
-				{ name: 'Webpack', icon: <SiWebpack />, level: 4 },
-				{ name: 'Storybook', icon: <SiStorybook />, level: 4 },
-				{ name: 'Jira', icon: <FaJira />, level: 4 },
-				{ name: 'Figma', icon: <FaFigma />, level: 3 },
-			],
-		},
-		{
-			category: 'CMS & Other',
-			skills: [
-				{ name: 'WordPress', icon: <FaWordpress />, level: 4 },
-				{ name: 'Elementor', icon: <FaWordpress />, level: 4 },
-				{ name: 'WooCommerce', icon: <FaWordpress />, level: 3 },
-				// { name: 'Liferay', icon: <FaWordpress />, level: 4 },
-			],
-		},
-	];
+	const skillCategories = useMemo(
+		() => [
+			{
+				category: 'Frontend Development',
+				skills: [
+					{ name: 'React', icon: <FaReact />, level: 5 },
+					{ name: 'Redux', icon: <SiRedux />, level: 5 },
+					{ name: 'TypeScript', icon: <SiTypescript />, level: 4 },
+					{ name: 'JavaScript', icon: <FaJs />, level: 5 },
+					{ name: 'Angular', icon: <FaAngular />, level: 4 },
+					{ name: 'HTML5', icon: <FaHtml5 />, level: 5 },
+					{ name: 'CSS3', icon: <FaCss3Alt />, level: 5 },
+					{ name: 'SASS', icon: <SiSass />, level: 4 },
+					{ name: 'Bootstrap', icon: <FaBootstrap />, level: 4 },
+					{ name: 'Tailwind CSS', icon: <SiTailwindcss />, level: 3 },
+					// { name: 'RxJS', icon: <SiRxjs />, level: 4 },
+					// { name: 'Highcharts', icon: <SiHighcharts />, level: 4 },
+					// { name: 'AG-Grid', icon: <SiAgGrid />, level: 4 },
+				],
+			},
+			{
+				category: 'Backend Development',
+				skills: [
+					{ name: 'Java', icon: <FaJava />, level: 5 },
+					{ name: 'Spring Boot', icon: <SiSpringboot />, level: 4 },
+					{ name: 'Node.js', icon: <FaNodeJs />, level: 4 },
+					{ name: 'Php', icon: <FaPhp />, level: 3 },
+					{ name: 'Python', icon: <FaPython />, level: 3 },
+					{ name: 'REST APIs', icon: <FaDatabase />, level: 5 },
+				],
+			},
+			{
+				category: 'Database Technologies',
+				skills: [
+					{ name: 'MySQL', icon: <SiMysql />, level: 4 },
+					{ name: 'PostgreSQL', icon: <SiPostgresql />, level: 4 },
+					{ name: 'MongoDB', icon: <SiMongodb />, level: 4 },
+					{ name: 'Oracle DB', icon: <SiOracle />, level: 3 },
+					{ name: 'Redis', icon: <SiRedis />, level: 3 },
+				],
+			},
+			{
+				category: 'DevOps & Cloud',
+				skills: [
+					{ name: 'AWS', icon: <FaAws />, level: 4 },
+					// { name: 'EC2', icon: <SiAmazonec2 />, level: 4 },
+					// { name: 'S3', icon: <SiAmazons3 />, level: 4 },
+					// { name: 'Lambda', icon: <SiAmazonlambda />, level: 3 },
+					// { name: 'CloudFront', icon: <SiAmazoncloudfront />, level: 3 },
+					// { name: 'CloudWatch', icon: <SiAmazoncloudwatch />, level: 3 },
+					// { name: 'CodeBuild', icon: <SiAmazoncodebuild />, level: 4 },
+					// { name: 'CodePipeline', icon: <SiAmazoncodepipeline />, level: 4 },
+					{ name: 'Docker', icon: <FaDocker />, level: 4 },
+					{ name: 'Kubernetes', icon: <SiKubernetes />, level: 3 },
+					{ name: 'Jenkins', icon: <SiJenkins />, level: 3 },
+				],
+			},
+			{
+				category: 'Testing & Tools',
+				skills: [
+					{ name: 'Jest', icon: <SiJest />, level: 5 },
+					{ name: 'RTL', icon: <FaReact />, level: 5 },
+					{ name: 'JUnit', icon: <SiJunit5 />, level: 4 },
+					{ name: 'Selenium', icon: <SiSelenium />, level: 3 },
+					{ name: 'Git', icon: <FaGitAlt />, level: 5 },
+					{ name: 'Webpack', icon: <SiWebpack />, level: 4 },
+					{ name: 'Storybook', icon: <SiStorybook />, level: 4 },
+					{ name: 'Jira', icon: <FaJira />, level: 4 },
+					{ name: 'Figma', icon: <FaFigma />, level: 3 },
+				],
+			},
+			{
+				category: 'CMS & Other',
+				skills: [
+					{ name: 'WordPress', icon: <FaWordpress />, level: 4 },
+					{ name: 'Elementor', icon: <FaWordpress />, level: 4 },
+					{ name: 'Divi', icon: <FaWordpress />, level: 4 },
+					{ name: 'WooCommerce', icon: <FaWordpress />, level: 3 },
+					{ name: 'Liferay', icon: <FaWordpress />, level: 4 },
+				],
+			},
+		],
+		[]
+	);
 
 	return (
 		<SkillsContainer id='skills'>
 			<SkillsTitle>Technical Skills</SkillsTitle>
 
-			{skillCategories.map((category, categoryIndex) => (
-				<div key={categoryIndex}>
-					<SkillsCategoryTitle>
-						{category.category}
-					</SkillsCategoryTitle>
-					<TagCloud>
-						{category.skills.map((skill, skillIndex) => (
-							<SkillTag
-								data-tooltip={`Expertise Level: ${skill.level} / 5`}
-								key={`${categoryIndex}-${skillIndex}`}>
-								<TagIcon>{skill.icon}</TagIcon>
-								<div>
-									<TagName>{skill.name}</TagName>
-									<ExpertiseLevel>
-										{[...Array(5)].map((_, i) => (
-											<ExpertiseDot
-												key={i}
-												active={i < skill.level}
-											/>
-										))}
-									</ExpertiseLevel>
-								</div>
-							</SkillTag>
-						))}
-					</TagCloud>
-				</div>
-			))}
+			<SkillsGrid>
+				{skillCategories.map((category, categoryIndex) => (
+					<div key={categoryIndex}>
+						<SkillsCategoryTitle>
+							{category.category}
+						</SkillsCategoryTitle>
+						<TagCloud>
+							{category.skills.map((skill, skillIndex) => (
+								<SkillTag
+									data-tooltip={`Expertise Level: ${skill.level} / 5`}
+									key={`${categoryIndex}-${skillIndex}`}>
+									<TagIcon>{skill.icon}</TagIcon>
+									<div>
+										<TagName>{skill.name}</TagName>
+										<ExpertiseLevel>
+											{[...Array(5)].map((_, i) => (
+												<ExpertiseDot
+													key={i}
+													active={i < skill.level}
+												/>
+											))}
+										</ExpertiseLevel>
+									</div>
+								</SkillTag>
+							))}
+						</TagCloud>
+					</div>
+				))}
+			</SkillsGrid>
 		</SkillsContainer>
 	);
 };

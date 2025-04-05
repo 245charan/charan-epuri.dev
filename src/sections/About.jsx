@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import styled from 'styled-components';
 import { FaCode, FaServer, FaDatabase, FaMobileAlt } from 'react-icons/fa';
 
@@ -47,13 +47,15 @@ const AboutText = styled.div`
 
 const AboutServices = styled.div`
 	display: grid;
-	grid-template-columns: 1fr;
 	gap: 1.5rem;
-
+	justify-content: center;
+	grid-template-columns: 1fr;
 	@media (min-width: 36rem) {
-		grid-template-columns: repeat(2, 1fr);
+		grid-template-columns: repeat(2, minmax(300px, 380px));
 	}
 `;
+// grid-template-columns: repeat(2, minmax(300px, 1fr));
+// grid-template-columns: 1fr;
 
 const ServiceCard = styled.div`
 	background-color: var(--card-background);
@@ -106,32 +108,35 @@ const ServiceDescription = styled.p`
 `;
 
 const About = () => {
-	const services = [
-		{
-			title: 'Frontend Development',
-			description:
-				'Creating responsive and interactive user interfaces using React, Redux, and modern CSS frameworks.',
-			icon: <FaCode />,
-		},
-		{
-			title: 'WordPress Development',
-			description:
-				'Creating custom WordPress themes, plugins, and integrating with various APIs and services.',
-			icon: <FaMobileAlt />,
-		},
-		{
-			title: 'Backend Development',
-			description:
-				'Building robust server-side applications with Java, Spring Boot, RESTful APIs, and microservices.',
-			icon: <FaServer />,
-		},
-		// {
-		// 	title: 'Database Design',
-		// 	description:
-		// 		'Designing and optimizing databases using MySQL, MongoDB, and implementing efficient data access patterns.',
-		// 	icon: <FaDatabase />,
-		// },
-	];
+	const services = useMemo(
+		() => [
+			{
+				title: 'Frontend Development',
+				description:
+					'Creating responsive and interactive user interfaces using React, Redux, and modern CSS frameworks.',
+				icon: <FaCode />,
+			},
+			{
+				title: 'WordPress Development',
+				description:
+					'Creating custom WordPress themes, plugins, and integrating with various APIs and services.',
+				icon: <FaMobileAlt />,
+			},
+			{
+				title: 'Backend Development',
+				description:
+					'Building robust server-side applications with Java, Spring Boot, RESTful APIs, and microservices.',
+				icon: <FaServer />,
+			},
+			// {
+			// 	title: 'Database Design',
+			// 	description:
+			// 		'Designing and optimizing databases using MySQL, MongoDB, and implementing efficient data access patterns.',
+			// 	icon: <FaDatabase />,
+			// },
+		],
+		[]
+	);
 
 	return (
 		<AboutContainer id='about'>
