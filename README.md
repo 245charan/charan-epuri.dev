@@ -3,8 +3,15 @@
 A modern, responsive portfolio showcasing my skills and experience as a Full Stack Java Developer with expertise in React and WordPress.
 
 
+## New Changes
 
-![Version 1 Demo](https://github.com/245charan/charan-epuri.dev/blob/main/src/assets/video/Portfolio%20Charan%20Epuri1-v1.gif)
+1. Dynamic layout for projects and a detail view page.
+2. Compact design for Skills sections
+3. Conditional off-loading profile card in project detail page when in mobile view
+
+
+
+![Version 1 Demo](https://github.com/245charan/charan-epuri.dev/tree/main/src/assets/video/Portfolio%20Charan%20Epuri1-v1.gif)
 
 ## ✨ Features
 
@@ -28,5 +35,13 @@ A modern, responsive portfolio showcasing my skills and experience as a Full Sta
 
 
 ---
+
+
+## New Changes
+
+1. Dynamic layout for projects and a detail view page.
+2. Compact design for Skills sections
+3. Conditional off-loading profile card in project detail page when in mobile view
+
 
 Made with ❤️ by Charan Epuri
