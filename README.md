@@ -4,7 +4,7 @@ A modern, responsive portfolio showcasing my skills and experience as a Full Sta
 
 
 
-![Version 1 Demo](https://github.com/245charan/charan-epuri.dev/blob/main/src/assets/video/Portfolio%20Charan%20Epuri1-v1.mp4)
+![Version 1 Demo](https://github.com/245charan/charan-epuri.dev/blob/main/src/assets/video/Portfolio%20Charan%20Epuri1-v1.gif)
 
 ## ✨ Features
 
