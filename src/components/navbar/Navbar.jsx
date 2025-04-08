@@ -12,54 +12,50 @@ import {
 	FaArrowUp,
 } from 'react-icons/fa';
 import { media } from '../../styles/Responsive';
+import { useNavigate, useLocation } from 'react-router-dom';
 
 const NavContainer = styled.nav`
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-	padding: ${(props) => {
-		if (props.isMobile) return '0 1rem';
-		// if (props.isSticky) return '.25rem 1rem';
+	padding: ${({ $isMobile }) => {
+		if ($isMobile) return '0 1rem';
 		return '.25rem 1rem';
 	}};
-	background-color: ${(props) => {
-		if (props.isMobile) return 'var(--card-background)';
-		// if (props.isSticky) return 'var(--card-background)';
+	background-color: ${({ $isMobile }) => {
+		if ($isMobile) return 'var(--card-background)';
 		return 'var(--card-background)';
 	}};
-	border-radius: ${(props) =>
-		props.isMobile
+	border-radius: ${({ $isMobile }) =>
+		$isMobile
 			? '0px 0px var(--border-radius) var(--border-radius)'
 			: 'var(--border-radius)'};
-	position: ${(props) => {
-		if (props.isMobile) return 'sticky';
-		if (props.isSticky) return 'fixed';
+	position: ${({ $isMobile, $isSticky }) => {
+		if ($isMobile) return 'sticky';
+		if ($isSticky) return 'fixed';
 		return 'relative';
 	}};
-	top: ${(props) => {
-		if (props.isMobile) return '0';
-		if (props.isSticky) return '20px';
+	top: ${({ $isMobile, $isSticky }) => {
+		if ($isMobile) return '0';
+		if ($isSticky) return '20px';
 		return 'auto';
 	}};
 	z-index: 100;
-	width: ${(props) => {
-		if (props.isSticky) return '67%';
+	width: ${({ $isSticky }) => {
+		if ($isSticky) return '67%';
 		return '100%';
 	}};
-	box-shadow: ${(props) => {
-		if (props.isMobile) return 'var(--card-shadow)';
-		// if (props.isSticky) return 'var(--card-shadow)';
+	box-shadow: ${({ $isMobile }) => {
+		if ($isMobile) return 'var(--card-shadow)';
 		return '.5rem .25rem 1.25rem rgba(143, 143, 143, 0.2)';
 	}};
 	transition: all 0.3s ease;
-	display: ${(props) => (props.isSticky && !props.showSticky ? 'none' : 'flex')};
-	// opacity: ${(props) => (props.isSticky && !props.showSticky ? '0' : '1')};
-	transform: ${(props) =>
-		props.isSticky && !props.showSticky
-			? 'translateY(-100%)'
-			: 'translateY(0)'};
-	pointer-events: ${(props) =>
-		props.isSticky && !props.showSticky ? 'none' : 'auto'};
+	display: ${({ $isSticky, $showSticky }) =>
+		$isSticky && !$showSticky ? 'none' : 'flex'};
+	transform: ${({ $isSticky, $showSticky }) =>
+		$isSticky && !$showSticky ? 'translateY(-100%)' : 'translateY(0)'};
+	pointer-events: ${({ $isSticky, $showSticky }) =>
+		$isSticky && !$showSticky ? 'none' : 'auto'};
 `;
 
 const Logo = styled.div`
@@ -119,47 +115,47 @@ const MenuToggle = styled.button`
 		transform-origin: 0.0625rem;
 
 		&:first-child {
-			transform: ${({ isOpen }) =>
-				isOpen ? 'rotate(45deg)' : 'rotate(0)'};
+			transform: ${({ $isOpen }) =>
+				$isOpen ? 'rotate(45deg)' : 'rotate(0)'};
 		}
 
 		&:nth-child(2) {
-			opacity: ${({ isOpen }) => (isOpen ? '0' : '1')};
-			transform: ${({ isOpen }) =>
-				isOpen ? 'translateX(1.25rem)' : 'translateX(0)'};
+			opacity: ${({ $isOpen }) => ($isOpen ? '0' : '1')};
+			transform: ${({ $isOpen }) =>
+				$isOpen ? 'translateX(1.25rem)' : 'translateX(0)'};
 		}
 
 		&:nth-child(3) {
-			transform: ${({ isOpen }) =>
-				isOpen ? 'rotate(-45deg)' : 'rotate(0)'};
+			transform: ${({ $isOpen }) =>
+				$isOpen ? 'rotate(-45deg)' : 'rotate(0)'};
 		}
 	}
 `;
 
 const NavLinks = styled.div`
 	display: flex;
-	flex-direction: ${(props) => (props.isMobile ? 'column' : 'row')};
+	flex-direction: ${({ $isMobile }) => ($isMobile ? 'column' : 'row')};
 	justify-content: center;
-	align-items: ${(props) => (props.isMobile ? '' : 'center')};
-	position: ${(props) => (props.isMobile ? 'fixed' : 'relative')};
-	top: ${(props) => (props.isMobile ? '0' : 'auto')};
-	right: ${(props) => (props.isMobile ? '0' : 'auto')};
-	height: ${(props) => (props.isMobile ? '100vh' : 'auto')};
-	background-color: ${(props) =>
-		props.isMobile ? 'var(--card-background)' : 'transparent'};
+	align-items: ${({ $isMobile }) => ($isMobile ? '' : 'center')};
+	position: ${({ $isMobile }) => ($isMobile ? 'fixed' : 'relative')};
+	top: ${({ $isMobile }) => ($isMobile ? '0' : 'auto')};
+	right: ${({ $isMobile }) => ($isMobile ? '0' : 'auto')};
+	height: ${({ $isMobile }) => ($isMobile ? '100vh' : 'auto')};
+	background-color: ${({ $isMobile }) =>
+		$isMobile ? 'var(--card-background)' : 'transparent'};
 	transform: translateZ(0); /* Hardware acceleration */
 	will-change: transform;
 	transition: transform 0.3s ease-in-out;
-	transform: ${({ isMobile, isOpen }) =>
-		isMobile && !isOpen ? 'translateX(100%)' : 'translateX(0)'};
-	box-shadow: ${(props) =>
-		props.isMobile ? '-.3125rem 0 .9375rem rgba(0, 0, 0, 0.1)' : 'none'};
+	transform: ${({ $isMobile, $isOpen }) =>
+		$isMobile && !$isOpen ? 'translateX(100%)' : 'translateX(0)'};
+	box-shadow: ${({ $isMobile }) =>
+		$isMobile ? '-.3125rem 0 .9375rem rgba(0, 0, 0, 0.1)' : 'none'};
 	z-index: 9;
-	padding: ${(props) => (props.isMobile ? '5rem 2rem 2rem' : '0')};
+	padding: ${({ $isMobile }) => ($isMobile ? '5rem 2rem 2rem' : '0')};
 
 	${media.mobile`
-		width: 85%;
-	`}
+    width: 85%;
+  `}
 `;
 
 const NavItem = styled.a`
@@ -167,19 +163,17 @@ const NavItem = styled.a`
 	list-style: none;
 	text-decoration: none;
 	padding: 0.5rem 1rem;
-	margin: ${(props) => (props.isMobile ? '.5rem 0' : '0 .5rem')};
+	margin: ${({ $isMobile }) => ($isMobile ? '.5rem 0' : '0 .5rem')};
 	font-weight: 500;
 	position: relative;
-	transition: color 0.3s ease;
 	cursor: pointer;
 	display: flex;
 	align-items: center;
 	gap: 0.5rem;
-	justify-content: center;
 	transition: color 0.3s ease, transform 0.3s ease;
-	height: 2.5rem; /* Set consistent height */
-	transform: translateZ(0); /* Hardware acceleration */
-	
+	height: 2.5rem;
+	transform: translateZ(0);
+
 	&:hover,
 	&.active {
 		color: var(--primary-color);
@@ -188,7 +182,7 @@ const NavItem = styled.a`
 			position: relative;
 			opacity: 1;
 			transform: translateY(0);
-			transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+			transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
 			pointer-events: auto;
 		}
 	}
@@ -240,16 +234,14 @@ const Overlay = styled.div`
 	width: 100%;
 	height: 100%;
 	background-color: rgba(0, 0, 0, 0.7);
-	display: ${({ isOpen, isMobile }) =>
-		isOpen && isMobile ? 'block' : 'none'};
+	display: ${({ $isOpen, $isMobile }) =>
+		$isOpen && $isMobile ? 'block' : 'none'};
 	z-index: 8;
 `;
 
 const SocialIcons = styled.div`
 	display: flex;
 	gap: 1.25rem;
-	// margin-left: auto;
-	// margin-right: 20px;
 
 	${media.mobile`
     margin-top: 1.5rem;
@@ -289,12 +281,13 @@ const ScrollToTopButton = styled.button`
 	box-shadow: 0 0.25rem 0.625rem rgba(0, 0, 0, 0.2);
 	transition: all 0.3s ease;
 	z-index: 99;
-	opacity: ${(props) => (props.visible ? '1' : '0')};
-	transform: ${(props) => (props.visible ? 'scale(1)' : 'scale(0.8)')};
-	pointer-events: ${(props) => (props.visible ? 'auto' : 'none')};
+	opacity: ${({ $visible }) => ($visible ? '1' : '0')};
+	transform: ${({ $visible }) => ($visible ? 'scale(1)' : 'scale(0.8)')};
+	pointer-events: ${({ $visible }) => ($visible ? 'auto' : 'none')};
 
 	&:hover {
-		transform: ${(props) => (props.visible ? 'scale(1.1)' : 'scale(0.8)')};
+		transform: ${({ $visible }) =>
+			$visible ? 'scale(1.1)' : 'scale(0.8)'};
 		box-shadow: 0 0.375rem 0.9375rem rgba(0, 0, 0, 0.25);
 	}
 `;
@@ -306,9 +299,22 @@ const Navbar = ({ isMobile }) => {
 	const [showSticky, setShowSticky] = useState(false);
 	const [showScrollTop, setShowScrollTop] = useState(false);
 
+	const navigate = useNavigate();
+	const location = useLocation();
+
+	useEffect(() => {
+		if (location.hash) {
+			const sectionId = location.hash.substring(1);
+			setActiveLink(sectionId);
+
+			setTimeout(() => {
+				scrollToSection(sectionId);
+			}, 100);
+		}
+	}, [location]);
+
 	useEffect(() => {
 		const handleScroll = () => {
-			// Show sticky nav when scrolled past 6.25rem
 			if (window.scrollY > 100) {
 				setIsSticky(true);
 				setShowScrollTop(true);
@@ -317,7 +323,6 @@ const Navbar = ({ isMobile }) => {
 				setShowScrollTop(false);
 			}
 
-			// Determine active section based on scroll position
 			const sections = navItems.map((item) =>
 				document.getElementById(item.id)
 			);
@@ -353,16 +358,52 @@ const Navbar = ({ isMobile }) => {
 		setIsOpen(!isOpen);
 	};
 
+	// Handle logo click
+	const handleLogoClick = () => {
+		// If we're on a detail page, navigate to home
+		if (!isHomeOrSectionPage()) {
+			navigate('/charan-epuri.dev');
+		} else {
+			// Otherwise just scroll to top
+			window.scrollTo({
+				top: 0,
+				behavior: 'smooth',
+			});
+		}
+	};
+
+	// Check if current URL is the home page or a section within it
+	const isHomeOrSectionPage = () => {
+		const path = location.pathname;
+		return (
+			path === '/charan-epuri.dev' ||
+			path === '/charan-epuri.dev/' ||
+			path.match(/^\/charan-epuri\.dev\/#/)
+		);
+	};
+
 	const handleLinkClick = (link) => {
 		setActiveLink(link);
 		if (isMobile) {
 			setIsOpen(false);
 		}
 
-		// Smooth scroll to the section
+		if (!isHomeOrSectionPage()) {
+			navigate(`/charan-epuri.dev/#${link}`);
+			return;
+		}
+		scrollToSection(link);
+	};
+
+	const scrollToSection = (link) => {
 		const section = document.getElementById(link);
 		if (section) {
-			section.scrollIntoView({ behavior: 'smooth' });
+			window.scrollTo({
+				top: section.offsetTop - 100,
+				behavior: 'smooth',
+			});
+
+			window.history.pushState(null, '', `/charan-epuri.dev/#${link}`);
 		}
 	};
 
@@ -371,13 +412,17 @@ const Navbar = ({ isMobile }) => {
 			top: 0,
 			behavior: 'smooth',
 		});
+
+		if (isHomeOrSectionPage()) {
+			window.history.pushState(null, '', '/charan-epuri.dev');
+		}
 	};
 
 	const navItems = [
 		{ id: 'home', label: 'Home', icon: <FaHome /> },
 		{ id: 'about', label: 'About', icon: <FaUser /> },
-		{ id: 'skills', label: 'Skills', icon: <FaCode /> },
 		{ id: 'projects', label: 'Projects', icon: <FaProjectDiagram /> },
+		{ id: 'skills', label: 'Skills', icon: <FaCode /> },
 		{ id: 'experience', label: 'Experience', icon: <FaBriefcase /> },
 		{ id: 'contact', label: 'Contact', icon: <FaEnvelope /> },
 	];
@@ -385,12 +430,12 @@ const Navbar = ({ isMobile }) => {
 	return (
 		<>
 			{/* Main Navigation */}
-			<NavContainer isMobile={isMobile}>
-				<Logo>CE.</Logo>
+			<NavContainer $isMobile={isMobile}>
+				<Logo onClick={handleLogoClick}>CE.</Logo>
 
 				{!isMobile && (
 					<>
-						<NavLinks isMobile={isMobile}>
+						<NavLinks $isMobile={isMobile}>
 							{navItems.map((item) => (
 								<NavItem
 									title={item.label}
@@ -403,7 +448,7 @@ const Navbar = ({ isMobile }) => {
 										e.preventDefault();
 										handleLinkClick(item.id);
 									}}
-									isMobile={isMobile}>
+									$isMobile={isMobile}>
 									<NavIcon>{item.icon}</NavIcon>
 									<NavLabel>{item.label}</NavLabel>
 								</NavItem>
@@ -435,7 +480,7 @@ const Navbar = ({ isMobile }) => {
 					<MenuToggle
 						title='Menu'
 						aria-label='Menu'
-						isOpen={isOpen}
+						$isOpen={isOpen}
 						onClick={toggleMenu}>
 						<div />
 						<div />
@@ -447,10 +492,10 @@ const Navbar = ({ isMobile }) => {
 			{/* Sticky Navigation */}
 			{!isMobile && (
 				<NavContainer
-					isSticky={true}
-					showSticky={showSticky}>
-					<Logo>CE.</Logo>
-					<NavLinks isMobile={false}>
+					$isSticky={true}
+					$showSticky={showSticky}>
+					<Logo onClick={handleLogoClick}>CE.</Logo>
+					<NavLinks $isMobile={false}>
 						{navItems.map((item) => (
 							<NavItem
 								title={item.label}
@@ -463,7 +508,7 @@ const Navbar = ({ isMobile }) => {
 									e.preventDefault();
 									handleLinkClick(item.id);
 								}}
-								isMobile={false}>
+								$isMobile={false}>
 								<NavIcon>{item.icon}</NavIcon>
 								<NavLabel>{item.label}</NavLabel>
 							</NavItem>
@@ -493,13 +538,13 @@ const Navbar = ({ isMobile }) => {
 			{isMobile && (
 				<>
 					<Overlay
-						isOpen={isOpen}
-						isMobile={isMobile}
+						$isOpen={isOpen}
+						$isMobile={isMobile}
 						onClick={toggleMenu}
 					/>
 					<NavLinks
-						isMobile={isMobile}
-						isOpen={isOpen}>
+						$isMobile={isMobile}
+						$isOpen={isOpen}>
 						{navItems.map((item) => (
 							<NavItem
 								title={item.label}
@@ -512,7 +557,7 @@ const Navbar = ({ isMobile }) => {
 									e.preventDefault();
 									handleLinkClick(item.id);
 								}}
-								isMobile={isMobile}>
+								$isMobile={isMobile}>
 								<NavIcon>{item.icon}</NavIcon>
 								{item.label}
 							</NavItem>
@@ -542,7 +587,7 @@ const Navbar = ({ isMobile }) => {
 
 			{/* Scroll to Top Button */}
 			<ScrollToTopButton
-				visible={showScrollTop}
+				$visible={showScrollTop}
 				onClick={scrollToTop}
 				aria-label='Scroll to top'
 				title='Scroll to top'>

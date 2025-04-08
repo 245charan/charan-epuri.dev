@@ -81,8 +81,8 @@ const TimelineIcon = styled.div`
 	border-radius: 50%;
 	background-color: var(--primary-color);
 	top: 0.9375rem;
-	right: ${(props) => (props.position === 'left' ? '-1.25rem' : 'auto')};
-	left: ${(props) => (props.position === 'right' ? '-1.25rem' : 'auto')};
+	right: ${({$position}) => ($position === 'left' ? '-1.25rem' : 'auto')};
+	left: ${({$position}) => ($position === 'right' ? '-1.25rem' : 'auto')};
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -119,9 +119,7 @@ const TimelineDescription = styled.p`
 	margin-bottom: 0;
 	${media.mobile`
     display: none;
-    // &:hover{
-    //   todo imporve on-click expand the 
-    //   }
+
   `}
 `;
 
@@ -192,7 +190,7 @@ const Experience = () => {
 				{experiences.map((exp, index) => (
 					<TimelineItem
 						key={index}
-						position={index % 2 === 0 ? 'left' : 'right'}>
+						$position={index % 2 === 0 ? 'left' : 'right'}>
 						<TimelineContent>
 							<TimelineDate>{exp.date}</TimelineDate>
 							<TimelineTitle>{exp.title}</TimelineTitle>
@@ -202,7 +200,7 @@ const Experience = () => {
 							</TimelineDescription>
 						</TimelineContent>
 						<TimelineIcon
-							position={index % 2 === 0 ? 'left' : 'right'}>
+							$position={index % 2 === 0 ? 'left' : 'right'}>
 							{exp.type === 'work' ? (
 								<FaBriefcase />
 							) : (

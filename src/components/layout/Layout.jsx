@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import Navbar from '../navbar/Navbar';
 import ProfileCard from '../profile/ProfileCard';
-import { media } from '../../styles/Responsive';
+import { media, breakpoints } from '../../styles/Responsive';
 
 const LayoutContainer = styled.div`
 	display: flex;
@@ -79,16 +79,26 @@ const DesktopNavbarContainer = styled.div`
 `;
 
 const Layout = ({ children }) => {
-	const [isMobile, setIsMobile] = useState(window.innerWidth < 992);
+	const [isMobile, setIsMobile] = useState(
+		window.innerWidth < breakpoints.md
+	);
+
+	const isProjectDetailPage =
+		location.pathname.startsWith('/charan-epuri.dev/') &&
+		location.pathname !== '/charan-epuri.dev' &&
+		location.pathname !== '/charan-epuri.dev/' &&
+		location.hash === '';
 
 	useEffect(() => {
 		const handleResize = () => {
-			setIsMobile(window.innerWidth < 992);
+			setIsMobile(window.innerWidth < breakpoints.md);
 		};
-
+		handleResize()
 		window.addEventListener('resize', handleResize);
 		return () => window.removeEventListener('resize', handleResize);
 	}, []);
+
+	const showProfile = !(isProjectDetailPage && isMobile);
 
 	return (
 		<LayoutContainer>
@@ -98,9 +108,11 @@ const Layout = ({ children }) => {
 				</MobileNavbarContainer>
 			)}
 
-			<LeftSection>
-				<ProfileCard />
-			</LeftSection>
+			{showProfile && (
+				<LeftSection>
+					<ProfileCard />
+				</LeftSection>
+			)}
 
 			<RightSection>
 				{!isMobile && (

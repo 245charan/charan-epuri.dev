@@ -55,8 +55,8 @@ const CustomizerPanel = styled.div`
 	background-color: var(--card-background);
 	box-shadow: -0.3125rem 0 0.9375rem rgba(0, 0, 0, 0.1);
 	z-index: 1000;
-	transform: ${({ isOpen }) =>
-		isOpen ? 'translateX(0)' : 'translateX(100%)'};
+	transform: ${({ $isOpen }) =>
+		$isOpen ? 'translateX(0)' : 'translateX(100%)'};
 	transition: transform 0.3s ease-in-out;
 	display: flex;
 	flex-direction: column;
@@ -117,8 +117,8 @@ const SectionTitle = styled.h4`
 		left: 0;
 		width: 1.875rem;
 		height: 0.125rem;
-		${(props) => {
-			if (props.custom) {
+		${({$custom}) => {
+			if ($custom) {
 				return `background: ${generateGradient()}; width: 100% !important; height:0.5rem; bottom: -0.75rem;`;
 			}
 			else {
@@ -150,7 +150,7 @@ const ThemeOption = styled.div`
 	border-radius: 0.5rem;
 	overflow: hidden;
 	border: 0.125rem solid
-		${(props) => (props.isActive ? 'var(--primary-color)' : 'transparent')};
+		${({$isActive}) => ($isActive ? 'var(--primary-color)' : 'transparent')};
 	transition: all 0.3s ease;
 
 	&:hover {
@@ -395,7 +395,7 @@ const ThemeCustomizer = () => {
 				<FaPalette />
 			</CustomizerButton>
 
-			<CustomizerPanel isOpen={isOpen}>
+			<CustomizerPanel $isOpen={isOpen}>
 				<CustomizerHeader>
 					<CustomizerTitle>
 						<FaPalette /> Theme Customizer
@@ -409,12 +409,12 @@ const ThemeCustomizer = () => {
 				</CustomizerHeader>
 
 				<CustomizerContent>
-					<SectionTitle custom={false}>Choose Theme</SectionTitle>
+					<SectionTitle $custom={false}>Choose Theme</SectionTitle>
 					<ThemeGrid>
 						{predefinedThemes.map((theme) => (
 							<ThemeOption
 								key={theme.name}
-								isActive={themeName === theme.name}
+								$isActive={themeName === theme.name}
 								onClick={() => handleThemeChange(theme.name)}
 								$mobileThemeOrder={theme.mobileThemeOrder}
 								$desktopThemeOrder={theme.desktopThemeOrder}>
@@ -434,7 +434,7 @@ const ThemeCustomizer = () => {
 						))}
 					</ThemeGrid>
 
-					<SectionTitle custom={true}>Customize Colors</SectionTitle>
+					<SectionTitle $custom={true}>Customize Colors</SectionTitle>
 					<CutomizeGrid>
 						<ColorPickerGroup>
 							<ColorPickerLabel>Primary Color</ColorPickerLabel>

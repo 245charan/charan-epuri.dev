@@ -18,14 +18,16 @@ export default defineConfig({
 		}),
 	],
 	resolve: {
-		extensions: ['.js', '.jsx', '.ts', '.tsx'], // Ensure .jsx is recognized
+		extensions: ['.js', '.jsx', '.ts', '.tsx'],
 	},
 	base: '/charan-epuri.dev',
 	build: {
 		minify: 'terser',
 		terserOptions: {
 			compress: {
-				drop_console: true, // Remove console logs in production
+				drop_console: true, 
+				dead_code: true,
+				drop_debugger: true,
 			},
 		},
 	},

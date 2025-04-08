@@ -11,37 +11,40 @@ const ProgressBarContainer = styled.div`
 	right: 0;
 	z-index: 9999999;
 `;
+
 const ProgressFill = styled.div`
 	height: 100%;
 	background-color: var(--primary-color);
-	width: ${(prop) => prop.scrollPercentage}%;
+	width: ${({$scrollPercentage}) => $scrollPercentage}%;
 	border-radius: 0rem .25rem .25rem 0rem;
 	transition: width 0.2s ease-out;
 `;
 
 const ProgressBar = () => {
 	const [scrollPercentage, setScrollPercentage] = useState(0);
+	
 	useEffect(() => {
 		const handleScroll = () => {
 			const windowHeight = window.innerHeight;
 			const documentHeight = document.documentElement.scrollHeight;
 			const scrollY = window.scrollY;
 
-			const scrollPercent =
+			const scrollPercent = 
 				(scrollY / (documentHeight - windowHeight)) * 100;
 			setScrollPercentage(scrollPercent);
 		};
 
+		handleScroll();
+		
 		window.addEventListener('scroll', handleScroll);
 		return () => {
 			window.removeEventListener('scroll', handleScroll);
 		};
 	}, []);
+	
 	return (
 		<ProgressBarContainer>
-			<ProgressFill scrollPercentage={scrollPercentage}>
-				{''}
-			</ProgressFill>
+			<ProgressFill $scrollPercentage={scrollPercentage} />
 		</ProgressBarContainer>
 	);
 };

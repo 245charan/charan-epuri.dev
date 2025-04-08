@@ -9,6 +9,7 @@ A modern, responsive portfolio showcasing my skills and experience as a Full Sta
 2. Compact design for Skills sections
 3. Conditional off-loading profile card in project detail page when in mobile view
 
+![v1.1.0](https://github.com/245charan/charan-epuri.dev/blob/main/src/assets/lighthouse%20report/Lighthouse%20Report%20v1.1.0.png)
 
 
 ![Version 1 Demo](https://github.com/245charan/charan-epuri.dev/blob/main/src/assets/video/Portfolio%20Charan%20Epuri1-v1.gif)

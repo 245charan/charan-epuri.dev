@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react';
+import React, { useMemo, useState } from 'react';
 import styled from 'styled-components';
 import {
 	FaJava,
@@ -37,6 +37,16 @@ import {
 	SiWebpack,
 	SiSass,
 	SiTailwindcss,
+	// SiRxjs,
+	// SiHighcharts,
+	// SiAgGrid,
+	// SiAmazonec2,
+	// SiAmazons3,
+	// SiAmazonlambda,
+	// SiAmazoncloudfront,
+	// SiAmazoncloudwatch,
+	// SiAmazoncodebuild,
+	// SiAmazoncodepipeline,
 } from 'react-icons/si';
 import { media } from '../styles/Responsive';
 
@@ -64,44 +74,63 @@ const SkillsTitle = styled.h2`
 		font-size: 1.75rem;
 	`}
 `;
-const SkillsGrid = styled.div`
-	display: grid;
-	gap: 2rem;
-	grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
-`;
-const SkillsCategoryTitle = styled.h3`
-	font-size: 1.5rem;
-	margin: 2rem 0 1rem;
-	color: var(--text-color);
-	position: relative;
 
-	&::after {
-		content: '';
-		position: absolute;
-		bottom: -0.3125rem;
-		left: 0;
-		width: 1.875rem;
-		height: 0.125rem;
-		background-color: var(--primary-color);
+const TabsContainer = styled.div`
+	margin-bottom: 1.5rem;
+	display: grid;
+	grid-template-columns: repeat(3, minmax(2rem, 1fr));
+	gap: 0.5rem;
+	border-bottom: 1px solid var(--border-color);
+	padding-bottom: 0.5rem;
+	${media.desktop`
+		grid-template-columns: repeat(3, minmax(2rem, 1fr));
+	`}
+	@media (min-width: 36rem) {
+		grid-template-columns: repeat(2, minmax(300px, 380px));
+		justify-content: center;
 	}
 `;
 
-const TagCloud = styled.div`
+const TabButton = styled.button`
+	padding: 0.5rem 1rem;
+	background-color: ${({ $active }) =>
+		$active ? 'var(--primary-color)' : 'var(--card-background)'};
+	color: ${({ $active }) => ($active ? 'white' : 'var(--text-color)')};
+	border: none;
+	border-radius: 0.5rem;
+	cursor: pointer;
+	font-weight: 500;
+	transition: var(--transition);
+	box-shadow: var(--card-shadow);
+
+	&:hover {
+		background-color: ${({ $active }) =>
+			$active
+				? 'var(--primary-color)'
+				: 'rgba(var(--primary-color-rgb), 0.1)'};
+		transform: translateY(-2px);
+	}
+`;
+
+const TagGrid = styled.div`
 	display: grid;
-	grid-template-columns: repeat(auto-fill, minmax(8.5rem, 1fr));
+	grid-template-columns: repeat(auto-fill, minmax(7.5rem, 9.4375rem));
 	gap: 0.8rem;
-	margin-bottom: 1.5rem;
+	margin: auto;
+	justify-content: center;
 `;
 
 const SkillTag = styled.div`
 	display: flex;
 	align-items: center;
-	padding: 0.5rem 1rem;
+	padding: 0.5rem 0.75rem;
 	background-color: var(--card-background);
 	border-radius: 3.125rem;
 	box-shadow: var(--card-shadow);
 	transition: var(--transition);
 	cursor: default;
+	position: relative;
+	min-width:fit-content;
 
 	&:hover {
 		transform: translateY(-0.1875rem);
@@ -134,6 +163,7 @@ const SkillTag = styled.div`
 		pointer-events: none;
 		font-family: sans-serif;
 		margin-bottom: 8px;
+		z-index: 10;
 	}
 
 	&::before {
@@ -148,6 +178,7 @@ const SkillTag = styled.div`
 		opacity: 0;
 		visibility: hidden;
 		transition: opacity 0.2s;
+		z-index: 10;
 	}
 
 	&:hover::after,
@@ -166,10 +197,13 @@ const TagIcon = styled.div`
 `;
 
 const TagName = styled.span`
-	font-size: 0.9rem;
+	font-size: 0.85rem;
 	font-weight: 500;
 	color: var(--text-color);
 	transition: var(--transition);
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
 `;
 
 const ExpertiseLevel = styled.div`
@@ -179,21 +213,39 @@ const ExpertiseLevel = styled.div`
 `;
 
 const ExpertiseDot = styled.div`
-	width: 0.5rem;
-	height: 0.5rem;
+	width: 0.4rem;
+	height: 0.4rem;
 	border-radius: 50%;
-	background-color: ${(props) =>
-		props.active
+	background-color: ${({ $active }) =>
+		$active
 			? 'var(--primary-color)'
 			: 'rgba(var(--primary-color-rgb), 0.3)'};
-	margin-right: 0.1875rem;
+	margin-right: 0.125rem;
 
 	${SkillTag}:hover & {
-		background-color: ${(props) => (props.active ? '#fff' : '#b9b9b9')};
+		background-color: ${({ $active }) => ($active ? '#fff' : '#b9b9b9')};
 	}
 `;
 
-const SkillsSection = () => {
+const ShowAllButton = styled.button`
+	display: block;
+	background-color: transparent;
+	border-radius: 0.5rem;
+	border: 1px solid var(--primary-color);
+	color: var(--primary-color);
+	cursor: pointer;
+	font-weight: 500;
+	margin: 1.5rem auto;
+	padding: 0.5rem 1rem;
+	transition: var(--transition);
+
+	&:hover {
+		background-color: var(--primary-color);
+		color: white;
+	}
+`;
+
+const Skills = () => {
 	const skillCategories = useMemo(
 		() => [
 			{
@@ -279,41 +331,76 @@ const SkillsSection = () => {
 		[]
 	);
 
+	const [activeTab, setActiveTab] = useState(0);
+	const [showAll, setShowAll] = useState(false);
+
+	// Function to display only top skills (level 4-5) unless showAll is true
+	const getVisibleSkills = (skills) => {
+		if (showAll) return skills;
+		return skills.filter((skill) => skill.level >= 4);
+	};
+
 	return (
 		<SkillsContainer id='skills'>
 			<SkillsTitle>Technical Skills</SkillsTitle>
 
-			<SkillsGrid>
-				{skillCategories.map((category, categoryIndex) => (
-					<div key={categoryIndex}>
-						<SkillsCategoryTitle>
-							{category.category}
-						</SkillsCategoryTitle>
-						<TagCloud>
-							{category.skills.map((skill, skillIndex) => (
-								<SkillTag
-									data-tooltip={`Expertise Level: ${skill.level} / 5`}
-									key={`${categoryIndex}-${skillIndex}`}>
-									<TagIcon>{skill.icon}</TagIcon>
-									<div>
-										<TagName>{skill.name}</TagName>
-										<ExpertiseLevel>
-											{[...Array(5)].map((_, i) => (
-												<ExpertiseDot
-													key={i}
-													active={i < skill.level}
-												/>
-											))}
-										</ExpertiseLevel>
-									</div>
-								</SkillTag>
-							))}
-						</TagCloud>
-					</div>
+			<TabsContainer>
+				{skillCategories.map((category, index) => (
+					<TabButton
+						key={index}
+						$active={activeTab === index}
+						onClick={() => setActiveTab(index)}>
+						{category.category}
+					</TabButton>
 				))}
-			</SkillsGrid>
+			</TabsContainer>
+
+			{skillCategories.map(
+				(category, categoryIndex) =>
+					categoryIndex === activeTab && (
+						<div key={categoryIndex}>
+							<TagGrid>
+								{getVisibleSkills(category.skills).map(
+									(skill, skillIndex) => (
+										<SkillTag
+											data-tooltip={`Expertise Level: ${skill.level}/5`}
+											key={`${categoryIndex}-${skillIndex}`}>
+											<TagIcon>{skill.icon}</TagIcon>
+											<div>
+												<TagName>{skill.name}</TagName>
+												<ExpertiseLevel>
+													{[...Array(5)].map(
+														(_, i) => (
+															<ExpertiseDot
+																key={i}
+																$active={
+																	i <
+																	skill.level
+																}
+															/>
+														)
+													)}
+												</ExpertiseLevel>
+											</div>
+										</SkillTag>
+									)
+								)}
+							</TagGrid>
+							{category.skills.some(
+								(skill) => skill.level < 4
+							) && (
+								<ShowAllButton
+									onClick={() => setShowAll(!showAll)}>
+									{showAll
+										? 'Show Key Skills'
+										: 'Show All Skills'}
+								</ShowAllButton>
+							)}
+						</div>
+					)
+			)}
 		</SkillsContainer>
 	);
 };
 
-export default SkillsSection;
+export default Skills;

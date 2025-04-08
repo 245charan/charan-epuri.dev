@@ -1,24 +1,16 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Provider } from 'react-redux';
 import { store } from './redux/store';
 import { ThemeProvider } from 'styled-components';
 import { useSelector } from 'react-redux';
+import { Route, Routes, useLocation } from 'react-router-dom';
 import GlobalStyles from './styles/GlobalStyles';
 import Layout from './components/layout/Layout';
-import Hero from './sections/Hero';
-import About from './sections/About';
-import Skills from './sections/Skills';
-import Projects from './sections/Projects';
-import Experience from './sections/Experience';
-import Contact from './sections/Contact';
 import ThemeCustomizer from './components/theme/ThemeCustomizer';
 import PageLoader from './components/loader/PageLoader';
 import ProgressBar from './components/progress/ProgressBar';
-
-// const Skills = React.lazy(() => import('./sections/Skills'));
-// const Projects = React.lazy(() => import('./sections/Projects'));
-// const Experience = React.lazy(() => import('./sections/Experience'));
-// const Contact = React.lazy(() => import('./sections/Contact'));
+import ProjectDetailPage from './components/projects/ProjectDetailPage';
+import HomePage from './components/home/HomePage';
 
 const ThemedApp = () => {
 	const { currentTheme } = useSelector((state) => state.theme);
@@ -28,24 +20,17 @@ const ThemedApp = () => {
 			<GlobalStyles />
 			<PageLoader />
 			<Layout>
-				<section id='home'>
-					<Hero />
-				</section>
-				<section id='about'>
-					<About />
-				</section>
-				<section id='skills'>
-					<Skills />
-				</section>
-				<section id='projects'>
-					<Projects />
-				</section>
-				<section id='experience'>
-					<Experience />
-				</section>
-				<section id='contact'>
-					<Contact />
-				</section>
+				<Routes>
+					<Route
+						path='/charan-epuri.dev'
+						element={<HomePage />}
+					/>
+
+					<Route
+						path='/charan-epuri.dev/:projectId'
+						element={<ProjectDetailPage />}
+					/>
+				</Routes>
 			</Layout>
 			<ThemeCustomizer />
 		</ThemeProvider>
@@ -53,6 +38,13 @@ const ThemedApp = () => {
 };
 
 const App = () => {
+	const location = useLocation();
+
+	useEffect(() => {
+		// Force recalculation of progress bar when location changes
+		window.scrollTo(window.scrollX, window.scrollY + 1);
+		window.scrollTo(window.scrollX, window.scrollY - 1);
+	}, [location]);
 	return (
 		<Provider store={store}>
 			<ProgressBar />
