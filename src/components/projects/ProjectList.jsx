@@ -9,7 +9,7 @@ import { media } from '../../styles/Responsive';
 const ScrollContainer = styled.div`
 	position: relative;
 	width: 100%;
-	padding: 2rem 0;
+	padding: 1.25rem 0;
 	display: flex;
 	flex-direction: column;
 `;

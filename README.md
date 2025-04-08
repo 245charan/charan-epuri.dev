@@ -2,6 +2,7 @@
 
 A modern, responsive portfolio showcasing my skills and experience as a Full Stack Java Developer with expertise in React and WordPress.
 
+[**Portfolio Link**](https://245charan.github.io/charan-epuri.dev/)
 
 ## New Changes
 

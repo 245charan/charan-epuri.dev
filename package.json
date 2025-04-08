@@ -1,7 +1,7 @@
 {
   "name": "charan-epuri",
   "homepage": "https://245charan.github.io/charan-epuri.dev/",
-  "version": "1.1.0",
+  "version": "1.1.2",
   "type": "module",
   "scripts": {
     "dev": "vite",
