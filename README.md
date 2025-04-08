@@ -2,9 +2,12 @@
 
 A modern, responsive portfolio showcasing my skills and experience as a Full Stack Java Developer with expertise in React and WordPress.
 
+
+
+![Version 1 Demo](https://github.com/245charan/charan-epuri.dev/tree/main/src/assets/video/Portfolio%20Charan%20Epuri1-v1.mp4)
+
 ## ✨ Features
 
-- **Elegant Design**: Clean, professional layout inspired by the Seera reference design
 - **Responsive Layout**: Optimized for all devices with mobile-first approach
 - **Theme Customization**: Switch between light/dark modes and customize theme colors with linear gradients
 - **Animated Page Loader**: Smooth entrance animation powered by Framer Motion
@@ -17,15 +20,12 @@ A modern, responsive portfolio showcasing my skills and experience as a Full Sta
 ## 🛠️ Tech Stack
 
 - React.js with Vite
-- Redux Toolkit for state management
+- Redux Toolkit for state management (for a special usecase)
 - Styled Components for styling
 - Framer Motion for animations
 - Jest and React Testing Library for testing
 - Responsive design with CSS media queries
 
-## 🚀 Coming Soon
-
-I will be uploading all projects once a few remaining issues are completed. Stay tuned for updates!
 
 ---
 
