@@ -54,7 +54,7 @@ const LogoContainer = styled.div`
 	justify-content: center;
 	align-items: center;
 	animation: ${pulse} 2s infinite ease-in-out;
-	box-shadow: 0 0 1.875rem rgba(138, 86, 255, 0.5);
+	box-shadow: 0 0 1.875rem ${'var(--card-background)' || '#ff5656'};
 `;
 
 const InitialsText = styled.div`
