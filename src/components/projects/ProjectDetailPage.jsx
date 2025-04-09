@@ -39,6 +39,7 @@ const ProjectHero = styled.div`
 
 	${media.mobile`
     height: 30vh;
+    height: 30dvh;
   `}
 `;
 

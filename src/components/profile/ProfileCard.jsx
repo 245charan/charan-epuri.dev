@@ -136,7 +136,7 @@ const CTAButton = styled.a`
 	}
 	&:hover {
 		transform: translateY(-0.25rem);
-		box-shadow: 0 0.25rem 0.9375rem rgba(184, 0, 0, 0.4);
+		box-shadow: 0 0.25rem 0.9375rem rgba(var(--primary-color-rgb), 0.4);
 		opacity: 0.9;
 		text-decoration: none;
 		color: #ffffff;

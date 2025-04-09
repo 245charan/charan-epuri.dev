@@ -45,16 +45,12 @@ const LogoContainer = styled.div`
 	width: 7.5rem;
 	height: 7.5rem;
 	border-radius: 50%;
-	background: linear-gradient(
-		to right,
-		${'var(--primary-color)' ?? '#8a56ff'},
-		${'var(--card-background)' || '#ff5656'}
-	);
+	background: var(--theme-gradient);
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	animation: ${pulse} 2s infinite ease-in-out;
-	box-shadow: 0 0 1.875rem ${'var(--card-background)' || '#ff5656'};
+	box-shadow: 0 0 1.875rem ${'rgba(var(--primary-color-rgb), 0.3	)'};
 `;
 
 const InitialsText = styled.div`

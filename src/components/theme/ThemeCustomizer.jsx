@@ -52,6 +52,7 @@ const CustomizerPanel = styled.div`
 	right: 0;
 	width: 18.75rem;
 	height: 100vh;
+	height: 100dvh;
 	background-color: var(--card-background);
 	box-shadow: -0.3125rem 0 0.9375rem rgba(0, 0, 0, 0.1);
 	z-index: 1000;
@@ -115,14 +116,15 @@ const SectionTitle = styled.h4`
 		position: absolute;
 		bottom: -0.3125rem;
 		left: 0;
-		width: 1.875rem;
+		width: 5rem;
 		height: 0.125rem;
-		${({$custom}) => {
+		${({ $custom }) => {
 			if ($custom) {
 				return `background: ${generateGradient()}; width: 100% !important; height:0.5rem; bottom: -0.75rem;`;
-			}
-			else {
-				return 'background-color: var(--primary-color)';
+			} else {
+				return `background: linear-gradient(90deg, var(--primary-color) 0%,
+			var(--card-background, #6d9fff) 100%
+		);`;
 			}
 		}};
 	}
@@ -150,7 +152,8 @@ const ThemeOption = styled.div`
 	border-radius: 0.5rem;
 	overflow: hidden;
 	border: 0.125rem solid
-		${({$isActive}) => ($isActive ? 'var(--primary-color)' : 'transparent')};
+		${({ $isActive }) =>
+			$isActive ? 'var(--primary-color)' : 'transparent'};
 	transition: all 0.3s ease;
 
 	&:hover {
@@ -186,6 +189,16 @@ const ThemePreviewSidebar = styled.div`
 	width: 0.9375rem;
 	height: 2.5rem;
 	background-color: ${(props) => props.color};
+	border-radius: 0.1875rem;
+`;
+
+const ThemePreviewGradientbar = styled.div`
+	position: absolute;
+	background-color: ${(props) => props.color};
+	bottom: 1.875rem;
+	right: 0.625rem;
+	width: 0.9375rem;
+	height: 6.5rem;
 	border-radius: 0.1875rem;
 `;
 const ThemePreviewBottom = styled.div`
@@ -314,8 +327,9 @@ const ThemeCustomizer = () => {
 	const predefinedThemes = [
 		{
 			name: 'sunset',
-			primary: '#FF671F',
+			primary: '#B31B1B',
 			background: '#FFF9F5',
+			gradient: '#0B0707',
 			card: '#FFFFFF',
 			text: '#333333',
 			secondaryText: '#333333',
@@ -326,6 +340,7 @@ const ThemeCustomizer = () => {
 			name: 'midnightTeal',
 			primary: '#0EA5E9',
 			background: '#0F1729',
+			gradient: '#294270',
 			card: '#1E2A3B',
 			text: '#F1F5F9',
 			secondaryText: '#94A3B8',
@@ -336,6 +351,7 @@ const ThemeCustomizer = () => {
 			name: 'carbonViolet',
 			primary: '#A855F7',
 			background: '#18181B',
+			gradient: '#590381',
 			card: '#27272A',
 			text: '#FAFAFA',
 			secondaryText: '#A1A1AA',
@@ -346,6 +362,7 @@ const ThemeCustomizer = () => {
 			name: 'lavenderFrost',
 			primary: '#7C3AED',
 			background: '#F5F3FF',
+			gradient: '#36134E',
 			card: '#FFFFFF',
 			text: '#1F2937',
 			secondaryText: '#4B5563',
@@ -356,6 +373,7 @@ const ThemeCustomizer = () => {
 			name: 'mintBreeze',
 			primary: '#059669',
 			background: '#ECFDF5',
+			gradient: '#164B2D',
 			card: '#FFFFFF',
 			text: '#111827',
 			secondaryText: '#374151',
@@ -366,6 +384,7 @@ const ThemeCustomizer = () => {
 			name: 'skyAzure',
 			primary: '#3B82F6',
 			background: '#F0F9FF',
+			gradient: '#0A1F48',
 			card: '#FFFFFF',
 			text: '#0F172A',
 			secondaryText: '#334155',
@@ -417,11 +436,15 @@ const ThemeCustomizer = () => {
 								$isActive={themeName === theme.name}
 								onClick={() => handleThemeChange(theme.name)}
 								$mobileThemeOrder={theme.mobileThemeOrder}
-								$desktopThemeOrder={theme.desktopThemeOrder}>
+								$desktopThemeOrder={theme.desktopThemeOrder}
+								title={theme.name}>
 								<ThemePreview>
 									<ThemePreviewTop color={theme.background} />
 									<ThemePreviewSidebar
 										color={theme.primary}
+									/>
+									<ThemePreviewGradientbar
+										color={theme.gradient}
 									/>
 									<ThemePreviewBottom color={theme.card} />
 								</ThemePreview>
@@ -507,6 +530,24 @@ const ThemeCustomizer = () => {
 									onChange={(e) =>
 										handleColorChange(
 											'text',
+											e.target.value
+										)
+									}
+								/>
+							</ColorPickerWrapper>
+						</ColorPickerGroup>
+						<ColorPickerGroup>
+							<ColorPickerLabel>Gradient Color</ColorPickerLabel>
+							<ColorPickerWrapper>
+								<ColorPreview color={currentTheme.gradient} />
+								<ColorInput
+									aria-label='gradient-color'
+									title='Click to pick ncolor'
+									type='color'
+									value={currentTheme.gradient}
+									onChange={(e) =>
+										handleColorChange(
+											'gradient',
 											e.target.value
 										)
 									}

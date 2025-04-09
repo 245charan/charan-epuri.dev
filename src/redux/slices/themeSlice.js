@@ -3,11 +3,12 @@ import { createSlice } from '@reduxjs/toolkit';
 // Define the initial theme options
 const themes = {
 	sunset: {
-		primary: '#FF671F',
+		primary: '#B31B1B',
 		background: '#FFF9F5',
 		card: '#FFFFFF',
 		text: '#333333',
 		secondaryText: '#333333',
+		gradient: '#0B0707',
 	},
 	midnightTeal: {
 		primary: '#0EA5E9',
@@ -15,6 +16,7 @@ const themes = {
 		card: '#1E2A3B',
 		text: '#F1F5F9',
 		secondaryText: '#94A3B8',
+		gradient: '#294270',
 	},
 	carbonViolet: {
 		primary: '#A855F7',
@@ -22,6 +24,7 @@ const themes = {
 		card: '#27272A',
 		text: '#FAFAFA',
 		secondaryText: '#A1A1AA',
+		gradient: '#590381',
 	},
 	lavenderFrost: {
 		primary: '#7C3AED',
@@ -29,6 +32,7 @@ const themes = {
 		card: '#FFFFFF',
 		text: '#1F2937',
 		secondaryText: '#4B5563',
+		gradient: '#36134E',
 	},
 	mintBreeze: {
 		primary: '#059669',
@@ -36,6 +40,7 @@ const themes = {
 		card: '#FFFFFF',
 		text: '#111827',
 		secondaryText: '#374151',
+		gradient: '#164B2D',
 	},
 	skyAzure: {
 		primary: '#3B82F6',
@@ -43,6 +48,7 @@ const themes = {
 		card: '#FFFFFF',
 		text: '#0F172A',
 		secondaryText: '#334155',
+		gradient: '#0A1F48',
 	},
 };
 

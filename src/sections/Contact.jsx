@@ -20,9 +20,11 @@ const ContactTitle = styled.h2`
 		position: absolute;
 		bottom: -10px;
 		left: 0;
-		width: 3.125rem;
+		width: 10rem;
 		height: 0.1875rem;
-		background-color: var(--primary-color);
+		background: linear-gradient(90deg, var(--primary-color) 0%,
+			var(--card-background, #6d9fff) 100%
+		);
 	}
 
 	${media.mobile`

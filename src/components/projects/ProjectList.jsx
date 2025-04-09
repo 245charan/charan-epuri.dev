@@ -106,8 +106,6 @@ const ProjectItem = styled.div`
 
 	&:hover {
 		transform: scale(1.05);
-		box-shadow: 0 0.625rem 1.875rem rgba(0, 0, 0, 0.3);
-
 		.project-overlay {
 			opacity: 1;
 		}
@@ -137,6 +135,7 @@ const ProjectImage = styled.div`
 
 	&:hover img {
 		transform: scale(1.05);
+		box-shadow: 0 0.625rem 1.875rem rgba(0, 0, 0, 0.3);
 	}
 	&:hover svg {
 		transform: scale(1.05);
@@ -275,7 +274,7 @@ const ProjectList = ({ category, projects }) => {
 					? 0
 					: Math.round(
 							(scrollLeft / maxScroll) * (totalSections - 1)
-					  );
+					);
 			setActiveIndex(currentIndex);
 		}
 	};

@@ -1,6 +1,14 @@
 import React, { useMemo, useState } from 'react';
 import styled from 'styled-components';
 import { BsGrid, BsList } from 'react-icons/bs';
+import {
+	FaBriefcase,
+	FaGraduationCap,
+	FaChevronDown,
+	FaChevronUp,
+	FaThLarge,
+	FaStream,
+} from 'react-icons/fa';
 import ProjectGrid from '../components/projects/ProjectGrid';
 import ProjectList from '../components/projects/ProjectList';
 import { media } from '../styles/Responsive';
@@ -34,9 +42,27 @@ export const projectsData = [
 		personalProject: false,
 		liveDemo: 'https://marist.edu',
 		// category: 'CMS',
-		completionDate: 'January 2024',
+		features: [
+			'Helped design and develop a 150+ page website for digital education.',
+			'Curated SEO words and also maintained the SEO score in long run.',
+
+			'Accepted the challenge to create content for web pages and accessibility ',
+
+			'Performed accessibility testing and ensured WCAG compliance.',
+
+			'Collaborate with faculty on Brightspace course setup and handle tickets ',
+
+			'Managed LMS content, troubleshoot issues, and reported bugs in Jira/TDX.',
+
+			'Created and maintained technical documentation for Sakai 23x.',
+
+			'Supported Brightspace LMS workshops and training sessions.',
+
+			'Contributed to Sakai’s open Jira bug fixes ( #30 ).  ',
+		],
+		completionDate: 'Febuary 2024 - Present',
 		client: 'Marist Univeristy',
-		// role: 'Full Stack Developer',
+		role: 'Digital Education LMS QAT',
 	},
 	{
 		id: 'sakai-lms-enhancement',
@@ -52,6 +78,15 @@ export const projectsData = [
 			'Bug Fix',
 			'UI modernization',
 			'Jira',
+		],
+		category: 'Open Source Software',
+		features: [
+			'Responsive design that works on all devices',
+			'Dark and light theme with system preference detection',
+			'Smooth page transitions and scroll animations',
+			'Contact form with email integration',
+			'Project filtering and categorization',
+			'Blog section with markdown support',
 		],
 		github: 'https://github.com/sakaiproject/sakai',
 		personalProject: false,
@@ -75,6 +110,9 @@ export const projectsData = [
 		isGif: true,
 		github: 'https://github.com/245charan/tree-data-form-builder',
 		personalProject: true,
+		completionDate: 'present',
+		client: 'Self',
+		role: 'Full Stack Developer',
 	},
 	{
 		id: 'real-time-stock-monitoring',
@@ -129,9 +167,21 @@ export const projectsData = [
 			'Jest',
 			'RTL',
 		],
+		features: [
+			'Built scalable SPAs/MPAs with React and micro-frontends, improving responsiveness and reducing latency by 25% using RESTful APIs.',
+			'Cut development time by 30% with reusable React component libraries and optimized Redux state management (Thunk/Saga).',
+			'Automated CI/CD via AWS CodeBuild/CodePipeline, slashing deployment time by 50% and errors by 40% using Jest/RTL.',
+			'Architected AWS infrastructure (S3, EC2, Lambda, CloudFront), improving load times by 20% and enabling real-time monitoring with CloudWatch.',
+			'Mentored 4+ juniors in React, Redux, and testing, boosting team velocity and code quality.',
+			'Reduced package load time from 15 minutes to under 1 second.',
+			'Achieved ~95% test coverage across all front-end applications.',
+		],
 		github: null,
 		personalProject: false,
 		liveDemo: null,
+		completionDate: 'Aug 2024',
+		client: 'BNY Mellon',
+		role: 'Forntend Web Developer',
 	},
 	{
 		id: 'posrg-platform',
@@ -148,10 +198,23 @@ export const projectsData = [
 			'JavaScript',
 			'Elementor',
 		],
-		// category: 'CMS',
+		category: 'CMS',
+		features: [
+			'Led end-to-end development from requirement analysis to design, implementation, deployment, and support.',
+			'Customized WordPress sites for enhanced UX, responsiveness, and functionality with CPTs and shortcodes.',
+			'Boosted site security and performance, cutting load times by 30% and improving mobile UX.',
+			'Integrated WooCommerce, increasing client sales by 20% and ensured fast post-launch support.',
+			'Built full-stack web apps, including Cloudways hosting, domain setup, and SEO optimization.',
+			'Translated Figma designs into custom UI components and reusable shortcodes.',
+			'Automated Git PR merges to maintain code quality and streamline collaboration.',
+			'Ran Google Lighthouse audits, achieving 90+ scores in performance, accessibility, and SEO.',
+		],
 		github: null,
 		liveDemo: 'https://posrg.com',
 		personalProject: false,
+		completionDate: 'Aug 2024',
+		client: 'POSRG',
+		role: 'Fullstack Web Developer',
 	},
 ];
 
@@ -176,13 +239,13 @@ const ViewToggleContainer = styled.div`
 
 // Style for each toggle button
 const ToggleButton = styled.button`
-	background-color: ${({$active}) =>
+	background-color: ${({ $active }) =>
 		$active ? 'var(--primary-color)' : 'transparent'};
-	color: ${({$active}) => ($active ? 'white' : 'var(--text-color)')};
+	color: ${({ $active }) => ($active ? 'white' : 'var(--text-color)')};
 	border: 1px solid
-		${({$active}) =>
+		${({ $active }) =>
 			$active ? 'var(--primary-color)' : 'var(--border-color)'};
-	border-radius: ${({$position}) =>
+	border-radius: ${({ $position }) =>
 		$position === 'left' ? '4px 0 0 4px' : '0 4px 4px 0'};
 	padding: 0.5rem;
 	display: flex;
@@ -192,7 +255,7 @@ const ToggleButton = styled.button`
 	transition: all 0.3s ease;
 
 	&:hover {
-		background-color: ${({$active}) =>
+		background-color: ${({ $active }) =>
 			$active ? 'var(--primary-color)' : 'var(--background-hover)'};
 	}
 `;
@@ -208,9 +271,13 @@ const SectionTitle = styled.h2`
 		position: absolute;
 		bottom: -10px;
 		left: 0;
-		width: 50px;
-		height: 3px;
-		background-color: var(--primary-color);
+		width: 10rem;
+		height: 0.1875rem;
+		background: linear-gradient(
+			90deg,
+			var(--primary-color) 0%,
+			var(--card-background, #6d9fff) 100%
+		);
 	}
 
 	${media.mobile`
@@ -233,14 +300,14 @@ const Projects = () => {
 						$active={viewMode === 'list'}
 						onClick={() => setViewMode('list')}
 						aria-label='List view'>
-						<BsList size={18} />
+						<FaStream size={18} />
 					</ToggleButton>
 					<ToggleButton
 						$position='right'
 						$active={viewMode === 'grid'}
 						onClick={() => setViewMode('grid')}
 						aria-label='Grid view'>
-						<BsGrid size={18} />
+						<FaThLarge size={18} />
 					</ToggleButton>
 				</div>
 			</ViewToggleContainer>

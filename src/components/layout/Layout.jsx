@@ -8,6 +8,7 @@ const LayoutContainer = styled.div`
 	display: flex;
 	flex-direction: column;
 	min-height: 100vh;
+	min-height: 100dvh;
 	background-color: var(--background-color);
 	color: var(--text-color);
 	transition: background-color 0.3s ease, color 0.3s ease;

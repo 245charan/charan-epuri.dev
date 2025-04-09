@@ -58,25 +58,26 @@ const PrimaryButton = styled.a`
 
 	&:hover {
 		transform: translateY(-0.1875rem);
-		box-shadow: 0 0.25rem 0.9375rem rgba(138, 86, 255, 0.4);
+		box-shadow: 0 0.25rem 0.9375rem rgba(0, 0, 0, 0.4);
 		text-decoration: none;
 		color: white;
-	}
-`;
-
-const SecondaryButton = styled.a`
-	display: inline-block;
-	padding: 0.75rem 2rem;
-	background-color: transparent;
-	color: var(--text-color);
-	border: 0.125rem solid var(--primary-color);
-	border-radius: 3.125rem;
-	font-weight: 600;
+		}
+		`;
+		
+		const SecondaryButton = styled.a`
+		display: inline-block;
+		padding: 0.75rem 2rem;
+		background-color: transparent;
+		color: var(--text-color);
+		border: 0.125rem solid var(--primary-color);
+		border-radius: 3.125rem;
+		font-weight: 600;
 	text-decoration: none;
 	transition: all 0.3s ease;
-
+	
 	&:hover {
 		background: var(--cta-button);
+		box-shadow: 0 0.25rem 0.9375rem rgba(0, 0, 0, 0.4);
 		color: white;
 		transform: translateY(-0.1875rem);
 		text-decoration: none;

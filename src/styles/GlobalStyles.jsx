@@ -2,26 +2,26 @@ import { createGlobalStyle } from 'styled-components';
 
 const GlobalStyles = createGlobalStyle`
   :root {
-    --primary-color: ${props => props.theme.primary};
-    --primary-color-rgb: ${props => {
-      // Convert hex to rgb
-      const hex = props.theme.primary.replace('#', '');
-      const r = parseInt(hex.substring(0, 2), 16);
-      const g = parseInt(hex.substring(2, 4), 16);
-      const b = parseInt(hex.substring(4, 6), 16);
-      return `${r}, ${g}, ${b}`;
-    }};
-    --background-color: ${props => props.theme.background};
-    --card-background: ${props => props.theme.card};
-    --text-color: ${props => props.theme.text};
-    // --text-secondary: ${props => props.theme.text === '#ffffff' ? '#ffffff' : '#333333'};
-    --text-secondary: ${props => props.theme.secondaryText};
+    --primary-color: ${(props) => props.theme.primary};
+    --gradient-color: ${(props) => props.theme?.gradient};
+    --primary-color-rgb: ${(props) => {
+		// Convert hex to rgb
+		const hex = props.theme.primary.replace('#', '');
+		const r = parseInt(hex.substring(0, 2), 16);
+		const g = parseInt(hex.substring(2, 4), 16);
+		const b = parseInt(hex.substring(4, 6), 16);
+		return `${r}, ${g}, ${b}`;
+	}};
+    --background-color: ${(props) => props.theme.background};
+    --card-background: ${(props) => props.theme.card};
+    --text-color: ${(props) => props.theme.text};
+    --text-secondary: ${(props) => props.theme.secondaryText};
     --border-radius: 1rem;
     --card-shadow: 0 .25rem 1.25rem rgba(0, 0, 0, 0.15);
     --transition: all 0.3s ease;
-    --cta-button: var(--primary-color);
+    --cta-button: linear-gradient(90deg, var(--primary-color) 0%, var(--gradient-color) 100%);
+    --theme-gradient: linear-gradient(90deg, var(--primary-color) 0%, var(--gradient-color) 100%);
     }
-    // --cta-button: linear-gradient(349deg, var(--background-color) -90%, var(--primary-color));
 
   * {
     margin: 0;

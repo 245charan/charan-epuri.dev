@@ -140,6 +140,7 @@ const NavLinks = styled.div`
 	position: ${({ $isMobile }) => ($isMobile ? 'fixed' : 'relative')};
 	top: ${({ $isMobile }) => ($isMobile ? '0' : 'auto')};
 	right: ${({ $isMobile }) => ($isMobile ? '0' : 'auto')};
+	height: ${({ $isMobile }) => ($isMobile ? '100dvh' : 'auto')};
 	height: ${({ $isMobile }) => ($isMobile ? '100vh' : 'auto')};
 	background-color: ${({ $isMobile }) =>
 		$isMobile ? 'var(--card-background)' : 'transparent'};
