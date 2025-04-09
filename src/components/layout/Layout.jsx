@@ -81,7 +81,7 @@ const DesktopNavbarContainer = styled.div`
 
 const Layout = ({ children }) => {
 	const [isMobile, setIsMobile] = useState(
-		window.innerWidth < breakpoints.md
+		window.innerWidth < parseInt(breakpoints.lg)
 	);
 
 	const isProjectDetailPage =
@@ -92,7 +92,7 @@ const Layout = ({ children }) => {
 
 	useEffect(() => {
 		const handleResize = () => {
-			setIsMobile(window.innerWidth < breakpoints.md);
+			setIsMobile(window.innerWidth < parseInt(breakpoints.lg));
 		};
 		handleResize()
 		window.addEventListener('resize', handleResize);
