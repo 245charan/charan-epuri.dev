@@ -34,7 +34,7 @@ const LoaderContainer = styled.div`
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	z-index: 9999;
+	z-index: 100001;
 	opacity: 1;
 	visibility: visible;
 	animation: ${fadeOut} 0.5s ease-in-out forwards;

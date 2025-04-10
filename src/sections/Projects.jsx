@@ -1,14 +1,6 @@
 import React, { useMemo, useState } from 'react';
 import styled from 'styled-components';
-import { BsGrid, BsList } from 'react-icons/bs';
-import {
-	FaBriefcase,
-	FaGraduationCap,
-	FaChevronDown,
-	FaChevronUp,
-	FaThLarge,
-	FaStream,
-} from 'react-icons/fa';
+import { FaProjectDiagram, FaThLarge, FaStream } from 'react-icons/fa';
 import ProjectGrid from '../components/projects/ProjectGrid';
 import ProjectList from '../components/projects/ProjectList';
 import { media } from '../styles/Responsive';
@@ -235,24 +227,36 @@ const ViewToggleContainer = styled.div`
 		align-items: center;
 		justify-content: center;
 	}
+	${media.xs`
+			flex-direction: column;
+			gap: 1.5rem;
+	`}
 `;
-
+const ViewToggle = styled.div`
+	display: flex;
+	background-color: var(--card-background);
+	border-radius: 0.5rem;
+	padding: 0.25rem;
+	box-shadow: 0 0.125rem 0.3125rem rgba(0, 0, 0, 0.1);
+`;
 // Style for each toggle button
 const ToggleButton = styled.button`
 	background-color: ${({ $active }) =>
 		$active ? 'var(--primary-color)' : 'transparent'};
 	color: ${({ $active }) => ($active ? 'white' : 'var(--text-color)')};
-	border: 1px solid
-		${({ $active }) =>
-			$active ? 'var(--primary-color)' : 'var(--border-color)'};
+	border: none;
 	border-radius: ${({ $position }) =>
 		$position === 'left' ? '4px 0 0 4px' : '0 4px 4px 0'};
-	padding: 0.5rem;
+	padding: 0.5rem 1rem;
 	display: flex;
 	align-items: center;
 	justify-content: center;
 	cursor: pointer;
 	transition: all 0.3s ease;
+
+	svg {
+		margin-right: 0.375rem;
+	}
 
 	&:hover {
 		background-color: ${({ $active }) =>
@@ -265,6 +269,13 @@ const SectionTitle = styled.h2`
 	margin-bottom: 0.5rem;
 	color: var(--text-color);
 	position: relative;
+	display: flex;
+	align-items: center;
+	justify-content: flex-start;
+	gap: 1rem;
+	svg {
+		font-size: 1rem;
+	}
 
 	&::after {
 		content: '';
@@ -293,23 +304,29 @@ const Projects = () => {
 	return (
 		<ProjectsSection>
 			<ViewToggleContainer>
-				<SectionTitle>Projects</SectionTitle>
-				<div>
+				<SectionTitle tabIndex='0'>
+					Projects{' '}
+					<FaProjectDiagram
+						aria-label='Project icon'
+						title='Project icon'
+					/>
+				</SectionTitle>
+				<ViewToggle id='project-toggle'>
 					<ToggleButton
 						$position='left'
 						$active={viewMode === 'list'}
 						onClick={() => setViewMode('list')}
 						aria-label='List view'>
-						<FaStream size={18} />
+						<FaStream size={18} /> Timeline
 					</ToggleButton>
 					<ToggleButton
 						$position='right'
 						$active={viewMode === 'grid'}
 						onClick={() => setViewMode('grid')}
 						aria-label='Grid view'>
-						<FaThLarge size={18} />
+						<FaThLarge size={18} /> Grid
 					</ToggleButton>
-				</div>
+				</ViewToggle>
 			</ViewToggleContainer>
 			{viewMode === 'grid' ? (
 				<ProjectGrid

@@ -95,11 +95,11 @@ const Hero = () => {
 				{/* <HeroTitle>
 				<span>Java</span> Developer Building <br/>Accessible Web - <span>React</span> & <span>WordPress</span>.
 				</HeroTitle> */}
-				<HeroTitle>
+				<HeroTitle  tabIndex='0'>
 					Transforming Ideas into <br /><span>Accessible</span> Digital
 					Experiences.
 				</HeroTitle>
-				<HeroSubtitle>
+				<HeroSubtitle  tabIndex='0'>
 					Code that scales. Experiences that resonate.
 				</HeroSubtitle>
 				<HeroButtons>

@@ -1,6 +1,7 @@
 import React, { useMemo, useState } from 'react';
 import styled from 'styled-components';
 import {
+	FaCode,
 	FaJava,
 	FaReact,
 	FaNodeJs,
@@ -59,6 +60,13 @@ const SkillsTitle = styled.h2`
 	margin-bottom: 1.5rem;
 	color: var(--text-color);
 	position: relative;
+	display: flex;
+	align-items: center;
+	justify-content: flex-start;
+	gap: 1rem;
+	svg {
+		font-size: 1rem;
+	}
 
 	&::after {
 		content: '';
@@ -67,7 +75,9 @@ const SkillsTitle = styled.h2`
 		left: 0;
 		width: 10rem;
 		height: 0.1875rem;
-		background: linear-gradient(90deg, var(--primary-color) 0%,
+		background: linear-gradient(
+			90deg,
+			var(--primary-color) 0%,
 			var(--card-background, #6d9fff) 100%
 		);
 	}
@@ -88,8 +98,14 @@ const TabsContainer = styled.div`
 		grid-template-columns: repeat(3, minmax(2rem, 1fr));
 	`}
 	@media (min-width: 36rem) {
-		grid-template-columns: repeat(2, minmax(300px, 380px));
+		grid-template-columns: repeat(3, minmax(120px, 180px));
 		justify-content: center;
+		grid-auto-rows: minmax(64px, auto);
+	}
+	${media.xs`
+		grid-template-columns: repeat(2, 1fr);
+		justify-content: center;
+		grid-auto-rows: minmax(64px, auto);`
 	}
 `;
 
@@ -120,6 +136,9 @@ const TagGrid = styled.div`
 	gap: 0.8rem;
 	margin: auto;
 	justify-content: center;
+	${media.xs`
+		grid-template-columns: repeat(2, 1fr);
+	`}
 `;
 
 const SkillTag = styled.div`
@@ -132,7 +151,7 @@ const SkillTag = styled.div`
 	transition: var(--transition);
 	cursor: default;
 	position: relative;
-	min-width:fit-content;
+	min-width: fit-content;
 
 	&:hover {
 		transform: translateY(-0.1875rem);
@@ -344,7 +363,7 @@ const Skills = () => {
 
 	return (
 		<SkillsContainer id='skills'>
-			<SkillsTitle>Technical Skills</SkillsTitle>
+			<SkillsTitle tabIndex='0'>Technical Skills </SkillsTitle>
 
 			<TabsContainer>
 				{skillCategories.map((category, index) => (

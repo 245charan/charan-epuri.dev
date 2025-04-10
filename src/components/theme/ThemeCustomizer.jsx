@@ -31,7 +31,7 @@ const CustomizerButton = styled.button`
 	border: none;
 	box-shadow: 0 0.25rem 0.9375rem rgba(0, 0, 0, 0.2);
 	cursor: pointer;
-	z-index: 999;
+	z-index: 98;
 	transition: all 0.3s ease;
 
 	&:hover {
@@ -408,6 +408,8 @@ const ThemeCustomizer = () => {
 	return (
 		<>
 			<CustomizerButton
+				id='theme-customize'
+				tabIndex='0'
 				aria-label='theme-customizer-button'
 				title='Theme Customizer'
 				onClick={toggleCustomizer}>

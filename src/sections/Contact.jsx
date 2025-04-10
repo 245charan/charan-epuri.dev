@@ -14,6 +14,13 @@ const ContactTitle = styled.h2`
 	margin-bottom: 1.5rem;
 	color: var(--text-color);
 	position: relative;
+	display: flex;
+	align-items: center;
+	justify-content: flex-start;
+	gap: 1rem;
+	svg {
+		font-size: 1rem;
+	}
 
 	&::after {
 		content: '';
@@ -22,7 +29,9 @@ const ContactTitle = styled.h2`
 		left: 0;
 		width: 10rem;
 		height: 0.1875rem;
-		background: linear-gradient(90deg, var(--primary-color) 0%,
+		background: linear-gradient(
+			90deg,
+			var(--primary-color) 0%,
 			var(--card-background, #6d9fff) 100%
 		);
 	}
@@ -300,7 +309,13 @@ const Contact = () => {
 
 	return (
 		<ContactContainer id='contact'>
-			<ContactTitle>Contact Me</ContactTitle>
+			<ContactTitle tabIndex='0'>
+				Contact Me{' '}
+				<FaEnvelope
+					aria-label='Contact icon'
+					title='Contact icon'
+				/>
+			</ContactTitle>
 			<ContactContent>
 				<ContactInfo>
 					<ContactText>

@@ -1,6 +1,12 @@
 import React, { useMemo } from 'react';
 import styled from 'styled-components';
-import { FaCode, FaServer, FaDatabase, FaMobileAlt } from 'react-icons/fa';
+import {
+	FaCode,
+	FaServer,
+	FaUser,
+	FaDatabase,
+	FaMobileAlt,
+} from 'react-icons/fa';
 
 const AboutContainer = styled.div`
 	margin-bottom: 3rem;
@@ -11,6 +17,13 @@ const AboutTitle = styled.h2`
 	margin-bottom: 1.5rem;
 	color: var(--text-color);
 	position: relative;
+	display: flex;
+	align-items: center;
+	justify-content: flex-start;
+	gap: 1rem;
+	svg {
+		font-size: 1rem;
+	}
 
 	&::after {
 		content: '';
@@ -19,7 +32,9 @@ const AboutTitle = styled.h2`
 		left: 0;
 		width: 10rem;
 		height: 0.1875rem;
-		background: linear-gradient(90deg, var(--primary-color) 0%,
+		background: linear-gradient(
+			90deg,
+			var(--primary-color) 0%,
 			var(--card-background, #6d9fff) 100%
 		);
 	}
@@ -142,7 +157,13 @@ const About = () => {
 
 	return (
 		<AboutContainer id='about'>
-			<AboutTitle>About Me</AboutTitle>
+			<AboutTitle tabIndex='0'>
+				About Me{' '}
+				<FaUser
+					aria-label='About icon'
+					title='About icon'
+				/>{' '}
+			</AboutTitle>
 			<AboutContent>
 				<AboutText>
 					<ul>
@@ -155,21 +176,29 @@ const About = () => {
 							<strong>
 								Frontend-focused Full Stack Developer
 							</strong>{' '}
-							with deep expertise in React, Java Spring Boot, and
-							WordPress
+							with expertise in React, Java, Spring Boot, and
+							end-to-end WordPress
 						</li>
 						<li>
 							<strong>5+ years</strong> building financial
 							platforms, CMS tools & enterprise apps
 						</li>
 						<li>
-							Obsessed with{' '}
-							<strong>Scalable Architecture </strong>
-							and <strong>UI performance.</strong>
+						Deeply invested with{' '}
+							<strong>scalable architecture </strong>
+							and <strong>high-performance UIs.</strong>
 						</li>
 						<li>
-							I want to make technology that everyone can use and
-							enjoy, regardless of their abilities.
+							Driven to make tech accessible, inclusive, and
+							enjoyable for all
+						</li>
+						<li>
+							Skilled at simplifying complex workflows with
+							user-first desig
+						</li>
+						<li>
+							Thrive in the <strong>0 → 1</strong> phase—bringing
+							ideas to life from scratch
 						</li>
 					</ul>
 				</AboutText>

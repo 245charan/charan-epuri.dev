@@ -40,7 +40,7 @@ const NavContainer = styled.nav`
 		if ($isSticky) return '20px';
 		return 'auto';
 	}};
-	z-index: 100;
+	z-index: 99;
 	width: ${({ $isSticky }) => {
 		if ($isSticky) return '67%';
 		return '100%';
@@ -281,7 +281,7 @@ const ScrollToTopButton = styled.button`
 	cursor: pointer;
 	box-shadow: 0 0.25rem 0.625rem rgba(0, 0, 0, 0.2);
 	transition: all 0.3s ease;
-	z-index: 99;
+	z-index: 98;
 	opacity: ${({ $visible }) => ($visible ? '1' : '0')};
 	transform: ${({ $visible }) => ($visible ? 'scale(1)' : 'scale(0.8)')};
 	pointer-events: ${({ $visible }) => ($visible ? 'auto' : 'none')};
@@ -588,6 +588,7 @@ const Navbar = ({ isMobile }) => {
 
 			{/* Scroll to Top Button */}
 			<ScrollToTopButton
+				id="scroll"
 				$visible={showScrollTop}
 				onClick={scrollToTop}
 				aria-label='Scroll to top'

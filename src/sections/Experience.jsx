@@ -20,11 +20,11 @@ const ExperienceContainer = styled.div`
 `;
 
 const ExperienceHeader = styled.div`
-display: flex;
+	display: flex;
 	align-items: center;
 	justify-content: space-between;
 	text-align: center;
-	margin-bottom: .5rem;
+	margin-bottom: 0.5rem;
 `;
 
 const ExperienceTitle = styled.h2`
@@ -32,7 +32,13 @@ const ExperienceTitle = styled.h2`
 	margin-bottom: 1rem;
 	color: var(--text-color);
 	position: relative;
-	// display: inline-block;
+	display: flex;
+	align-items: center;
+	justify-content: flex-start;
+	gap: 1rem;
+	svg {
+		font-size: 1rem;
+	}
 
 	&::after {
 		content: '';
@@ -40,13 +46,13 @@ const ExperienceTitle = styled.h2`
 		bottom: -5px;
 		left: 0;
 		width: 10rem;
-		height: .1875rem;
+		height: 0.1875rem;
 		background: linear-gradient(
 			90deg,
 			var(--primary-color) 0%,
 			var(--card-background, #6d9fff) 100%
 		);
-		border-radius: .125rem;
+		border-radius: 0.125rem;
 	}
 `;
 
@@ -84,27 +90,28 @@ const FilterContainer = styled.div`
 const ViewToggle = styled.div`
 	display: flex;
 	background-color: var(--card-background);
-	border-radius: 1.875rem;
-	padding: .25rem;
-	box-shadow: 0 .125rem .3125rem rgba(0, 0, 0, 0.1);
+	border-radius: 0.5rem;
+	padding: 0.25rem;
+	box-shadow: 0 0.125rem 0.3125rem rgba(0, 0, 0, 0.1);
 `;
 
 const ToggleButton = styled.button`
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	padding: .5rem 1rem;
+	padding: 0.5rem 1rem;
 	background-color: ${(props) =>
 		props.$active ? 'var(--primary-color)' : 'transparent'};
 	color: ${(props) => (props.$active ? 'white' : 'var(--text-color)')};
 	border: none;
-	border-radius: 1.875rem;
+	border-radius: ${({ $position }) =>
+		$position === 'left' ? '4px 0 0 4px' : '0 4px 4px 0'};
 	font-weight: 600;
 	cursor: pointer;
 	transition: all 0.2s ease;
 
 	svg {
-		margin-right: .375rem;
+		margin-right: 0.375rem;
 	}
 
 	&:hover {
@@ -116,11 +123,11 @@ const ToggleButton = styled.button`
 `;
 
 const FilterButton = styled.button`
-	padding: .5rem 1rem;
+	padding: 0.5rem 1rem;
 	background-color: ${(props) =>
 		props.$active ? 'var(--primary-color)' : 'transparent'};
 	color: ${(props) => (props.$active ? 'white' : 'var(--text-color)')};
-	border: .125rem solid var(--primary-color);
+	border: 0.125rem solid var(--primary-color);
 	border-radius: 1.875rem;
 	font-weight: 600;
 	cursor: pointer;
@@ -147,14 +154,14 @@ const GridContainer = styled(motion.div)`
 
 const GridCard = styled.div`
 	background-color: var(--card-background);
-	border-radius: .75rem;
+	border-radius: 0.75rem;
 	box-shadow: var(--card-shadow);
 	overflow: hidden;
 	transition: transform 0.3s ease, box-shadow 0.3s ease;
 
 	&:hover {
 		transform: translateY(-0.3125rem);
-		box-shadow: 0 .625rem 1.25rem rgba(0, 0, 0, 0.12);
+		box-shadow: 0 0.625rem 1.25rem rgba(0, 0, 0, 0.12);
 	}
 `;
 
@@ -175,39 +182,39 @@ const CardHeaderContent = styled.div`
 const CardType = styled.div`
 	display: flex;
 	align-items: center;
-	margin-bottom: .625rem;
-	font-size: .875rem;
+	margin-bottom: 0.625rem;
+	font-size: 0.875rem;
 	color: var(--primary-color);
 	font-weight: 600;
 
 	svg {
-		margin-right: .5rem;
+		margin-right: 0.5rem;
 		font-size: 1rem;
 	}
 `;
 
 const CardDate = styled.div`
 	color: var(--text-secondary);
-	font-size: .875rem;
-	margin-bottom: .75rem;
+	font-size: 0.875rem;
+	margin-bottom: 0.75rem;
 	display: flex;
 	align-items: center;
 
 	&::before {
 		content: '';
 		display: inline-block;
-		width: .5rem;
-		height: .5rem;
+		width: 0.5rem;
+		height: 0.5rem;
 		border-radius: 50%;
 		background-color: var(--primary-color);
-		margin-right: .5rem;
+		margin-right: 0.5rem;
 	}
 `;
 
 const CardTitle = styled.h3`
 	font-size: 1.125rem;
 	font-weight: 600;
-	margin: 0 0 .3125rem 0;
+	margin: 0 0 0.3125rem 0;
 	color: var(--text-color);
 `;
 
@@ -227,7 +234,7 @@ const ExpandButton = styled.div`
 	border-radius: 50%;
 	background-color: var(--card-background);
 	color: var(--primary-color);
-	border: .125rem solid var(--primary-color);
+	border: 0.125rem solid var(--primary-color);
 	cursor: pointer;
 	margin-left: 1rem;
 	transition: all 0.2s ease;
@@ -238,7 +245,7 @@ const ExpandButton = styled.div`
 	}
 
 	svg {
-		font-size: .875rem;
+		font-size: 0.875rem;
 	}
 `;
 
@@ -249,7 +256,7 @@ const CardContent = styled(motion.div)`
 
 const CardDescription = styled.p`
 	color: var(--text-secondary);
-	font-size: .9375rem;
+	font-size: 0.9375rem;
 	line-height: 1.6;
 	padding-bottom: 1.25rem;
 `;
@@ -257,16 +264,16 @@ const CardDescription = styled.p`
 const BadgeContainer = styled.div`
 	display: flex;
 	flex-wrap: wrap;
-	gap: .5rem;
-	margin-top: .75rem;
+	gap: 0.5rem;
+	margin-top: 0.75rem;
 `;
 
 const Badge = styled.span`
-	padding: .25rem .5rem;
+	padding: 0.25rem 0.5rem;
 	background-color: rgba(var(--primary-color-rgb), 0.1);
 	color: var(--primary-color);
-	border-radius: .75rem;
-	font-size: .75rem;
+	border-radius: 0.75rem;
+	font-size: 0.75rem;
 	font-weight: 500;
 `;
 
@@ -293,11 +300,11 @@ const YearLabel = styled.div`
 	font-size: 1.125rem;
 	font-weight: 700;
 	color: var(--primary-color);
-	padding: .5rem 1rem;
+	padding: 0.5rem 1rem;
 	background-color: var(--card-background);
 	border-radius: 1.25rem;
 	display: inline-block;
-	margin-bottom: .5rem;
+	margin-bottom: 0.5rem;
 	box-shadow: var(--card-shadow);
 	position: relative;
 	z-index: 2;
@@ -305,17 +312,17 @@ const YearLabel = styled.div`
 
 const TimelineLine = styled.div`
 	position: absolute;
-	width: .25rem;
+	width: 0.25rem;
 	background-color: var(--primary-color);
 	top: 2.5rem;
 	bottom: 0;
-	left: .75rem;
-	border-radius: .125rem;
+	left: 0.75rem;
+	border-radius: 0.125rem;
 	z-index: 1;
 	opacity: 0.4;
 
 	@media (max-width: 48rem) {
-		left: .75rem;
+		left: 0.75rem;
 	}
 `;
 
@@ -348,21 +355,21 @@ const TimelineIcon = styled.div`
 	font-size: 1rem;
 	position: absolute;
 	left: -0.3125rem;
-	top: .625rem;
+	top: 0.625rem;
 	z-index: 2;
-	box-shadow: 0 .1875rem .625rem rgba(var(--primary-color-rgb), 0.3);
+	box-shadow: 0 0.1875rem 0.625rem rgba(var(--primary-color-rgb), 0.3);
 
 	@media (max-width: 48rem) {
 		left: -0.3125rem;
 		width: 2.25rem;
 		height: 2.25rem;
-		font-size: .875rem;
+		font-size: 0.875rem;
 	}
 `;
 
 const TimelineCard = styled.div`
 	background-color: var(--card-background);
-	border-radius: .75rem;
+	border-radius: 0.75rem;
 	box-shadow: var(--card-shadow);
 	padding: 1rem;
 	transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -370,7 +377,7 @@ const TimelineCard = styled.div`
 
 	&:hover {
 		transform: translateY(-0.1875rem);
-		box-shadow: 0 .5rem 1rem rgba(0, 0, 0, 0.12);
+		box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.12);
 	}
 `;
 
@@ -386,8 +393,8 @@ const TimelineCardContent = styled.div`
 
 const TimelineDate = styled.div`
 	color: var(--text-secondary);
-	font-size: .875rem;
-	margin-bottom: .5rem;
+	font-size: 0.875rem;
+	margin-bottom: 0.5rem;
 	font-weight: 500;
 `;
 
@@ -741,7 +748,13 @@ const Experience = () => {
 	return (
 		<ExperienceContainer id='experience'>
 			<ExperienceHeader>
-				<ExperienceTitle>Experience</ExperienceTitle>
+				<ExperienceTitle tabIndex='0'>
+					Experience{' '}
+					<FaBriefcase
+						aria-label='Experience icon'
+						title='Experience icon'
+					/>
+				</ExperienceTitle>
 				{/* <ExperienceSubtitle>
 					My professional journey and educational background
 				</ExperienceSubtitle> */}
@@ -768,14 +781,16 @@ const Experience = () => {
 
 				<ViewToggle>
 					<ToggleButton
+						$position='left'
 						$active={viewMode === 'timeline'}
 						onClick={() => setViewMode('timeline')}>
-						<FaStream /> Timeline
+						<FaStream size={18} /> Timeline
 					</ToggleButton>
 					<ToggleButton
+						position='right'
 						$active={viewMode === 'grid'}
 						onClick={() => setViewMode('grid')}>
-						<FaThLarge /> Grid
+						<FaThLarge size={18} /> Grid
 					</ToggleButton>
 				</ViewToggle>
 			</ControlsContainer>

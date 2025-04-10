@@ -39,7 +39,9 @@ const ProfileImage = styled.div`
 	position: relative;
 	// border-radius: inherit;
 	aspect-ratio: 4/5;
-
+	${media.xs`
+		max-width: 10rem;
+	`}
 	img {
 		width: 100%;
 		height: 100%;
@@ -123,6 +125,7 @@ const CTAButton = styled.a`
 	display: flex;
 	align-items: center;
 	justify-content: center;
+	gap: 0.5rem;
 	padding: 0.75rem 2rem;
 	background: var(--cta-button);
 	color: white;
@@ -131,9 +134,45 @@ const CTAButton = styled.a`
 	transition: all 0.3s ease;
 	text-decoration: none;
 	margin-top: 1rem;
-	svg {
-		margin-left: 0.5rem;
+	position: relative;
+
+	&::after,
+	&::before {
+		content: '';
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		background-image: conic-gradient(
+			from var(--angle),
+			transparent 70%,
+			rgba(var(--primary-color-rgb), 0.8)
+		);
+		top: 50%;
+		left: 50%;
+		translate: -50% -50%;
+		padding: 2px;
+		border-radius: 3.125rem;
+		animation: 3s rotateRing linear infinite;
+		z-index: -1;
+		pointer-events: none;
+		opacity: 1;
+		transition: opacity 1s ease, visibility 1s ease;
 	}
+
+	&::before {
+		filter: blur(1.5rem);
+		opacity: 0.6;
+	}
+
+	@keyframes rotateRing {
+		from {
+			--angle: 0deg;
+		}
+		to {
+			--angle: 360deg;
+		}
+	}
+
 	&:hover {
 		transform: translateY(-0.25rem);
 		box-shadow: 0 0.25rem 0.9375rem rgba(var(--primary-color-rgb), 0.4);
@@ -141,6 +180,14 @@ const CTAButton = styled.a`
 		text-decoration: none;
 		color: #ffffff;
 	}
+
+	&:hover::after,
+	&:hover::before {
+		opacity: 0;
+		visibility: hidden;
+		animation-play-state: paused;
+	}
+
 	${media.desktop`
 		box-shadow: 0 .25rem .9375rem rgba(0, 0, 0, 0.4);
 	`}
@@ -182,15 +229,15 @@ const ProfileCard = () => {
 				type={'triangles'}
 				containerId='profile-card-particles'
 			/>
-			<ProfileImage>
+			<ProfileImage tabIndex='0'>
 				<img
 					src={profilePicture}
 					alt='Charan Epuri'
 				/>
 			</ProfileImage>
-			<Name>Charan Epuri</Name>
+			<Name tabIndex='0'>Charan Epuri</Name>
 			{/* <Title>Full Stack Developer</Title> */}
-			<Location>New York, USA</Location>
+			<Location tabIndex='0'>New York, USA</Location>
 			<SocialLinks>
 				<SocialIcon
 					href='https://github.com/245charan/'
@@ -213,7 +260,7 @@ const ProfileCard = () => {
 				</SocialIcon>
 			</SocialLinks>
 			<Stats>
-				<StatItem>
+				<StatItem tabIndex='0'>
 					<StatNumber>+5</StatNumber>
 					<StatLabel>Years of Experience</StatLabel>
 				</StatItem>
@@ -227,9 +274,10 @@ const ProfileCard = () => {
 				</StatItem> */}
 			</Stats>
 			<CTAButton
+				id='talk'
 				title='Open for technical discussions at your convenience – no pressure!'
 				target='_blank'
-				aria-label='lets-talk'
+				aria-label='Open for technical discussions at your convenience – no pressure!'
 				href='https://outlook.office.com/bookwithme/user/15d34846ee2f47be84a77aa55dd0ebbd@marist.edu?anonymous&ep=plink'>
 				Let's Talk <FaCalendar />
 			</CTAButton>

@@ -1,6 +1,12 @@
 import { createGlobalStyle } from 'styled-components';
 
 const GlobalStyles = createGlobalStyle`
+
+  @property --angle {
+    syntax: '<angle>';
+    initial-value: 0deg;
+    inherits: false;
+  }
   :root {
     --primary-color: ${(props) => props.theme.primary};
     --gradient-color: ${(props) => props.theme?.gradient};
