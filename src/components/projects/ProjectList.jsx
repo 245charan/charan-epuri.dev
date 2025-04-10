@@ -274,7 +274,7 @@ const ProjectList = ({ category, projects }) => {
 					? 0
 					: Math.round(
 							(scrollLeft / maxScroll) * (totalSections - 1)
-					);
+					  );
 			setActiveIndex(currentIndex);
 		}
 	};
@@ -368,6 +368,7 @@ const ProjectList = ({ category, projects }) => {
 				}}>
 				{projects.map((project, index) => (
 					<ProjectItem
+						className={index == 1 ? 'project-card' : ''}
 						key={index}
 						onClick={() => handleProjectClick(project.id)}>
 						<ProjectImage>

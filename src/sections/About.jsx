@@ -176,38 +176,38 @@ const About = () => {
 							<strong>
 								Frontend-focused Full Stack Developer
 							</strong>{' '}
-							with expertise in React, Java, Spring Boot, and
-							end-to-end WordPress
+							with <strong>5+ years</strong> of expertise in
+							React, Java, Spring Boot, and end-to-end WordPress
 						</li>
 						<li>
-							<strong>5+ years</strong> building financial
-							platforms, CMS tools & enterprise apps
-						</li>
-						<li>
-						Deeply invested with{' '}
+							Deeply invested with{' '}
 							<strong>scalable architecture </strong>
-							and <strong>high-performance UIs.</strong>
+							and <strong>high-performance UIs</strong>
 						</li>
 						<li>
-							Driven to make tech accessible, inclusive, and
+							Driven to make tech{' '}
+							<strong>accessible, inclusive,</strong> and
 							enjoyable for all
 						</li>
 						<li>
-							Skilled at simplifying complex workflows with
-							user-first desig
+							Strong technical problem-solver with emphasis on{' '}
+							<strong>maintainable, future-proof code </strong>
+							solutions
 						</li>
 						<li>
-							Thrive in the <strong>0 → 1</strong> phase—bringing
-							ideas to life from scratch
+							<strong>0 → 1</strong> bringing ideas to life from
+							scratch
 						</li>
 					</ul>
 				</AboutText>
 				<AboutServices>
-					<HeroTitle>
+					<HeroTitle tabIndex='0'>
 						What I <span>Bring</span> to the Table
 					</HeroTitle>
 					{services.map((service, index) => (
-						<ServiceCard key={index}>
+						<ServiceCard
+							tabIndex='0'
+							key={index}>
 							<ServiceIcon>{service.icon}</ServiceIcon>
 							<ServiceTitle>{service.title}</ServiceTitle>
 							<ServiceDescription>

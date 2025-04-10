@@ -551,7 +551,7 @@ const Experience = () => {
 			variants={containerVariants}>
 			{filteredExperiences.length > 0 ? (
 				filteredExperiences.map((exp, index) => (
-					<GridCard key={index}>
+					<GridCard className ={index == 1 ? 'exp-card' : ''} key={index}>
 						<CardHeader
 							onClick={() => toggleExpand(index)}
 							$isExpanded={expandedItems[index]}>

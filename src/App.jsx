@@ -40,13 +40,14 @@ const ThemedApp = () => {
 
 const App = () => {
 	const [runTour, setRunTour] = useState(true);
-	const location = useLocation();
+	const location = useLocation(); 
 	const steps = [
 		{
 			target: '#talk',
 			content: (
 				<div>
-					<h3>Let’s chat! ☕</h3>
+					<h3>Available for work ☕</h3>
+					<p>Let's discuss opportunities</p>
 				</div>
 			),
 			placement: 'top-start',
@@ -55,7 +56,7 @@ const App = () => {
 			target: '#theme-customize',
 			content: (
 				<div>
-					<h3>Style your vibe 🎨</h3>
+					<h3>Pick your colors 🎨</h3>
 				</div>
 			),
 			placement: 'top',
@@ -64,7 +65,7 @@ const App = () => {
 			target: '#project-toggle',
 			content: (
 				<div>
-					<h3>Switch the view 🔁</h3>
+					<h3>Toggle view 🔁</h3>
 				</div>
 			),
 			placement: 'top',
@@ -73,7 +74,7 @@ const App = () => {
 			target: '#scroll',
 			content: (
 				<div>
-					<h3>Scroll fatigue ? Feel Gravity on click 🚀</h3>
+					<h3>Scroll fatigue? Try gravity 🚀</h3>
 				</div>
 			),
 			placement: 'bottom',
@@ -82,7 +83,7 @@ const App = () => {
 			target: '#about',
 			content: (
 				<div>
-					<h3>Know me 👨‍💻</h3>
+					<h3>About me 👨‍💻</h3>
 				</div>
 			),
 			placement: 'top',
@@ -91,7 +92,16 @@ const App = () => {
 			target: '#projects',
 			content: (
 				<div>
-					<h3>Explore projects 🔍</h3>
+					<h3>My work 🔍</h3>
+				</div>
+			),
+			placement: 'bottom',
+		},
+		{
+			target: '.project-card',
+			content: (
+				<div>
+					<h3>Click to see project details →</h3>
 				</div>
 			),
 			placement: 'bottom',
@@ -100,7 +110,7 @@ const App = () => {
 			target: '#skills',
 			content: (
 				<div>
-					<h3>Toolbox peek 🛠️</h3>
+					<h3>My tools 🛠️</h3>
 				</div>
 			),
 			placement: 'bottom',
@@ -109,7 +119,16 @@ const App = () => {
 			target: '#experience',
 			content: (
 				<div>
-					<h3>Track my path 🧭</h3>
+					<h3>My journey 🧭</h3>
+				</div>
+			),
+			placement: 'bottom',
+		},
+		{
+			target: '.exp-card',
+			content: (
+				<div>
+					<h3>Click to expand</h3>
 				</div>
 			),
 			placement: 'bottom',
@@ -118,13 +137,12 @@ const App = () => {
 			target: '#contact',
 			content: (
 				<div>
-					<h3>Say hi! 👋</h3>
+					<h3>Get in touch 👋</h3>
 				</div>
 			),
 			placement: 'bottom',
 		},
 	];
-
 	useEffect(() => {
 		window.scrollTo(window.scrollX, window.scrollY + 1);
 		window.scrollTo(window.scrollX, window.scrollY - 1);
