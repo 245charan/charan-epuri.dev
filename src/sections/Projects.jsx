@@ -1,6 +1,6 @@
 import React, { useMemo, useState } from 'react';
 import styled from 'styled-components';
-import { FaProjectDiagram, FaThLarge, FaStream } from 'react-icons/fa';
+import { FaProjectDiagram, FaThLarge, FaSlidersH } from 'react-icons/fa';
 import ProjectGrid from '../components/projects/ProjectGrid';
 import ProjectList from '../components/projects/ProjectList';
 import { media } from '../styles/Responsive';
@@ -17,8 +17,8 @@ export const projectsData = [
 		id: 'marist-university',
 		title: 'Marist University',
 		display: true,
-		description:
-			"Key contributor to rebuilding the Marist College's website during its university transition, focusing on accessibility compliance and user experience improvements. Helped implement solutions that reduced page load times and boosted search rankings while maintaining brand standards.",
+		// description:
+		// 	"Key contributor to rebuilding the Marist College's website during its university transition, focusing on accessibility compliance and user experience improvements. Helped implement solutions that reduced page load times and boosted search rankings while maintaining brand standards.",
 		image: marist,
 		techStack: [
 			'Liferay',
@@ -32,10 +32,11 @@ export const projectsData = [
 			'Spring Boot',
 		],
 		personalProject: false,
-		liveDemo: 'https://marist.edu',
+		liveDemo: 'https://my.de.marist.edu',
 		// category: 'CMS',
 		features: [
 			'Helped design and develop a 150+ page website for digital education.',
+			'Built liferay structures to build the site based on content need.',
 			'Curated SEO words and also maintained the SEO score in long run.',
 
 			'Accepted the challenge to create content for web pages and accessibility ',
@@ -253,6 +254,7 @@ const ToggleButton = styled.button`
 	justify-content: center;
 	cursor: pointer;
 	transition: all 0.3s ease;
+	font-weight: 600;
 
 	svg {
 		margin-right: 0.375rem;
@@ -317,7 +319,7 @@ const Projects = () => {
 						$active={viewMode === 'list'}
 						onClick={() => setViewMode('list')}
 						aria-label='List view'>
-						<FaStream size={18} /> Timeline
+						<FaSlidersH size={18} /> Slider
 					</ToggleButton>
 					<ToggleButton
 						$position='right'

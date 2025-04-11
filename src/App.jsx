@@ -40,7 +40,7 @@ const ThemedApp = () => {
 
 const App = () => {
 	const [runTour, setRunTour] = useState(true);
-	const location = useLocation(); 
+	const location = useLocation();
 	const steps = [
 		{
 			target: '#talk',
@@ -71,60 +71,6 @@ const App = () => {
 			placement: 'top',
 		},
 		{
-			target: '#scroll',
-			content: (
-				<div>
-					<h3>Scroll fatigue? Try gravity 🚀</h3>
-				</div>
-			),
-			placement: 'bottom',
-		},
-		{
-			target: '#about',
-			content: (
-				<div>
-					<h3>About me 👨‍💻</h3>
-				</div>
-			),
-			placement: 'top',
-		},
-		{
-			target: '#projects',
-			content: (
-				<div>
-					<h3>My work 🔍</h3>
-				</div>
-			),
-			placement: 'bottom',
-		},
-		{
-			target: '.project-card',
-			content: (
-				<div>
-					<h3>Click to see project details →</h3>
-				</div>
-			),
-			placement: 'bottom',
-		},
-		{
-			target: '#skills',
-			content: (
-				<div>
-					<h3>My tools 🛠️</h3>
-				</div>
-			),
-			placement: 'bottom',
-		},
-		{
-			target: '#experience',
-			content: (
-				<div>
-					<h3>My journey 🧭</h3>
-				</div>
-			),
-			placement: 'bottom',
-		},
-		{
 			target: '.exp-card',
 			content: (
 				<div>
@@ -134,15 +80,118 @@ const App = () => {
 			placement: 'bottom',
 		},
 		{
-			target: '#contact',
+			target: '#scroll',
 			content: (
 				<div>
-					<h3>Get in touch 👋</h3>
+					<h3>Scroll fatigue? Try gravity 🚀</h3>
 				</div>
 			),
 			placement: 'bottom',
 		},
 	];
+
+	// const steps = [
+	// 	{
+	// 		target: '#talk',
+	// 		content: (
+	// 			<div>
+	// 				<h3>Available for work ☕</h3>
+	// 				<p>Let's discuss opportunities</p>
+	// 			</div>
+	// 		),
+	// 		placement: 'top-start',
+	// 	},
+	// 	{
+	// 		target: '#theme-customize',
+	// 		content: (
+	// 			<div>
+	// 				<h3>Pick your colors 🎨</h3>
+	// 			</div>
+	// 		),
+	// 		placement: 'top',
+	// 	},
+	// 	{
+	// 		target: '#project-toggle',
+	// 		content: (
+	// 			<div>
+	// 				<h3>Toggle view 🔁</h3>
+	// 			</div>
+	// 		),
+	// 		placement: 'top',
+	// 	},
+	// 	{
+	// 		target: '#scroll',
+	// 		content: (
+	// 			<div>
+	// 				<h3>Scroll fatigue? Try gravity 🚀</h3>
+	// 			</div>
+	// 		),
+	// 		placement: 'bottom',
+	// 	},
+	// 	{
+	// 		target: '#about',
+	// 		content: (
+	// 			<div>
+	// 				<h3>About me 👨‍💻</h3>
+	// 			</div>
+	// 		),
+	// 		placement: 'top',
+	// 	},
+	// 	{
+	// 		target: '#projects',
+	// 		content: (
+	// 			<div>
+	// 				<h3>My work 🔍</h3>
+	// 			</div>
+	// 		),
+	// 		placement: 'bottom',
+	// 	},
+	// 	{
+	// 		target: '.project-card',
+	// 		content: (
+	// 			<div>
+	// 				<h3>Click to see project details →</h3>
+	// 			</div>
+	// 		),
+	// 		placement: 'bottom',
+	// 	},
+	// 	{
+	// 		target: '#skills',
+	// 		content: (
+	// 			<div>
+	// 				<h3>My tools 🛠️</h3>
+	// 			</div>
+	// 		),
+	// 		placement: 'bottom',
+	// 	},
+	// 	{
+	// 		target: '#experience',
+	// 		content: (
+	// 			<div>
+	// 				<h3>My journey 🧭</h3>
+	// 			</div>
+	// 		),
+	// 		placement: 'bottom',
+	// 	},
+	// 	{
+	// 		target: '.exp-card',
+	// 		content: (
+	// 			<div>
+	// 				<h3>Click to expand</h3>
+	// 			</div>
+	// 		),
+	// 		placement: 'bottom',
+	// 	},
+	// 	{
+	// 		target: '#contact',
+	// 		content: (
+	// 			<div>
+	// 				<h3>Get in touch 👋</h3>
+	// 			</div>
+	// 		),
+	// 		placement: 'bottom',
+	// 	},
+	// ];
 	useEffect(() => {
 		window.scrollTo(window.scrollX, window.scrollY + 1);
 		window.scrollTo(window.scrollX, window.scrollY - 1);
