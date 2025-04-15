@@ -81,6 +81,8 @@ const FilterContainer = styled.div`
 	display: flex;
 	gap: 1rem;
 	flex-wrap: wrap;
+	psotion: relative;
+	z-index: 1;
 
 	@media (max-width: 48rem) {
 		justify-content: center;
@@ -89,6 +91,7 @@ const FilterContainer = styled.div`
 
 const ViewToggle = styled.div`
 	display: flex;
+	z-index: 1;
 	background-color: var(--card-background);
 	border-radius: 0.5rem;
 	padding: 0.25rem;
@@ -125,12 +128,13 @@ const ToggleButton = styled.button`
 const FilterButton = styled.button`
 	padding: 0.5rem 1rem;
 	background-color: ${(props) =>
-		props.$active ? 'var(--primary-color)' : 'transparent'};
+		props.$active ? 'var(--primary-color)' : 'var(--card-background)'};
 	color: ${(props) => (props.$active ? 'white' : 'var(--text-color)')};
 	border: 0.125rem solid var(--primary-color);
 	border-radius: 1.875rem;
 	font-weight: 600;
 	cursor: pointer;
+	// z-index: 1;
 	transition: all 0.2s ease;
 
 	&:hover {
@@ -158,6 +162,7 @@ const GridCard = styled.div`
 	box-shadow: var(--card-shadow);
 	overflow: hidden;
 	transition: transform 0.3s ease, box-shadow 0.3s ease;
+	z-index: 1;
 
 	&:hover {
 		transform: translateY(-0.3125rem);
@@ -448,8 +453,8 @@ const Experience = () => {
 			{
 				title: 'Digital Education LMS QAT',
 				company: 'Marist University',
-				date: 'Oct 2023 - Present',
-				year: '2023',
+				date: 'Feb 2024 - Present',
+				year: '2024',
 				description:
 					"Contributed to Marist University to designed and developed a 150+ page website for digital education. Managed LMS content, troubleshot issues, and reported bugs in Jira/TDX. Contributed to Sakai's open Jira bug fixes (#30).",
 				type: 'work',
@@ -475,16 +480,16 @@ const Experience = () => {
 				type: 'education',
 				skills: [
 					'Data Analytics',
-					'Finance',
-					'Management',
+					'Decision Support System',
+					'Machine Learning',
 					'Data Mining',
 				],
 			},
 			{
 				title: 'Software Engineer',
 				company: 'Innova Solutions (formerly ACS Solutions)',
-				date: 'Mar 2021 - Aug 2023',
-				year: '2021',
+				date: 'Apr 2022 - Aug 2023',
+				year: '2022',
 				description:
 					'Led development for BNY Mellon Fund Management & Accounting Application. Built backend-driven UI with scalable SPAs/MPAs using React and micro-frontends, improving responsiveness and reducing latency by 25%. Created reusable React component libraries (Disclosures/Notifications) reducing development time by 30%. Optimized state management with Redux (Thunk/Saga). Architected AWS cloud infrastructure (S3, EC2, Lambda, CloudFront) achieving 20% faster load times. Automated CI/CD pipelines using AWS CodeBuild/CodePipeline, reducing deployment time by 50% and errors by 40%. Improved test coverage to ~95% using Jest/RTL. Reduced package load time from 15 minutes to <1 second. Mentored 4+ junior developers in React, Redux, and testing frameworks.',
 				type: 'work',
@@ -500,7 +505,7 @@ const Experience = () => {
 			{
 				title: 'Associate Software Engineer',
 				company: 'Innova Solutions (formerly ACS Solutions)',
-				date: 'Mar 2021 - Mar 2021',
+				date: 'Mar 2021 - Mar 2022',
 				year: '2021',
 				description:
 					'WordPress Developer: Developed complete web applications independently from setting up Cloudways hosting to configuring domains and optimizing SEO visibility. Implemented custom UI components and shortcodes based on Figma designs. Created custom post types and shortcodes to improve content management. Optimized site performance, reducing load times by 30% and boosting mobile experience. Integrated WooCommerce, driving a 20% increase in client sales. Conducted performance audits using Google Lighthouse, achieving 90+ scores in performance, accessibility, and SEO. Notable projects: Posrg.com, Medisysqi.com.',
@@ -551,7 +556,9 @@ const Experience = () => {
 			variants={containerVariants}>
 			{filteredExperiences.length > 0 ? (
 				filteredExperiences.map((exp, index) => (
-					<GridCard className ={index == 1 ? 'exp-card' : ''} key={index}>
+					<GridCard
+						className={index == 1 ? 'exp-card' : ''}
+						key={index}>
 						<CardHeader
 							onClick={() => toggleExpand(index)}
 							$isExpanded={expandedItems[index]}>

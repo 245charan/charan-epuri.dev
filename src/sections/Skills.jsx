@@ -105,8 +105,7 @@ const TabsContainer = styled.div`
 	${media.xs`
 		grid-template-columns: repeat(2, 1fr);
 		justify-content: center;
-		grid-auto-rows: minmax(64px, auto);`
-	}
+		grid-auto-rows: minmax(64px, auto);`}
 `;
 
 const TabButton = styled.button`
@@ -117,9 +116,11 @@ const TabButton = styled.button`
 	border: none;
 	border-radius: 0.5rem;
 	cursor: pointer;
-	font-weight: 500;
+	font-weight: 600;
+	font-size: 0.9rem;
 	transition: var(--transition);
 	box-shadow: var(--card-shadow);
+	z-index: 1;
 
 	&:hover {
 		background-color: ${({ $active }) =>
@@ -250,7 +251,7 @@ const ExpertiseDot = styled.div`
 
 const ShowAllButton = styled.button`
 	display: block;
-	background-color: transparent;
+	background-color: var(--card-background);
 	border-radius: 0.5rem;
 	border: 1px solid var(--primary-color);
 	color: var(--primary-color);
@@ -259,6 +260,8 @@ const ShowAllButton = styled.button`
 	margin: 1.5rem auto;
 	padding: 0.5rem 1rem;
 	transition: var(--transition);
+	position: relative;
+	z-index: 1;
 
 	&:hover {
 		background-color: var(--primary-color);

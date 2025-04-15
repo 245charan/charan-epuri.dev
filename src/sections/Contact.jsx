@@ -55,6 +55,7 @@ const ContactInfo = styled.div`
 	background-color: var(--card-background);
 	border-radius: var(--border-radius);
 	padding: 2rem;
+	z-index: 1;
 	box-shadow: var(--card-shadow);
 
 	${media.mobile`
@@ -147,6 +148,7 @@ const ContactForm = styled.div`
 	background-color: var(--card-background);
 	border-radius: var(--border-radius);
 	padding: 2rem;
+	z-index: 1;
 	box-shadow: var(--card-shadow);
 
 	${media.mobile`

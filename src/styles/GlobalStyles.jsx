@@ -36,25 +36,60 @@ const GlobalStyles = createGlobalStyle`
   }
 
   body {
-    font-family: 'Inter', 'Roboto', 'Helvetica Neue', sans-serif;
-    background: linear-gradient(90deg, rgba(249, 247, 247, 0.7), rgba(241, 239, 239, 0.7));
-    color: var(--text-color);
+    margin: 0;
+    min-width: 320px;
+    min-height: 100vh;
+    font-family: 'Inter', sans-serif;
+    color: var(--text);
     line-height: 1.6;
-    transition: background-color 0.3s ease, color 0.3s ease;
+    overflow-x: hidden;
+    background-color: var(--white);
     position: relative;
-  }
-  
-  body::before {
+    background-image: linear-gradient(
+      to right,
+      rgba(128, 128, 128, 0.1) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+        to bottom,
+        rgba(128, 128, 128, 0.1) 1px,
+        transparent 1px
+    );
+    background-size: 24px 24px;
+    animation: grid-move 3s linear infinite;
+    z-index:10;
+}
+
+body:before {
     content: '';
     position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: -1;
-    background: linear-gradient(90deg, rgba(249, 247, 247, 0.7), rgba(241, 239, 239, 0.7));
-    opacity: 0.8;
-  }
+    inset: 0;
+    background-image: linear-gradient(
+      to right,
+      rgba(128, 128, 128, 0.1) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+        to bottom,
+        rgba(128, 128, 128, 0.1) 1px,
+        transparent 1px
+    );
+    background-size: 24px 24px;
+    animation: grid-move 3s linear infinite;
+    mask: radial-gradient(circle at center, black 40%, transparent 90%);
+	  -webkit-mask: radial-gradient(circle at center, black 40%, transparent 90%);
+	pointer-events: none;
+}
+
+@keyframes grid-move {
+	0% {
+		background-position: 0 0;
+	}
+
+	to {
+		background-position: 24px 0;
+	}
+}
 
   h1, h2, h3, h4, h5, h6 {
     font-weight: 700;

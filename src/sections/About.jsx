@@ -67,6 +67,7 @@ const AboutServices = styled.div`
 	gap: 1.5rem;
 	justify-content: center;
 	grid-template-columns: 1fr;
+	z-index: 1;
 	@media (min-width: 36rem) {
 		grid-template-columns: repeat(2, minmax(300px, 380px));
 	}

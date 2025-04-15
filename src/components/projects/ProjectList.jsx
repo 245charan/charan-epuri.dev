@@ -1,4 +1,4 @@
-import React, { useRef, useState, useEffect } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import { FaChevronLeft, FaChevronRight } from 'react-icons/fa';
 import { PiGifBold } from 'react-icons/pi';
@@ -29,8 +29,8 @@ const ScrollRow = styled.div`
 
 const ScrollButton = styled.button`
 	position: absolute;
-	top: 50%;
-	transform: translateY(-52%);
+	top: 53%;
+	transform: translateY(-50%);
 	z-index: 2;
 	background: rgba(0, 0, 0, 0.6);
 	color: white;
@@ -226,25 +226,24 @@ const ScrollIndicatorDot = styled.div`
 		$active ? 'var(--primary-color, #333)' : '#ccc'};
 	transition: background-color 0.3s ease, width 0.3s ease;
 `;
-const groupProjectsByCategory = (projects) => {
-	return projects.reduce((groups, project) => {
-		const category = project.category || 'Featured Projects';
-		if (!groups[category]) {
-			groups[category] = [];
-		}
-		groups[category].push(project);
-		return groups;
-	}, {});
-};
-const ProjectList = ({ category, projects }) => {
-	const rowRef = useRef(null);
-	const navigate = useNavigate();
-	const projectsByCategory = groupProjectsByCategory(projects);
 
-	const [canScrollLeft, setCanScrollLeft] = useState(false);
-	const [canScrollRight, setCanScrollRight] = useState(false);
-	const [activeIndex, setActiveIndex] = useState(0);
-	const [totalSections, setTotalSections] = useState(1);
+// Main container for all project categories
+const ProjectCategoriesContainer = styled.div`
+	display: flex;
+	flex-direction: column;
+	gap: 0.5rem;
+	width: 100%;
+`;
+
+// SingleCategoryRow component to manage one category row
+const SingleCategoryRow = ({ category, projects }) => {
+	const rowRef = React.useRef(null);
+	const navigate = useNavigate();
+
+	const [canScrollLeft, setCanScrollLeft] = React.useState(false);
+	const [canScrollRight, setCanScrollRight] = React.useState(false);
+	const [activeIndex, setActiveIndex] = React.useState(0);
+	const [totalSections, setTotalSections] = React.useState(1);
 
 	// Calculate how many sections we can scroll through
 	const calculateSections = () => {
@@ -280,7 +279,7 @@ const ProjectList = ({ category, projects }) => {
 	};
 
 	// Set up scroll position checking
-	useEffect(() => {
+	React.useEffect(() => {
 		const scrollContainer = rowRef.current;
 
 		// Initial calculations
@@ -368,7 +367,7 @@ const ProjectList = ({ category, projects }) => {
 				}}>
 				{projects.map((project, index) => (
 					<ProjectItem
-						className={index == 1 ? 'project-card' : ''}
+						className={index === 1 ? 'project-card' : ''}
 						key={index}
 						onClick={() => handleProjectClick(project.id)}>
 						<ProjectImage>
@@ -418,4 +417,35 @@ const ProjectList = ({ category, projects }) => {
 	);
 };
 
-export default ProjectList;
+// Main component that groups projects by category and renders a row for each category
+const CategorizedProjects = ({ projects }) => {
+	// Group projects by category
+	const groupProjectsByCategory = (projects) => {
+		return projects.reduce((groups, project) => {
+			const category = project.category || 'Featured Projects';
+			if (!groups[category]) {
+				groups[category] = [];
+			}
+			groups[category].push(project);
+			return groups;
+		}, {});
+	};
+
+	const projectsByCategory = groupProjectsByCategory(projects);
+
+	return (
+		<ProjectCategoriesContainer>
+			{Object.entries(projectsByCategory).map(
+				([category, categoryProjects]) => (
+					<SingleCategoryRow
+						key={category}
+						category={category}
+						projects={categoryProjects}
+					/>
+				)
+			)}
+		</ProjectCategoriesContainer>
+	);
+};
+
+export default CategorizedProjects;

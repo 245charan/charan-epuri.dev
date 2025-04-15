@@ -64,7 +64,7 @@ const PrimaryButton = styled.a`
 		}
 		`;
 		
-		const SecondaryButton = styled.a`
+	const SecondaryButton = styled.a`
 		display: inline-block;
 		padding: 0.75rem 2rem;
 		background-color: transparent;
@@ -72,8 +72,9 @@ const PrimaryButton = styled.a`
 		border: 0.125rem solid var(--primary-color);
 		border-radius: 3.125rem;
 		font-weight: 600;
-	text-decoration: none;
-	transition: all 0.3s ease;
+		z-index: 1;
+		text-decoration: none;
+		transition: all 0.3s ease;
 	
 	&:hover {
 		background: var(--cta-button);
