@@ -1,14 +1,14 @@
 import { configureStore } from '@reduxjs/toolkit';
 import { persistStore, persistReducer } from 'redux-persist';
-import storage from 'redux-persist/lib/storage';
+import storageSession from 'redux-persist/lib/storage/session';
 import { combineReducers } from 'redux';
 import themeReducer from './slices/themeSlice';
 
 // Configure persist options
 const persistConfig = {
   key: 'root',
-  storage,
-  whitelist: ['theme'] // only theme will be persisted
+  storage: storageSession,          
+  whitelist: ['theme'], // only theme will be persisted
 };
 
 const rootReducer = combineReducers({
