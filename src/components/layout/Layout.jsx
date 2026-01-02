@@ -40,8 +40,6 @@ const LeftSection = styled.div`
 		flex-basis: 30%;
 		overflow-y: auto;
 		padding: 2rem;
-		// transform: scale(0.8);
-		// top:-5.375rem;
   	`}
 `;
 

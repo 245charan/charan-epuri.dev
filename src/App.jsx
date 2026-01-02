@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Provider } from 'react-redux';
 import { store } from './redux/store';
 import { ThemeProvider } from 'styled-components';
+import styled from 'styled-components';
 import { useSelector } from 'react-redux';
 import { Route, Routes, useLocation } from 'react-router-dom';
 import GlobalStyles from './styles/GlobalStyles';
@@ -12,6 +13,16 @@ import ProgressBar from './components/progress/ProgressBar';
 import ProjectDetailPage from './components/projects/ProjectDetailPage';
 import HomePage from './components/home/HomePage';
 import Joyride from 'react-joyride';
+
+const AppContainer = styled.div`
+	background-color: var(--background-color);
+`;
+const AppContainerMargin = styled.div`
+	max-width: calc(var(--inset-max-width) + var(--padding-inline) * 2);
+	margin: 0 auto;
+	padding: 0 var(--padding-inline);
+	width: 100%;
+`;
 
 const ThemedApp = () => {
 	const { currentTheme } = useSelector((state) => state.theme);
@@ -220,7 +231,12 @@ const App = () => {
 				}}
 			/>
 			<ProgressBar />
-			<ThemedApp />
+
+			<AppContainer>
+				<AppContainerMargin>
+					<ThemedApp />
+				</AppContainerMargin>
+			</AppContainer>
 		</Provider>
 	);
 };

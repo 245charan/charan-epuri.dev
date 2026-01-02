@@ -27,6 +27,12 @@ const GlobalStyles = createGlobalStyle`
     --transition: all 0.3s ease;
     --cta-button: linear-gradient(90deg, var(--primary-color) 0%, var(--gradient-color) 100%);
     --theme-gradient: linear-gradient(90deg, var(--primary-color) 0%, var(--gradient-color) 100%);
+    
+    /* Layout Container Variables */
+    --padding-inline: clamp(1rem, 3vw, 4rem);
+    --inset-max-width: calc(1440px + (var(--padding-inline) * 2));
+    --narrow-max-width: 1000px;
+    --inner-max-width: 768px;
     }
 
   * {
