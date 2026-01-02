@@ -20,7 +20,6 @@ const ProfileCardContainer = styled.div`
 	padding: 1.875rem 1.25rem;
 	position: relative;
 	box-shadow: 0rem 0rem 1.25rem rgba(143, 143, 143, 0.2);
-	max-width: 400px;
 	isolation: isolate;
 
 	${media.desktop`
@@ -29,7 +28,6 @@ const ProfileCardContainer = styled.div`
 `;
 
 const ProfileImage = styled.div`
-	// box-shadow: 00rem 0rem 1rem 0rem #6565652b;
 	max-width: 16.25rem;
 	border-radius: 0.75rem;
 	order: 0;
@@ -37,7 +35,6 @@ const ProfileImage = styled.div`
 	overflow: hidden;
 	margin-bottom: 1.5rem;
 	position: relative;
-	// border-radius: inherit;
 	aspect-ratio: 4/5;
 	${media.xs`
 		max-width: 10rem;

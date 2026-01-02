@@ -6,6 +6,7 @@ import { media, breakpoints } from '../../styles/Responsive';
 
 const LayoutContainer = styled.div`
 	display: flex;
+	justify-content: center;
 	flex-direction: column;
 	min-height: 100vh;
 	min-height: 100dvh;
@@ -34,11 +35,9 @@ const LeftSection = styled.div`
 			align-self:center;
   	`}
 	${media.desktop`
-		position: fixed;
 		min-width: 350px;
 		// height: 100vh;
 		flex-basis: 30%;
-		max-width: 30%;
 		overflow-y: auto;
 		padding: 2rem;
 		// transform: scale(0.8);
@@ -52,7 +51,6 @@ const RightSection = styled.div`
 
 	${media.desktop`
 		flex-basis: 70%;
-		margin-left: 30%;
 		max-width: 70%;
 		padding: 2rem;
 	`}

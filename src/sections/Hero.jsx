@@ -9,6 +9,9 @@ const HeroContainer = styled.div`
 
 const HeroContent = styled.div`
 	text-align: left;
+	@media (max-width: 48rem) {
+		text-align: center;
+	}
 `;
 
 const HeroTitle = styled.h1`
@@ -25,6 +28,10 @@ const HeroTitle = styled.h1`
 
 	@media (min-width: 48rem) {
 		font-size: 4rem;
+	}
+	
+	@media (max-width: 48rem) {
+		font-size: 2rem;
 	}
 `;
 
@@ -44,6 +51,9 @@ const HeroButtons = styled.div`
 	display: flex;
 	gap: 1rem;
 	flex-wrap: wrap;
+	@media (max-width: 48rem) {
+		justify-content: center;
+	}
 `;
 
 const PrimaryButton = styled.a`

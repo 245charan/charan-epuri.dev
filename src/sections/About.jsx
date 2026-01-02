@@ -65,7 +65,7 @@ const AboutText = styled.div`
 const AboutServices = styled.div`
 	display: grid;
 	gap: 1.5rem;
-	justify-content: center;
+	// justify-content: center;
 	grid-template-columns: 1fr;
 	z-index: 1;
 	@media (min-width: 36rem) {

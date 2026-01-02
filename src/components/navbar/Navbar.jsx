@@ -49,7 +49,7 @@ const NavContainer = styled.nav`
 		if ($isMobile) return 'var(--card-shadow)';
 		return '.5rem .25rem 1.25rem rgba(143, 143, 143, 0.2)';
 	}};
-	transition: all 0.3s ease;
+	transition: all 0.5s ease;
 	display: ${({ $isSticky, $showSticky }) =>
 		$isSticky && !$showSticky ? 'none' : 'flex'};
 	transform: ${({ $isSticky, $showSticky }) =>
@@ -66,7 +66,7 @@ const Logo = styled.div`
 	cursor: pointer;
 
 	&:hover {
-		animation: dance 0.3s ease-in-out infinite alternate;
+		animation: dance 0.5s ease-in-out infinite alternate;
 	}
 
 	@keyframes pulse {
@@ -110,7 +110,7 @@ const MenuToggle = styled.button`
 		height: 0.25rem;
 		background: var(--text-color);
 		border-radius: 0.625rem;
-		transition: all 0.3s linear;
+		transition: all 0.5s linear;
 		position: relative;
 		transform-origin: 0.0625rem;
 
@@ -144,19 +144,20 @@ const NavLinks = styled.div`
 	height: ${({ $isMobile }) => ($isMobile ? '100vh' : 'auto')};
 	background-color: ${({ $isMobile }) =>
 		$isMobile ? 'var(--card-background)' : 'transparent'};
-	transform: translateZ(0); /* Hardware acceleration */
 	will-change: transform;
-	transition: transform 0.3s ease-in-out;
+	transition: transform 0.5s ease-in-out, width 0.5s ease-in-out, padding 0.5s ease-in-out, gap 0.5s ease-in-out, box-shadow 0.5s ease-in-out;
 	transform: ${({ $isMobile, $isOpen }) =>
-		$isMobile && !$isOpen ? 'translateX(100%)' : 'translateX(0)'};
+		$isMobile && !$isOpen ? 'translateX(100%) translateZ(0)' : 'translateX(0) translateZ(0)'};
 	box-shadow: ${({ $isMobile }) =>
 		$isMobile ? '-.3125rem 0 .9375rem rgba(0, 0, 0, 0.1)' : 'none'};
 	z-index: 9;
 	padding: ${({ $isMobile }) => ($isMobile ? '5rem 2rem 2rem' : '0')};
+	flex-grow: ${({ $isMobile }) => ($isMobile ? '0' : '1')};
+	gap: ${({ $isMobile }) => ($isMobile ? '1rem' : '0.5rem')};
 
 	${media.mobile`
-    width: 85%;
-  `}
+		width: 85%;
+	`}
 `;
 
 const NavItem = styled.a`
@@ -171,9 +172,11 @@ const NavItem = styled.a`
 	display: flex;
 	align-items: center;
 	gap: 0.5rem;
-	transition: color 0.3s ease, transform 0.3s ease;
+	transition: color 0.5s ease, transform 0.5s ease, padding 0.5s ease, margin 0.5s ease;
 	height: 2.5rem;
 	transform: translateZ(0);
+	flex-shrink: 0;
+	white-space: nowrap;
 
 	&:hover,
 	&.active {
@@ -183,7 +186,7 @@ const NavItem = styled.a`
 			position: relative;
 			opacity: 1;
 			transform: translateY(0);
-			transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+			transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
 			pointer-events: auto;
 		}
 	}
@@ -192,15 +195,17 @@ const NavItem = styled.a`
 		content: '';
 		position: absolute;
 		bottom: 0;
+		left: 50%;
+		transform: translateX(-50%);
+		width: 0;
 		height: 0.125rem;
 		background-color: var(--primary-color);
-		transition: all 0.3s ease;
+		transition: width 0.5s ease-in-out;
 	}
 
 	&:hover::after,
 	&.active::after {
 		width: 80%;
-		transition: all 0.3s ease;
 	}
 
 	${media.mobile`
@@ -253,7 +258,7 @@ const SocialIcons = styled.div`
 const SocialIcon = styled.a`
 	color: var(--text-color);
 	font-size: 1.2rem;
-	transition: color 0.3s ease;
+	transition: color 0.5s ease;
 
 	&:hover {
 		color: var(--primary-color);
@@ -280,7 +285,7 @@ const ScrollToTopButton = styled.button`
 	justify-content: center;
 	cursor: pointer;
 	box-shadow: 0 0.25rem 0.625rem rgba(0, 0, 0, 0.2);
-	transition: all 0.3s ease;
+	transition: all 0.5s ease;
 	z-index: 98;
 	opacity: ${({ $visible }) => ($visible ? '1' : '0')};
 	transform: ${({ $visible }) => ($visible ? 'scale(1)' : 'scale(0.8)')};
