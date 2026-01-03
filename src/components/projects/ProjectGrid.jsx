@@ -4,7 +4,6 @@ import { PiGifBold } from 'react-icons/pi';
 import { useNavigate } from 'react-router-dom';
 import { media } from '../../styles/Responsive';
 
-// Grid layout for the cards
 const ProjectGridContainer = styled.div`
 	display: grid;
 	grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -15,7 +14,6 @@ const ProjectGridContainer = styled.div`
   `}
 `;
 
-// Simplified project card for grid view
 const MinimalProjectCard = styled.div`
 	background-color: var(--card-background);
 	border-radius: var(--border-radius);
@@ -121,7 +119,6 @@ const ViewDetailsText = styled.p`
 	font-size: 0.85rem;
 `;
 
-// Show More Button
 const ShowMoreButton = styled.button`
 	background-color: var(--primary-color);
 	color: white;

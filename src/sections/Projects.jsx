@@ -330,11 +330,9 @@ export const projectsData = [
 
 const ProjectsSection = styled.section`
 	padding: 1rem 0;
-	// max-width: 1200px;
 	margin: 0 auto;
 `;
 
-// Container for the toggle buttons
 const ViewToggleContainer = styled.div`
 	display: flex;
 	align-items: center;
@@ -358,7 +356,6 @@ const ViewToggle = styled.div`
 	z-index: 1;
 	box-shadow: 0 0.125rem 0.3125rem rgba(0, 0, 0, 0.1);
 `;
-// Style for each toggle button
 const ToggleButton = styled.button`
 	background-color: ${({ $active }) =>
 		$active ? 'var(--primary-color)' : 'transparent'};

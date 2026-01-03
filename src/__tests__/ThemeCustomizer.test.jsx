@@ -5,7 +5,6 @@ import { configureStore } from '@reduxjs/toolkit';
 import themeReducer, { setTheme } from '../redux/slices/themeSlice';
 import ThemeCustomizer from '../components/theme/ThemeCustomizer';
 
-// Create a mock store
 const createMockStore = (initialState) => {
   return configureStore({
     reducer: {
@@ -51,7 +50,6 @@ describe('ThemeCustomizer Component', () => {
       </Provider>
     );
     
-    // Check if the theme customizer button is rendered
     const customizerButton = screen.getByRole('button');
     expect(customizerButton).toBeInTheDocument();
   });
@@ -65,14 +63,11 @@ describe('ThemeCustomizer Component', () => {
       </Provider>
     );
     
-    // Initially, the panel should be closed
     expect(screen.queryByText('Theme Customizer')).not.toBeVisible();
     
-    // Click the button to open the panel
     const customizerButton = screen.getByRole('button');
     fireEvent.click(customizerButton);
     
-    // Now the panel should be visible
     expect(screen.getByText('Theme Customizer')).toBeVisible();
     expect(screen.getByText('Choose Theme')).toBeVisible();
     expect(screen.getByText('Customize Colors')).toBeVisible();
@@ -87,15 +82,12 @@ describe('ThemeCustomizer Component', () => {
       </Provider>
     );
     
-    // Open the panel
     const customizerButton = screen.getByRole('button');
     fireEvent.click(customizerButton);
     
-    // Find and click the light theme option (second theme option)
     const themeOptions = screen.getAllByRole('button');
-    fireEvent.click(themeOptions[2]); // Index 2 because index 0 is the customizer button, index 1 is the close button
+    fireEvent.click(themeOptions[2]);
     
-    // Check if the store was updated with the light theme
     const actions = mockStore.getActions();
     expect(actions).toContainEqual(expect.objectContaining({
       type: 'theme/setTheme',

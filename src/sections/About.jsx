@@ -58,22 +58,18 @@ const AboutText = styled.div`
 		color: var(--text-secondary);
 		line-height: 1.8;
 		font-size: 1.15rem;
-		// list-style: none;
 	}
 `;
 
 const AboutServices = styled.div`
 	display: grid;
 	gap: 1.5rem;
-	// justify-content: center;
 	grid-template-columns: 1fr;
 	z-index: 1;
 	@media (min-width: 36rem) {
 		grid-template-columns: repeat(2, minmax(300px, 380px));
 	}
 `;
-// grid-template-columns: repeat(2, minmax(300px, 1fr));
-// grid-template-columns: 1fr;
 
 const ServiceCard = styled.div`
 	background-color: var(--card-background);
@@ -146,12 +142,6 @@ const About = () => {
 					'Building robust server-side applications with Java, Spring Boot, RESTful APIs, and microservices.',
 				icon: <FaServer />,
 			},
-			// {
-			// 	title: 'Database Design',
-			// 	description:
-			// 		'Designing and optimizing databases using MySQL, MongoDB, and implementing efficient data access patterns.',
-			// 	icon: <FaDatabase />,
-			// },
 		],
 		[]
 	);
@@ -169,11 +159,6 @@ const About = () => {
 				<AboutText>
 					<ul>
 						<li>
-							{/* <strong>Frontend-focused Full Stack Dev</strong>
-							(React + Java Spring Boot)
-							• Led frontend development for enterprise applications with 10,000+ daily users
-							• Reduced load times by 40% through frontend optimization techniques
-							• Contributed to open-source accessibility projects with 500+ GitHub stars*/}
 							<strong>
 								Frontend-focused Full Stack Developer
 							</strong>{' '}

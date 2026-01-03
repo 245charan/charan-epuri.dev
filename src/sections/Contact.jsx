@@ -284,7 +284,6 @@ const Contact = () => {
 		setTimeout(() => {
 			alert('Message sent successfully!');
 			resetForm();
-			// setSubmitting(false);
 		}, 1000);
 
 		event.preventDefault();

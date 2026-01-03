@@ -6,7 +6,6 @@ import { PersistGate } from 'redux-persist/integration/react';
 import { store, persistor } from '../redux/store';
 import App from '../App';
 
-// Mock the components to avoid rendering the entire app
 jest.mock('../components/layout/Layout', () => {
   return function MockLayout({ children }) {
     return <div data-testid="mock-layout">{children}</div>;

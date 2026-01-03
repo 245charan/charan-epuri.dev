@@ -5,7 +5,6 @@ import { PiGifBold } from 'react-icons/pi';
 import { useNavigate } from 'react-router-dom';
 import { media } from '../../styles/Responsive';
 
-// Container for the scrollable row
 const ScrollContainer = styled.div`
 	position: relative;
 	width: 100%;
@@ -36,7 +35,7 @@ const ScrollButton = styled.button`
 	color: white;
 	border: none;
 	width: 3rem;
-	height: 180px; /* Match the height of the ProjectItem */
+	height: 180px;
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -55,7 +54,7 @@ const ScrollButton = styled.button`
 
 	${media.mobile`
     width: 2.5rem;
-    height: 140px; /* Match the mobile height of ProjectItem */
+    height: 140px;
   `}
 
 	${(props) =>
@@ -72,7 +71,6 @@ const ScrollButton = styled.button`
   `}
 `;
 
-// Button content wrapper to center the icon
 const ButtonContent = styled.div`
 	width: 2rem;
 	height: 2rem;
@@ -83,7 +81,6 @@ const ButtonContent = styled.div`
 	justify-content: center;
 `;
 
-// Category title
 const CategoryTitle = styled.h3`
 	font-size: 1.5rem;
 	margin-bottom: 1rem;
@@ -91,7 +88,6 @@ const CategoryTitle = styled.h3`
 	padding-left: 1rem;
 `;
 
-// Project item in the row
 const ProjectItem = styled.div`
 	flex: 0 0 auto;
 	width: 280px;
@@ -117,7 +113,6 @@ const ProjectItem = styled.div`
   `}
 `;
 
-// Project image
 const ProjectImage = styled.div`
 	width: 100%;
 	height: 100%;
@@ -165,7 +160,6 @@ const Logo = styled.div`
 	border-radius: 0.5rem;
 `;
 
-// Overlay with title and "click for details" message
 const ProjectOverlay = styled.div`
 	position: absolute;
 	top: 0;
@@ -190,7 +184,6 @@ const ProjectOverlay = styled.div`
 	}
 `;
 
-// Project title in overlay
 const ProjectTitle = styled.h4`
 	color: white;
 	font-size: 1.1rem;
@@ -198,14 +191,12 @@ const ProjectTitle = styled.h4`
 	font-weight: 600;
 `;
 
-// Click for details message
 const ViewDetailsText = styled.p`
 	color: rgba(255, 255, 255, 0.8);
 	font-size: 0.85rem;
 	font-weight: 500;
 `;
 
-// Scroll Indicator Container
 const ScrollIndicatorContainer = styled.div`
 	display: flex;
 	justify-content: center;
@@ -217,7 +208,6 @@ const ScrollIndicatorContainer = styled.div`
 	transition: opacity 0.3s ease;
 `;
 
-// Individual Scroll Indicator Dot
 const ScrollIndicatorDot = styled.div`
 	width: 30px;
 	height: 4px;
@@ -227,7 +217,6 @@ const ScrollIndicatorDot = styled.div`
 	transition: background-color 0.3s ease, width 0.3s ease;
 `;
 
-// Main container for all project categories
 const ProjectCategoriesContainer = styled.div`
 	display: flex;
 	flex-direction: column;
@@ -235,7 +224,6 @@ const ProjectCategoriesContainer = styled.div`
 	width: 100%;
 `;
 
-// SingleCategoryRow component to manage one category row
 const SingleCategoryRow = ({ category, projects }) => {
 	const rowRef = React.useRef(null);
 	const navigate = useNavigate();
@@ -245,28 +233,21 @@ const SingleCategoryRow = ({ category, projects }) => {
 	const [activeIndex, setActiveIndex] = React.useState(0);
 	const [totalSections, setTotalSections] = React.useState(1);
 
-	// Calculate how many sections we can scroll through
 	const calculateSections = () => {
 		if (rowRef.current) {
 			const { scrollWidth, clientWidth } = rowRef.current;
-			// Calculate how many full "pages" we can scroll through
 			const sections = Math.ceil(scrollWidth / clientWidth);
 			setTotalSections(Math.max(1, sections));
 		}
 	};
 
-	// Check if scrolling is possible and update the active index
 	const checkForScrollPosition = () => {
 		if (rowRef.current) {
 			const { scrollLeft, scrollWidth, clientWidth } = rowRef.current;
 
-			// Can scroll left if not at the beginning
 			setCanScrollLeft(scrollLeft > 0);
 
-			// Can scroll right if not at the end
-			setCanScrollRight(scrollLeft < scrollWidth - clientWidth - 10); // 10px buffer
-
-			// Calculate which "section" we're currently viewing
+			setCanScrollRight(scrollLeft < scrollWidth - clientWidth - 10);
 			const maxScroll = scrollWidth - clientWidth;
 			const currentIndex =
 				maxScroll <= 0
@@ -278,15 +259,11 @@ const SingleCategoryRow = ({ category, projects }) => {
 		}
 	};
 
-	// Set up scroll position checking
 	React.useEffect(() => {
 		const scrollContainer = rowRef.current;
 
-		// Initial calculations
 		calculateSections();
 		checkForScrollPosition();
-
-		// Set up event listeners
 		if (scrollContainer) {
 			scrollContainer.addEventListener('scroll', checkForScrollPosition);
 			window.addEventListener('resize', () => {
@@ -294,7 +271,6 @@ const SingleCategoryRow = ({ category, projects }) => {
 				checkForScrollPosition();
 			});
 
-			// Check after content loads (images might change the scrollWidth)
 			setTimeout(() => {
 				calculateSections();
 				checkForScrollPosition();
@@ -324,7 +300,6 @@ const SingleCategoryRow = ({ category, projects }) => {
 		}
 	};
 
-	// Scroll to a specific section when indicator is clicked
 	const scrollToSection = (index) => {
 		if (rowRef.current) {
 			const { scrollWidth, clientWidth } = rowRef.current;
@@ -342,7 +317,6 @@ const SingleCategoryRow = ({ category, projects }) => {
 		navigate(`/charan-epuri.dev/${projectId}`);
 	};
 
-	// Check if we need scrolling at all (more items than can fit)
 	const needsScrolling = projects.length > 0 && totalSections > 1;
 
 	return (
@@ -417,9 +391,7 @@ const SingleCategoryRow = ({ category, projects }) => {
 	);
 };
 
-// Main component that groups projects by category and renders a row for each category
 const CategorizedProjects = ({ projects }) => {
-	// Group projects by category
 	const groupProjectsByCategory = (projects) => {
 		return projects.reduce((groups, project) => {
 			const category = project.category || 'Featured Projects';

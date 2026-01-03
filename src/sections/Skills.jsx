@@ -38,16 +38,6 @@ import {
 	SiWebpack,
 	SiSass,
 	SiTailwindcss,
-	// SiRxjs,
-	// SiHighcharts,
-	// SiAgGrid,
-	// SiAmazonec2,
-	// SiAmazons3,
-	// SiAmazonlambda,
-	// SiAmazoncloudfront,
-	// SiAmazoncloudwatch,
-	// SiAmazoncodebuild,
-	// SiAmazoncodepipeline,
 } from 'react-icons/si';
 import { media } from '../styles/Responsive';
 
@@ -166,7 +156,6 @@ const SkillTag = styled.div`
 		color: white;
 	}
 
-	/* Tooltip styling */
 	&::after {
 		content: attr(data-tooltip);
 		position: absolute;
@@ -285,9 +274,6 @@ const Skills = () => {
 					{ name: 'SASS', icon: <SiSass />, level: 4 },
 					{ name: 'Bootstrap', icon: <FaBootstrap />, level: 4 },
 					{ name: 'Tailwind CSS', icon: <SiTailwindcss />, level: 3 },
-					// { name: 'RxJS', icon: <SiRxjs />, level: 4 },
-					// { name: 'Highcharts', icon: <SiHighcharts />, level: 4 },
-					// { name: 'AG-Grid', icon: <SiAgGrid />, level: 4 },
 				],
 			},
 			{
@@ -315,13 +301,6 @@ const Skills = () => {
 				category: 'DevOps & Cloud',
 				skills: [
 					{ name: 'AWS', icon: <FaAws />, level: 4 },
-					// { name: 'EC2', icon: <SiAmazonec2 />, level: 4 },
-					// { name: 'S3', icon: <SiAmazons3 />, level: 4 },
-					// { name: 'Lambda', icon: <SiAmazonlambda />, level: 3 },
-					// { name: 'CloudFront', icon: <SiAmazoncloudfront />, level: 3 },
-					// { name: 'CloudWatch', icon: <SiAmazoncloudwatch />, level: 3 },
-					// { name: 'CodeBuild', icon: <SiAmazoncodebuild />, level: 4 },
-					// { name: 'CodePipeline', icon: <SiAmazoncodepipeline />, level: 4 },
 					{ name: 'Docker', icon: <FaDocker />, level: 4 },
 					{ name: 'Kubernetes', icon: <SiKubernetes />, level: 3 },
 					{ name: 'Jenkins', icon: <SiJenkins />, level: 3 },
@@ -358,7 +337,6 @@ const Skills = () => {
 	const [activeTab, setActiveTab] = useState(0);
 	const [showAll, setShowAll] = useState(false);
 
-	// Function to display only top skills (level 4-5) unless showAll is true
 	const getVisibleSkills = (skills) => {
 		if (showAll) return skills;
 		return skills.filter((skill) => skill.level >= 4);

@@ -36,18 +36,21 @@ const ProfileImage = styled.div`
 	margin-bottom: 1.5rem;
 	position: relative;
 	aspect-ratio: 4/5;
+	outline: none;
+	
 	${media.xs`
 		max-width: 10rem;
 	`}
+	
 	img {
 		width: 100%;
 		height: 100%;
 		object-position: top;
 		object-fit: cover;
+		display: block;
 	}
 
-	&::after,
-	&:focus-within {
+	&::after {
 		content: '';
 		position: absolute;
 		top: 0;
@@ -55,9 +58,21 @@ const ProfileImage = styled.div`
 		right: 0;
 		bottom: 0;
 		z-index: 1;
+		pointer-events: none;
 	}
+	
+	&:focus,
+	&:focus-visible {
+		outline: none;
+		box-shadow: 0 0 0 2px var(--primary-color);
+	}
+	
+	&:focus-within {
+		outline: none;
+	}
+	
 	${media.desktop`
-			max-width: 10.25rem;
+		max-width: 10.25rem;
 	`}
 `;
 
@@ -68,7 +83,6 @@ const Name = styled.h1`
 	color: var(--text-color);
 
 	${media.desktop`
-		// font-size: 2.5rem;
 	`}
 `;
 
@@ -78,7 +92,6 @@ const Title = styled.p`
 	margin-bottom: 0.5rem;
 
 	${media.desktop`
-		// font-size: 1.1rem;
 	`}
 `;
 
@@ -88,7 +101,6 @@ const Location = styled.p`
 	margin-bottom: 1.5rem;
 
 	${media.desktop`
-		// font-size: 1rem;
 	`}
 `;
 
@@ -195,7 +207,6 @@ const Stats = styled.div`
 
 	${media.desktop`
 		display: flex;
-		// justify-content: space-between;
 		justify-content: center;
 		width: 100%;
 		margin-bottom: .75rem;
@@ -233,7 +244,6 @@ const ProfileCard = () => {
 				/>
 			</ProfileImage>
 			<Name tabIndex='0'>Charan Epuri</Name>
-			{/* <Title>Full Stack Developer</Title> */}
 			<Location tabIndex='0'>New York, USA</Location>
 			<SocialLinks>
 				<SocialIcon
@@ -261,14 +271,6 @@ const ProfileCard = () => {
 					<StatNumber>+5</StatNumber>
 					<StatLabel>Years of Experience</StatLabel>
 				</StatItem>
-				{/* <StatItem>
-					<StatNumber>+12</StatNumber>
-					<StatLabel>Projects Completed</StatLabel>
-				</StatItem>
-				<StatItem>
-					<StatNumber>+7</StatNumber>
-					<StatLabel>Happy Clients</StatLabel>
-				</StatItem> */}
 			</Stats>
 			<CTAButton
 				id='talk'

@@ -4,7 +4,6 @@ import storageSession from 'redux-persist/lib/storage/session';
 import { combineReducers } from 'redux';
 import themeReducer from './slices/themeSlice';
 
-// Configure persist options
 const persistConfig = {
   key: 'root',
   storage: storageSession,          
@@ -13,7 +12,6 @@ const persistConfig = {
 
 const rootReducer = combineReducers({
   theme: themeReducer,
-  // Add other reducers here as needed
 });
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);
@@ -23,7 +21,6 @@ export const store = configureStore({
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({
       serializableCheck: {
-        // Ignore these action types
         ignoredActions: ['persist/PERSIST', 'persist/REHYDRATE'],
       },
     }),

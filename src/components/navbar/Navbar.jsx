@@ -342,7 +342,6 @@ const Navbar = ({ isMobile }) => {
 			}
 		};
 
-		// Handle mouse movement to show sticky nav
 		const handleMouseMove = (e) => {
 			if (isSticky && e.clientY < 60) {
 				setShowSticky(true);
@@ -364,13 +363,10 @@ const Navbar = ({ isMobile }) => {
 		setIsOpen(!isOpen);
 	};
 
-	// Handle logo click
 	const handleLogoClick = () => {
-		// If we're on a detail page, navigate to home
 		if (!isHomeOrSectionPage()) {
 			navigate('/charan-epuri.dev');
 		} else {
-			// Otherwise just scroll to top
 			window.scrollTo({
 				top: 0,
 				behavior: 'smooth',
@@ -378,7 +374,6 @@ const Navbar = ({ isMobile }) => {
 		}
 	};
 
-	// Check if current URL is the home page or a section within it
 	const isHomeOrSectionPage = () => {
 		const path = location.pathname;
 		return (
@@ -435,7 +430,6 @@ const Navbar = ({ isMobile }) => {
 
 	return (
 		<>
-			{/* Main Navigation */}
 			<NavContainer $isMobile={isMobile}>
 				<Logo onClick={handleLogoClick}>CE.</Logo>
 
@@ -495,7 +489,6 @@ const Navbar = ({ isMobile }) => {
 				)}
 			</NavContainer>
 
-			{/* Sticky Navigation */}
 			{!isMobile && (
 				<NavContainer
 					$isSticky={true}
@@ -540,7 +533,6 @@ const Navbar = ({ isMobile }) => {
 				</NavContainer>
 			)}
 
-			{/* Mobile Menu */}
 			{isMobile && (
 				<>
 					<Overlay
@@ -591,7 +583,6 @@ const Navbar = ({ isMobile }) => {
 				</>
 			)}
 
-			{/* Scroll to Top Button */}
 			<ScrollToTopButton
 				id="scroll"
 				$visible={showScrollTop}

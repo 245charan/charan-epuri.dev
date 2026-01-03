@@ -19,8 +19,8 @@ const HeroTitle = styled.h1`
 	font-weight: 700;
 	margin-bottom: 1rem;
 	color: var(--text-color);
-	font-display: swap; /* Ensure text remains visible during webfont load */
-	will-change: transform; /* Hint to browser for optimization */
+	font-display: swap;
+	will-change: transform;
 
 	span {
 		color: var(--primary-color);
@@ -99,13 +99,6 @@ const Hero = () => {
 	return (
 		<HeroContainer id='home'>
 			<HeroContent>
-				{/* <HeroTitle>
-					Accessibility Focused Full Stack <span>Java</span> Developer with <br />
-					<span>React.Js</span> & <span>WordPress</span> Expertise
-				</HeroTitle> */}
-				{/* <HeroTitle>
-				<span>Java</span> Developer Building <br/>Accessible Web - <span>React</span> & <span>WordPress</span>.
-				</HeroTitle> */}
 				<HeroTitle  tabIndex='0'>
 					Transforming Ideas into <br /><span>Accessible</span> Digital
 					Experiences.

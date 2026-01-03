@@ -13,9 +13,12 @@ const LayoutContainer = styled.div`
 	background-color: var(--background-color);
 	color: var(--text-color);
 	transition: background-color 0.3s ease, color 0.3s ease;
+	overflow: hidden;
 
 	${media.desktop`
 		flex-direction: row;
+		height: 100vh;
+		height: 100dvh;
 	`}
 	${media.mobile`
 		align-self:center;
@@ -27,6 +30,8 @@ const LeftSection = styled.div`
 	width: 100%;
 	max-width: 450px;
 	padding: 1rem;
+	display: flex;
+	flex-direction: column;
 
 	${media.tablet`
 		align-self:center;
@@ -35,23 +40,50 @@ const LeftSection = styled.div`
 			align-self:center;
   	`}
 	${media.desktop`
+		position: fixed;
+		left: 0;
+		top: 0;
+		height: 100vh;
+		height: 100dvh;
 		min-width: 350px;
-		// height: 100vh;
 		flex-basis: 30%;
-		overflow-y: auto;
-		padding: 2rem;
+		max-width: 30%;
+		overflow: hidden;
+		padding: 0;
+		z-index: 10;
   	`}
 `;
 
 const RightSection = styled.div`
 	width: 100%;
 	padding: 1rem;
+	flex: 1;
+	display: flex;
+	flex-direction: column;
+	overflow: hidden;
 
 	${media.desktop`
 		flex-basis: 70%;
 		max-width: 70%;
+		margin-left: 30%;
 		padding: 2rem;
+		height: 100vh;
+		height: 100dvh;
 	`}
+`;
+
+const RightSectionContent = styled.div`
+	flex: 1;
+	overflow-y: auto;
+	overflow-x: hidden;
+	min-height: 0;
+	
+	&::-webkit-scrollbar {
+		display: none;
+	}
+	
+	-ms-overflow-style: none;
+	scrollbar-width: none;
 `;
 
 const MobileNavbarContainer = styled.div`
@@ -64,15 +96,43 @@ const MobileNavbarContainer = styled.div`
   `}
 `;
 
+const LeftSectionContent = styled.div`
+	display: flex;
+	flex-direction: column;
+	height: 100%;
+	width: 100%;
+	padding: 1rem;
+	overflow: hidden;
+
+	${media.desktop`
+		padding: 2rem;
+		justify-content: flex-start;
+	`}
+`;
+
+const ProfileCardWrapper = styled.div`
+	flex: 1;
+	overflow: hidden;
+	display: flex;
+	flex-direction: column;
+`;
+
 const DesktopNavbarContainer = styled.div`
 	display: none;
 
 	${media.desktop`
-    display: flex;
-	align-items: center;
-	justify-content: center;
-    margin-bottom: 2rem;
-  `}
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		position: sticky;
+		top: 0;
+		z-index: 100;
+		background-color: var(--background-color);
+		padding: 1rem 0;
+		margin-bottom: 2rem;
+		flex-shrink: 0;
+		width: 100%;
+	`}
 `;
 
 const Layout = ({ children }) => {
@@ -107,7 +167,11 @@ const Layout = ({ children }) => {
 
 			{showProfile && (
 				<LeftSection>
-					<ProfileCard />
+					<LeftSectionContent>
+						<ProfileCardWrapper>
+							<ProfileCard />
+						</ProfileCardWrapper>
+					</LeftSectionContent>
 				</LeftSection>
 			)}
 
@@ -117,25 +181,13 @@ const Layout = ({ children }) => {
 						<Navbar isMobile={isMobile} />
 					</DesktopNavbarContainer>
 				)}
-				{children}
+				<RightSectionContent>
+					{children}
+				</RightSectionContent>
 			</RightSection>
 		</LayoutContainer>
 	);
 
-	//future todo
-
-	// return (
-	// 	<LayoutContainer>
-	// 		<DesktopNavbarContainer >
-	// 			<Navbar isMobile={isMobile}>
-	// 				<LeftSection>
-	// 					<ProfileCard />
-	// 				</LeftSection>
-	// 				<RightSection>{children}</RightSection>
-	// 			</Navbar>
-	// 		</DesktopNavbarContainer>
-	// 	</LayoutContainer>
-	// );
 };
 
 export default Layout;

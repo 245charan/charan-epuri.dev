@@ -102,126 +102,12 @@ const App = () => {
 		},
 	];
 
-	// const steps = [
-	// 	{
-	// 		target: '#talk',
-	// 		content: (
-	// 			<div>
-	// 				<h3>Available for work ☕</h3>
-	// 				<p>Let's discuss opportunities</p>
-	// 			</div>
-	// 		),
-	// 		placement: 'top-start',
-	// 	},
-	// 	{
-	// 		target: '#theme-customize',
-	// 		content: (
-	// 			<div>
-	// 				<h3>Pick your colors 🎨</h3>
-	// 			</div>
-	// 		),
-	// 		placement: 'top',
-	// 	},
-	// 	{
-	// 		target: '#project-toggle',
-	// 		content: (
-	// 			<div>
-	// 				<h3>Toggle view 🔁</h3>
-	// 			</div>
-	// 		),
-	// 		placement: 'top',
-	// 	},
-	// 	{
-	// 		target: '#scroll',
-	// 		content: (
-	// 			<div>
-	// 				<h3>Scroll fatigue? Try gravity 🚀</h3>
-	// 			</div>
-	// 		),
-	// 		placement: 'bottom',
-	// 	},
-	// 	{
-	// 		target: '#about',
-	// 		content: (
-	// 			<div>
-	// 				<h3>About me 👨‍💻</h3>
-	// 			</div>
-	// 		),
-	// 		placement: 'top',
-	// 	},
-	// 	{
-	// 		target: '#projects',
-	// 		content: (
-	// 			<div>
-	// 				<h3>My work 🔍</h3>
-	// 			</div>
-	// 		),
-	// 		placement: 'bottom',
-	// 	},
-	// 	{
-	// 		target: '.project-card',
-	// 		content: (
-	// 			<div>
-	// 				<h3>Click to see project details →</h3>
-	// 			</div>
-	// 		),
-	// 		placement: 'bottom',
-	// 	},
-	// 	{
-	// 		target: '#skills',
-	// 		content: (
-	// 			<div>
-	// 				<h3>My tools 🛠️</h3>
-	// 			</div>
-	// 		),
-	// 		placement: 'bottom',
-	// 	},
-	// 	{
-	// 		target: '#experience',
-	// 		content: (
-	// 			<div>
-	// 				<h3>My journey 🧭</h3>
-	// 			</div>
-	// 		),
-	// 		placement: 'bottom',
-	// 	},
-	// 	{
-	// 		target: '.exp-card',
-	// 		content: (
-	// 			<div>
-	// 				<h3>Click to expand</h3>
-	// 			</div>
-	// 		),
-	// 		placement: 'bottom',
-	// 	},
-	// 	{
-	// 		target: '#contact',
-	// 		content: (
-	// 			<div>
-	// 				<h3>Get in touch 👋</h3>
-	// 			</div>
-	// 		),
-	// 		placement: 'bottom',
-	// 	},
-	// ];
-	// Initialize Microsoft Clarity (runs once on app mount)
 	useEffect(() => {
 		initClarity();
-
-		// Optional: Set initial tags
-		// setTag("user-type", "visitor");
-		// setTag("page-type", "portfolio");
 	}, []);
 
-	// Track page views on route changes
 	useEffect(() => {
 		const pageId = location.pathname + location.hash;
-		
-		// Optional: Set page-specific tags
-		// setTag("current-page", pageId);
-		
-		// Optional: Track page view event
-		// trackEvent("page-view");
 	}, [location]);
 
 	useEffect(() => {

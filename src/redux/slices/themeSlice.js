@@ -1,6 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-// Define the initial theme options
 const themes = {
 	sunset: {
 		primary: '#B31B1B',
@@ -75,7 +74,6 @@ export const themeSlice = createSlice({
 				...state.currentTheme,
 				...action.payload,
 			};
-			// Add the custom theme to themes object
 			state.themes.custom = state.currentTheme;
 		},
 	},

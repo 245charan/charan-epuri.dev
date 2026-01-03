@@ -1,6 +1,5 @@
 import React, { useEffect, useState, useMemo } from 'react';
 import Particles, { initParticlesEngine } from '@tsparticles/react';
-// import { loadFull } from "tsparticles";
 import { loadSlim } from '@tsparticles/slim';
 import styled from 'styled-components';
 
@@ -354,7 +353,6 @@ export default function BgParticles({ type, containerId }) {
 	);
 
 	const particlesLoaded = (container) => {
-		// Make sure container DOM element stays confined
 		if (container && container.canvas) {
 			const canvas = container.canvas.element;
 			if (canvas) {

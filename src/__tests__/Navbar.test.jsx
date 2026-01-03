@@ -5,7 +5,6 @@ import { configureStore } from '@reduxjs/toolkit';
 import themeReducer from '../redux/slices/themeSlice';
 import Navbar from '../components/navbar/Navbar';
 
-// Create a mock store
 const mockStore = configureStore({
   reducer: {
     theme: themeReducer
@@ -20,10 +19,8 @@ describe('Navbar Component', () => {
       </Provider>
     );
     
-    // Check if logo is rendered
     expect(screen.getByText('Charan Epuri')).toBeInTheDocument();
     
-    // Check if nav items are rendered
     expect(screen.getByText('Home')).toBeInTheDocument();
     expect(screen.getByText('About')).toBeInTheDocument();
     expect(screen.getByText('Skills')).toBeInTheDocument();
@@ -39,20 +36,15 @@ describe('Navbar Component', () => {
       </Provider>
     );
     
-    // Check if logo is rendered
     expect(screen.getByText('Charan Epuri')).toBeInTheDocument();
     
-    // Check if menu toggle button is rendered (it has 3 div elements)
     const menuToggleButton = screen.getByRole('button');
     expect(menuToggleButton).toBeInTheDocument();
     
-    // Nav items should not be visible initially in mobile view
     expect(screen.queryByText('Home')).not.toBeVisible();
     
-    // Click menu toggle to open mobile menu
     fireEvent.click(menuToggleButton);
     
-    // Now nav items should be visible
     expect(screen.getByText('Home')).toBeVisible();
     expect(screen.getByText('About')).toBeVisible();
     expect(screen.getByText('Skills')).toBeVisible();

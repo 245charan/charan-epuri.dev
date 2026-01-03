@@ -1,6 +1,5 @@
 import { css } from 'styled-components';
 
-// Breakpoints for responsive design
 export const breakpoints = {
   xs: '480px',
   sm: '576px',
@@ -10,7 +9,6 @@ export const breakpoints = {
   xxl: '1400px'
 };
 
-// Media query mixins
 export const media = {
   xs: (...args) => css`
     @media (max-width: ${breakpoints.xs}) {

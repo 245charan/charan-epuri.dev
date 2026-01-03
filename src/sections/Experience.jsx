@@ -12,10 +12,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { media } from '../styles/Responsive';
 
 const ExperienceContainer = styled.div`
-	// margin: 0 auto 4rem;
 	margin: 0 auto;
-	// max-width: 75rem;
-	// padding: 0 1.25rem;
 	padding: 1rem 0;
 `;
 
@@ -134,7 +131,6 @@ const FilterButton = styled.button`
 	border-radius: 1.875rem;
 	font-weight: 600;
 	cursor: pointer;
-	// z-index: 1;
 	transition: all 0.2s ease;
 
 	&:hover {
@@ -145,7 +141,6 @@ const FilterButton = styled.button`
 	}
 `;
 
-// Grid Layout Components
 const GridContainer = styled(motion.div)`
 	display: grid;
 	grid-template-columns: repeat(auto-fill, minmax(21.875rem, 1fr));
@@ -289,7 +284,6 @@ const NoResults = styled.div`
 	grid-column: 1 / -1;
 `;
 
-// Improved Timeline Layout Components
 const TimelineContainer = styled(motion.div)`
 	position: relative;
 	max-width: 56.25rem;
@@ -403,7 +397,6 @@ const TimelineDate = styled.div`
 	font-weight: 500;
 `;
 
-// Animation variants
 const contentVariants = {
 	hidden: {
 		height: 0,
@@ -631,7 +624,6 @@ const Experience = () => {
 	);
 
 	const renderTimelineView = () => {
-		// Group experiences by year for timeline view
 		const groupedByYear = {};
 		filteredExperiences.forEach((exp) => {
 			if (!groupedByYear[exp.year]) {
@@ -640,7 +632,6 @@ const Experience = () => {
 			groupedByYear[exp.year].push(exp);
 		});
 
-		// Sort years in descending order
 		const sortedYears = Object.keys(groupedByYear).sort((a, b) => b - a);
 
 		return (
@@ -762,9 +753,6 @@ const Experience = () => {
 						title='Experience icon'
 					/>
 				</ExperienceTitle>
-				{/* <ExperienceSubtitle>
-					My professional journey and educational background
-				</ExperienceSubtitle> */}
 			</ExperienceHeader>
 
 			<ControlsContainer>

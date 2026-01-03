@@ -232,10 +232,8 @@ const CutomizeGrid = styled.div`
   `}
 `;
 const ColorPickerGroup = styled.div`
-	// margin-bottom: 1rem;
 
 	${media.mobile`
-    // margin-bottom: 1.5rem;
   `}
 `;
 
@@ -275,7 +273,6 @@ const ColorInput = styled.input`
 	border-radius: 0.25rem;
 	border: 0.0625rem solid rgba(255, 255, 255, 0.1);
 
-	// background: transparent;
 	cursor: pointer;
 
 	&::-webkit-color-swatch-wrapper {
