@@ -40,7 +40,7 @@ const LeftSection = styled.div`
 			align-self:center;
   	`}
 	${media.desktop`
-		position: fixed;
+		// position: fixed;
 		left: 0;
 		top: 0;
 		height: 100vh;
@@ -65,7 +65,7 @@ const RightSection = styled.div`
 	${media.desktop`
 		flex-basis: 70%;
 		max-width: 70%;
-		margin-left: 30%;
+		// margin-left: 30%;
 		padding: 2rem;
 		height: 100vh;
 		height: 100dvh;
