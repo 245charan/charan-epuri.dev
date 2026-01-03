@@ -115,6 +115,7 @@ const ProfileCardWrapper = styled.div`
 	overflow: hidden;
 	display: flex;
 	flex-direction: column;
+	border-radius: var(--border-radius);
 `;
 
 const DesktopNavbarContainer = styled.div`

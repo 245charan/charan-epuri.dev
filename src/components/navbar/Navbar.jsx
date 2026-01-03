@@ -101,6 +101,17 @@ const MenuToggle = styled.button`
 	padding: 0;
 	z-index: 10;
 
+	${media.mobile`
+		position: fixed;
+		top: 1rem;
+		right: 1rem;
+		z-index: 100;
+		background-color: var(--card-background);
+		padding: 0.5rem;
+		border-radius: 0.5rem;
+		box-shadow: var(--card-shadow);
+	`}
+
 	&:focus {
 		outline: none;
 	}

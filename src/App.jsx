@@ -14,6 +14,7 @@ import ProjectDetailPage from './components/projects/ProjectDetailPage';
 import HomePage from './components/home/HomePage';
 import Joyride from 'react-joyride';
 import { initClarity, trackEvent, setTag } from './utils/clarity';
+import { media } from './styles/Responsive';
 
 const AppContainer = styled.div`
 	background-color: var(--background-color);
@@ -23,6 +24,13 @@ const AppContainerMargin = styled.div`
 	margin: 0 auto;
 	padding: 0 var(--padding-inline);
 	width: 100%;
+
+	${media.mobile`
+		padding: 0;
+	`}
+	${media.tablet`
+		padding: 0;
+	`}
 `;
 
 const ThemedApp = () => {
