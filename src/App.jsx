@@ -13,6 +13,7 @@ import ProgressBar from './components/progress/ProgressBar';
 import ProjectDetailPage from './components/projects/ProjectDetailPage';
 import HomePage from './components/home/HomePage';
 import Joyride from 'react-joyride';
+import { initClarity, trackEvent, setTag } from './utils/clarity';
 
 const AppContainer = styled.div`
 	background-color: var(--background-color);
@@ -203,6 +204,26 @@ const App = () => {
 	// 		placement: 'bottom',
 	// 	},
 	// ];
+	// Initialize Microsoft Clarity (runs once on app mount)
+	useEffect(() => {
+		initClarity();
+
+		// Optional: Set initial tags
+		// setTag("user-type", "visitor");
+		// setTag("page-type", "portfolio");
+	}, []);
+
+	// Track page views on route changes
+	useEffect(() => {
+		const pageId = location.pathname + location.hash;
+		
+		// Optional: Set page-specific tags
+		// setTag("current-page", pageId);
+		
+		// Optional: Track page view event
+		// trackEvent("page-view");
+	}, [location]);
+
 	useEffect(() => {
 		window.scrollTo(window.scrollX, window.scrollY + 1);
 		window.scrollTo(window.scrollX, window.scrollY - 1);
