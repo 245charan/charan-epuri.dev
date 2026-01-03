@@ -129,7 +129,6 @@ const DesktopNavbarContainer = styled.div`
 		top: 0;
 		z-index: 100;
 		background-color: var(--background-color);
-		padding: 1rem 0;
 		margin-bottom: 2rem;
 		flex-shrink: 0;
 		width: 100%;
